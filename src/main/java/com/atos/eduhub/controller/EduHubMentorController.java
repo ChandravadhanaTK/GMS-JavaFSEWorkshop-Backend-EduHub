@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,10 +25,20 @@ public class EduHubMentorController {
 	public String addMentor(@RequestBody MentorModel mentorreq) {				
 		return mentorservice.addMentor(mentorreq);		
 	}	
+
+	@PostMapping("/editmentor")
+	public String editMentor(@RequestBody MentorModel mentorreq) {				
+		return mentorservice.editMentor(mentorreq);		
+	}
+
+	@GetMapping("/viewMentor")
+	public MentorModel viewMentor() {
+		return mentorservice.viewMentor();
+	}
 	
-	@GetMapping("/showmentor")
+	@GetMapping("/viewallmentors")
 	public List<MentorModel> showMentor() {
-		return mentorservice.getAllMentor();
+		return mentorservice.viewAllMentors();
 	}
 	
 	@DeleteMapping("/deletementor/{id}")

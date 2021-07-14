@@ -36,7 +36,40 @@ public class MentorServiceImpl implements MentorService {
 	}
 
 	@Override
-	public List<MentorModel> getAllMentor() {
+	public String editMentor(@RequestBody MentorModel mentorreq) {
+	
+		mentor.setLastupdatedon();
+		mentor.setUserid(mentorreq.getUserid());
+		mentor.setEnddatetime(mentorreq.getEnddatetime());
+		mentor.setAboutmentor(mentorreq.getAboutmentor());
+		mentor.setMentorrating(mentorreq.getMentorrating());
+		mentor.setStartdatetime(mentorreq.getStartdatetime());
+		mentor.setMentoredhours(mentorreq.getMentoredhours());
+		mentor.setAvailabilityid(mentorreq.getAvailabilityid());
+		mentor.setMentoringskill(mentorreq.getMentoringskill());
+	
+		System.out.println(mentor);
+		return "Mentor " + mentorreq.getUserid() + " has been updated successfully";
+	}
+	
+	@Override
+	public MentorModel viewMentor() {
+
+		mentor.setAvailabilityid(100);
+		mentor.setUserid(1000);
+		mentor.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));
+		mentor.setEnddatetime(Timestamp.valueOf(LocalDateTime.now()));
+		mentor.setMentoringskill("Java");
+		mentor.setMentoredhours("10");
+		mentor.setMentorrating("5");
+		mentor.setAboutmentor("Java mentor");
+		mentor.setLastupdatedon();
+		
+		return mentor;
+	}
+	
+	@Override
+	public List<MentorModel> viewAllMentors() {
 		// TODO Auto-generated method stub
 		
 		List<MentorModel> getMentors = new ArrayList<MentorModel>();
@@ -66,9 +99,6 @@ public class MentorServiceImpl implements MentorService {
 		mentor2.setLastupdatedon();
 		
 		getMentors.add(mentor2);
-
-//		getDemo.add(demo2);		
-	//	return getDemo;
 		return getMentors;
 	}
 	
@@ -81,6 +111,6 @@ public class MentorServiceImpl implements MentorService {
 	@Override
 	public String deleteAllMentors() {
 		System.out.println("Deleted all the mentors");
-		return "All Mentors are deleted.";
+		return "All Mentors in the system are deleted.";
 	}
 }

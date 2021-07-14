@@ -12,7 +12,11 @@ public interface MentorService {
 
 	public String addMentor(@RequestBody MentorModel mentorreq);
 	
-	public List<MentorModel> getAllMentor();
+	public String editMentor(@RequestBody MentorModel mentorreq);
+	
+	public MentorModel viewMentor();
+	
+	public List<MentorModel> viewAllMentors();
 	
 	public String deleteMentor(int id);
 	
