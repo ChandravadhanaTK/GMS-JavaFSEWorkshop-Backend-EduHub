@@ -13,4 +13,8 @@ public interface MentorService {
 	public String addMentor(@RequestBody MentorModel mentorreq);
 	
 	public List<MentorModel> getAllMentor();
+	
+	public String deleteMentor(int id);
+	
+	public String deleteAllMentors();
 }

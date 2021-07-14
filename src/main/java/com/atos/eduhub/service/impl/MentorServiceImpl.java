@@ -71,4 +71,16 @@ public class MentorServiceImpl implements MentorService {
 	//	return getDemo;
 		return getMentors;
 	}
+	
+	@Override
+	public String deleteMentor(int id) {
+		System.out.println("Deleted Mentor with ID : " + id);
+		return "Deleted Mentor with ID : " + id;
+	}
+	
+	@Override
+	public String deleteAllMentors() {
+		System.out.println("Deleted all the mentors");
+		return "All Mentors are deleted.";
+	}
 }
