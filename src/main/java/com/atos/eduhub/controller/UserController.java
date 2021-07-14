@@ -12,48 +12,53 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atos.eduhub.model.Demo;
-import com.atos.eduhub.service.DemoService;
+import com.atos.eduhub.model.User;
+import com.atos.eduhub.service.UserService;
 
 @RestController
 @RequestMapping("/eduhubapi/v1")
-public class DemoController {
+public class UserController {
 
 	@Autowired(required = true)
-	DemoService demoService;
+	UserService userService;
 
-	// Add REST API Demo - PUT Http Request
+	// Add REST API User - PUT Http Request
 	/*
-	 * http://localhost:8080/demo { "id": 1, "name": "Chandra" }
+	 * http://localhost:8080/user { "id": 1, "name": "Team4" }
 	 */
-	@PutMapping("/demo")
-	public Demo addDemo(@RequestBody Demo newDemo) {
-		return demoService.addDemo(newDemo);
+	@PutMapping("/user")
+	public User addUser(@RequestBody User newUser) {
+		System.out.println("Put received for addUser() for id "+ newUser.getId());
+		return userService.addUser(newUser);
 	}
 
-	// Edit/Update REST API Demo
-	@PutMapping("/demo/{id}")
-	public Demo updateDemo(@PathVariable(name="id") int id, @RequestBody Demo updateDemo) {
-		return demoService.updateDemo(id, updateDemo);
+	// Edit/Update REST API User
+	@PutMapping("/user/{id}")
+	public User updateUser(@PathVariable(name="id") int id,@RequestBody User updateUser) {
+		System.out.println("Put received for updateUser() for id "+ updateUser.getId());
+		return userService.updateUser(id, updateUser);
 	}
 
-	// Delete REST API Demo
-	@DeleteMapping("/demo/{id}")
-	public ResponseEntity<Demo> deleteDemo(@PathVariable(value="id") int id) {
-		String deleteString = demoService.deleteDemo(id);
-		return ResponseEntity.ok().build();
+	// Delete REST API User
+	@DeleteMapping("/user/{id}")
+	//public  ResponseEntity<User> deleteUser(@PathVariable(value="id") int id) {
+	   public  String  deleteUser(@PathVariable(value="id") int id) {
+	   String deleteString = userService.deleteUser(id);
+	   System.out.println("Delete successful for deleteUser() for id "+ id);
+	//    return ResponseEntity.ok().build();
+		return "Deleted successfully: " + id;
 	}
 
-	// Get all REST API Demo
-	@GetMapping("/demo")
-	public List<Demo> getAllDemo() {
-		return demoService.getAllDemo();
+	// Get all REST API User
+	@GetMapping("/user")
+	public List<User> getAllUser() {
+		return userService.getAllUser();
 	}
 
-	// Get all REST API Demo
-	@GetMapping("/demo/{id}")
-	public Demo getDemoById(@PathVariable(value="id") int id) {
-		return demoService.getDemoById(id);
+	// Get  REST API User based on User ID
+	@GetMapping("/user/{id}")
+	public User getUserById(@PathVariable(value="id") int id) {
+		return userService.getUserById(id);
 	}
 
 }

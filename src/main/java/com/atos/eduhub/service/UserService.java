@@ -5,19 +5,19 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.atos.eduhub.model.Demo;
+import com.atos.eduhub.model.User;
 
 @Component
-public interface DemoService {
+public interface UserService {
 
-	public Demo addDemo(Demo newDemo);
+	public User addUser(User newUser);
 
-	public Demo updateDemo(int id, Demo newDemo);
+	public User updateUser(int id, User updateUser);
 
-	public String deleteDemo(int id);
+	public String deleteUser(int id);
 
-	public List<Demo> getAllDemo();
+	public List<User> getAllUser();
 
-	public Demo getDemoById(int id);
+	public User getUserById(int id);
 
 }

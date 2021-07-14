@@ -1,5 +1,5 @@
 package com.atos.eduhub.dao;
 
-public class DemoDao {
+public class UserDao {
 
 }
