@@ -37,19 +37,19 @@ public class CoursesController {
 			
 			@GetMapping("/Coursesget")
 			//public String addDemo()
-	public Course getCourse()
-	{
-		System.out.println("Inside Put");
-		Course course=new Course();
-		course.setCourseid(1);
-		course.setCoursename("Spring");
-		course.setCoursedesc("Sring Boot for Workshop");
-		course.setSkillreqd("MVC");
-		course.setCreatedon("2021-07-14:05:00:01:12345");
-		course.setLastUpdatedon("2021-07-14:05:01:01:12345");
-		return course;
-		
-	}	
+			public Course getCourse()
+			{
+				System.out.println("Inside Put");
+				Course course=new Course();
+				course.setCourseid(1);
+				course.setCoursename("Spring");
+				course.setCoursedesc("Sring Boot for Workshop");
+				course.setSkillreqd("MVC");
+				course.setCreatedon("2021-07-14:05:00:01:12345");
+				course.setLastUpdatedon("2021-07-14:05:01:01:12345");
+				return course;
+				
+			}	
 					
 			@DeleteMapping("courses/{courseid}")
 			
