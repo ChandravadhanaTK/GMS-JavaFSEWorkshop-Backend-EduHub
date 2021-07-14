@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-@ComponentScan({"com.atos.eduhub.controller","com.atos.eduhub.service"})
+@ComponentScan({"com.atos.eduhub.controller","com.atos.eduhub.service",
+				"com.atos.eduhub.model"})
+
 public class EduHubApplication {
 
 	public static void main(String[] args) {
