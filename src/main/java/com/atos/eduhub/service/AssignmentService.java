@@ -10,5 +10,7 @@ import com.atos.eduhub.model.Assignment;
 public interface AssignmentService {
 	public List<Assignment>	getAllAssignment();
 
+	public Assignment viewAssignment(int id);
+	
+	
 }
-

@@ -1,47 +1,66 @@
 package com.atos.eduhub.model;
 
 public class Assignment {
- int assignmentId;
- int userid;
- String assignmentStatus;
- String assignmentStatusMessage;
- String created_on;
- String last_updated_on;
-public int getAssignmentId() {
-	return assignmentId;
-}
-public void setAssignmentId(int assignmentId) {
-	this.assignmentId = assignmentId;
-}
-public int getUserid() {
-	return userid;
-}
-public void setUserid(int userid) {
-	this.userid = userid;
-}
-public String getAssignmentStatus() {
-	return assignmentStatus;
-}
-public void setAssignmentStatus(String assignmentStatus) {
-	this.assignmentStatus = assignmentStatus;
-}
-public String getAssignmentStatusMessage() {
-	return assignmentStatusMessage;
-}
-public void setAssignmentStatusMessage(String assignmentStatusMessage) {
-	this.assignmentStatusMessage = assignmentStatusMessage;
-}
-public String getCreated_on() {
-	return created_on;
-}
-public void setCreated_on(String created_on) {
-	this.created_on = created_on;
-}
-public String getLast_updated_on() {
-	return last_updated_on;
-}
-public void setLast_updated_on(String last_updated_on) {
-	this.last_updated_on = last_updated_on;
-}
- 
+
+	private int assignmentID;
+	
+	private int userID;
+	
+	private String assignmentStatus;
+	
+	private String assigmentStatusMessage;
+	
+	private String createdOn;
+	
+	private String lastUpdatedOn;
+
+	public int getAssignmentID() {
+		return assignmentID;
+	}
+
+	public void setAssignmentID(int assignmentID) {
+		this.assignmentID = assignmentID;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+
+	public String getAssignmentStatus() {
+		return assignmentStatus;
+	}
+
+	public void setAssignmentStatus(String assignmentStatus) {
+		this.assignmentStatus = assignmentStatus;
+	}
+
+	public String getAssigmentStatusMessage() {
+		return assigmentStatusMessage;
+	}
+
+	public void setAssigmentStatusMessage(String assigmentStatusMessage) {
+		this.assigmentStatusMessage = assigmentStatusMessage;
+	}
+
+	public String getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(String createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getLastUpdatedOn() {
+		return lastUpdatedOn;
+	}
+
+	public void setLastUpdatedOn(String lastUpdatedOn) {
+		this.lastUpdatedOn = lastUpdatedOn;
+	}
+		
+
 }
