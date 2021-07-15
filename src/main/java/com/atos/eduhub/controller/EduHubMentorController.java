@@ -10,43 +10,63 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.atos.eduhub.model.MentorModel;
+import com.atos.eduhub.model.Mentor;
 import com.atos.eduhub.service.MentorService;
 
 @RestController
+@RequestMapping("/eduhubapi/v1") 
 public class EduHubMentorController {
 	
 	@Autowired
 	private MentorService mentorservice;
 	
-	@PutMapping("/addmentor")
-	public String addMentor(@RequestBody MentorModel mentorreq) {				
+	/*
+	 * Following controller code registers new Mentors to EduHub.
+	 */
+	@PutMapping("/mentor")
+	public String addMentor(@RequestBody Mentor mentorreq) {				
 		return mentorservice.addMentor(mentorreq);		
 	}	
 
-	@PostMapping("/editmentor")
-	public String editMentor(@RequestBody MentorModel mentorreq) {				
+	/*
+	 * Following controller code updates the profile of registered mentors to EduHub
+	 */
+	@PostMapping("/mentor")
+	public String editMentor(@RequestBody Mentor mentorreq) {				
 		return mentorservice.editMentor(mentorreq);		
 	}
 
-	@GetMapping("/viewMentor")
-	public MentorModel viewMentor() {
+	/*
+	 * Following controller code lists the first mentor registered in EduHub
+	*/
+	@GetMapping("/mentor")
+	public Mentor viewMentor() {
 		return mentorservice.viewMentor();
 	}
-	
-	@GetMapping("/viewallmentors")
-	public List<MentorModel> showMentor() {
+
+	/*
+	 * Following controller code lists all mentors registered in EduHub
+	*/
+	@GetMapping("/mentors")
+	public List<Mentor> showMentor() {
 		return mentorservice.viewAllMentors();
 	}
-	
-	@DeleteMapping("/deletementor/{id}")
+
+	/*
+	 * Following controller code deletes the requested mentor registered in EduHub
+	*/
+	@DeleteMapping("/mentor/{id}")
 	public String deleteMentor(@PathVariable(value="id") int id) {
 		return mentorservice.deleteMentor(id);
 	}
-		
-	@DeleteMapping("/deleteallmentors")
+	
+	/*
+	 * Following controller code deletes all mentors registered in EduHub
+	*/
+	@DeleteMapping("/mentors")
 	public String deleteAllMentors() {
 		return mentorservice.deleteAllMentors();
 	}

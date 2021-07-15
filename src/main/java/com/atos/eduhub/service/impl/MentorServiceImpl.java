@@ -9,17 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.atos.eduhub.model.MentorModel;
+import com.atos.eduhub.model.Mentor;
 import com.atos.eduhub.service.MentorService;
 
 @Service
 public class MentorServiceImpl implements MentorService {
 
 	@Autowired
-	private MentorModel mentor;
+	private Mentor mentor;
 	
 	@Override
-	public String addMentor(@RequestBody MentorModel mentorreq) {
+	public String addMentor(@RequestBody Mentor mentorreq) {
 		
 		mentor.setLastupdatedon();
 		mentor.setUserid(mentorreq.getUserid());
@@ -36,7 +36,7 @@ public class MentorServiceImpl implements MentorService {
 	}
 
 	@Override
-	public String editMentor(@RequestBody MentorModel mentorreq) {
+	public String editMentor(@RequestBody Mentor mentorreq) {
 	
 		mentor.setLastupdatedon();
 		mentor.setUserid(mentorreq.getUserid());
@@ -53,7 +53,7 @@ public class MentorServiceImpl implements MentorService {
 	}
 	
 	@Override
-	public MentorModel viewMentor() {
+	public Mentor viewMentor() {
 
 		mentor.setAvailabilityid(100);
 		mentor.setUserid(1000);
@@ -69,12 +69,12 @@ public class MentorServiceImpl implements MentorService {
 	}
 	
 	@Override
-	public List<MentorModel> viewAllMentors() {
+	public List<Mentor> viewAllMentors() {
 		// TODO Auto-generated method stub
 		
-		List<MentorModel> getMentors = new ArrayList<MentorModel>();
+		List<Mentor> getMentors = new ArrayList<Mentor>();
 		
-		MentorModel mentor1 = new MentorModel();
+		Mentor mentor1 = new Mentor();
 		mentor1.setAvailabilityid(100);
 		mentor1.setUserid(1000);
 		mentor1.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));
@@ -87,7 +87,7 @@ public class MentorServiceImpl implements MentorService {
 		
 		getMentors.add(mentor1);
 		
-		MentorModel mentor2 = new MentorModel();
+		Mentor mentor2 = new Mentor();
 		mentor2.setAvailabilityid(101);
 		mentor2.setUserid(2000);
 		mentor2.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));

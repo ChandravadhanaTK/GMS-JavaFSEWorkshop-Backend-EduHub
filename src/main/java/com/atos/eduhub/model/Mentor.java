@@ -6,10 +6,10 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MentorModel {
+public class Mentor {
 	
-	private Integer 	availabilityid;
-	private Integer 	userid;
+	private int 		availabilityid;
+	private int 		userid;
 	private Timestamp 	startdatetime;
 	private Timestamp 	enddatetime;
 	private String 		mentoringskill;
@@ -19,23 +19,23 @@ public class MentorModel {
 	private Timestamp 	lastupdatedon; 
 	
 	
-	public MentorModel() {
+	public Mentor() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer getAvailabilityid() {
+	public int getAvailabilityid() {
 		return availabilityid;
 	}
 
-	public void setAvailabilityid(Integer availabilityid) {
+	public void setAvailabilityid(int availabilityid) {
 		this.availabilityid = availabilityid;
 	}
 
-	public Integer getUserid() {
+	public int getUserid() {
 		return userid;
 	}
 
-	public void setUserid(Integer userid) {
+	public void setUserid(int userid) {
 		this.userid = userid;
 	}
 
@@ -55,26 +55,21 @@ public class MentorModel {
 		this.enddatetime = enddatetime;
 	}
 
-
 	public String getMentoringskill() {
 		return mentoringskill;
 	}
-
 
 	public void setMentoringskill(String mentoringskill) {
 		this.mentoringskill = mentoringskill;
 	}
 
-
 	public String getMentoredhours() {
 		return mentoredhours;
 	}
 
-
 	public void setMentoredhours(String mentoredhours) {
 		this.mentoredhours = mentoredhours;
 	}
-
 
 	public String getMentorrating() {
 		return mentorrating;

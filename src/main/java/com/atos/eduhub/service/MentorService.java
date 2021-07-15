@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.atos.eduhub.model.MentorModel;
+import com.atos.eduhub.model.Mentor;
 
 @Component
 public interface MentorService {
 
-	public String addMentor(@RequestBody MentorModel mentorreq);
+	public String addMentor(@RequestBody Mentor mentorreq);
 	
-	public String editMentor(@RequestBody MentorModel mentorreq);
+	public String editMentor(@RequestBody Mentor mentorreq);
 	
-	public MentorModel viewMentor();
+	public Mentor viewMentor();
 	
-	public List<MentorModel> viewAllMentors();
+	public List<Mentor> viewAllMentors();
 	
 	public String deleteMentor(int id);
 	
