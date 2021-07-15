@@ -16,8 +16,12 @@ public class LearnerController {
 
 	@Autowired(required = true)
 	LearnerService learnerService;
-
-
+	
+	// Add Learner
+	@PutMapping("/addlearner")
+	public Learner addLearner(@RequestBody Learner newLearner) {
+		return LearnerService.addLearner(newLearner);
+	}
 
 	// Delete 1 Learner 
 	@DeleteMapping("/learner/{id}")

@@ -8,6 +8,13 @@ import com.atos.eduhub.service.LearnerService;
 public class LearnerServiceImpl implements LearnerService{
 	
 	@Override
+	public Learner addLearner(Learner newLearner) {
+		newLearner.setName("Add new learner");
+		return newLearner;
+	}
+
+	
+	@Override
 	public String delete1Learner(int id) {
 		return "Deleted Learner id" + id;
 	}
