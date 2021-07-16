@@ -21,7 +21,7 @@ public class LearnerController {
 	LearnerService learnerService;
 	
 	// Add Learner
-	@PutMapping("/addlearner")
+	@PutMapping("/learner")
 	public Learner addLearner(@RequestBody Learner newLearner) {
 		return learnerService.addLearner(newLearner);
 	}
