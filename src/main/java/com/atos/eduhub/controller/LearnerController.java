@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.service.LearnerService;
+import com.atos.eduhub.service.impl.LearnerServiceImpl;
 
 @RestController
 @RequestMapping("/eduhubapi/v1")
@@ -22,7 +23,7 @@ public class LearnerController {
 	// Add Learner
 	@PutMapping("/addlearner")
 	public Learner addLearner(@RequestBody Learner newLearner) {
-		return addLearner(newLearner);
+		return learnerService.addLearner(newLearner);
 	}
 
 	// Delete 1 Learner 
@@ -30,5 +31,6 @@ public class LearnerController {
 	public ResponseEntity<Learner> delete1Learner(@PathVariable(value="id") int id) {
 		String deleteString = learnerService.delete1Learner(id);
 		return ResponseEntity.ok().build();
+		
 	}
 }
