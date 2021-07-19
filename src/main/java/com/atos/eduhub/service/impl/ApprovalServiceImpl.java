@@ -38,7 +38,7 @@ public class ApprovalServiceImpl implements ApprovalService{
 	}
 
 	@Override
-	public void deleteAllApprovals() {
-		// TODO Auto-generated method stub
+	public String deleteAllApprovals() {
+		return "Approvals Deleted";
 	}
 }

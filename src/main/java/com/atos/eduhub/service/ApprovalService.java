@@ -10,6 +10,6 @@ public interface ApprovalService {
 	public void deleteApproval();
 	public void viewApproval();
 	public void viewAllApprovals();
-	public void deleteAllApprovals();
+	public String deleteAllApprovals();
 
 }
