@@ -1,5 +1,8 @@
 package com.atos.eduhub.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Assignment {
 
 	private int assignmentID;

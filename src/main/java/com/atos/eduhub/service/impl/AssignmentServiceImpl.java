@@ -7,11 +7,14 @@ import java.util.List;
 import com.atos.eduhub.model.Assignment;
 import com.atos.eduhub.service.AssignmentService;
 import org.apache.tomcat.jni.Time;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AssignmentServiceImpl implements AssignmentService {
-	    
+	 
+	@Autowired(required=true)
+	public Assignment assignment;  
 	@Override
 	public List<Assignment> getAllAssignment() {
 		// TODO Auto-generated method stub
@@ -54,6 +57,19 @@ public class AssignmentServiceImpl implements AssignmentService {
 		assignment.setCreatedOn("2021-07-13");
 		assignment.setLastUpdatedOn("2021-07-13");
 		return assignment;
+	}
+	
+	@Override
+	public String updateAssignment(int id) {
+//		Assignment assignment = new Assignment();
+		assignment.setAssignmentID(assignment.getAssignmentID());
+		assignment.setUserID(assignment.getUserID());
+		assignment.setAssignmentStatus(assignment.getAssignmentStatus());
+		assignment.setAssigmentStatusMessage(assignment.getAssigmentStatusMessage());
+		assignment.setCreatedOn(assignment.getCreatedOn());
+		assignment.setLastUpdatedOn(assignment.getLastUpdatedOn());
+	//	System.out.println(assignment);
+		return "Assignment " + id + " has been updated successfully";
 	}
 
 }

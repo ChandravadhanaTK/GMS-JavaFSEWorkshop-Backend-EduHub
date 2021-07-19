@@ -12,5 +12,6 @@ public interface AssignmentService {
 
 	public Assignment viewAssignment(int id);
 	
+	public String updateAssignment(int id);
 	
 }
