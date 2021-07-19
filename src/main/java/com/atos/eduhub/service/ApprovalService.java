@@ -1,7 +1,5 @@
 package com.atos.eduhub.service;
 
-import org.springframework.stereotype.Component;
-
 import com.atos.eduhub.model.Approval;
 
 public interface ApprovalService {

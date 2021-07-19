@@ -29,7 +29,7 @@ public class ApprovalController {
 		return approvalService.addApproval(approval);
 	}
 
-	// Add REST API Demo - PUT Http Request
+	// Add REST API Demo - PUT Http Request.
 	@GetMapping("/getapproval")
 
 	public @ResponseBody Approval getCourse() {

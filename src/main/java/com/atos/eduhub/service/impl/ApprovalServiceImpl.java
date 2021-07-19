@@ -1,7 +1,5 @@
 package com.atos.eduhub.service.impl;
 
-import java.sql.Timestamp;
-
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Approval;
