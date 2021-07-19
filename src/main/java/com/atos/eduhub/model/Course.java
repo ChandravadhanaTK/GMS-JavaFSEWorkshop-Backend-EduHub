@@ -1,96 +1,83 @@
 package com.atos.eduhub.model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Course {
-	
-private int courseid;
-private String coursename;
-private String coursedesc;
-private String skillreqd;
-private String createdon;
-private String lastupdatedon;
 
-	
-public void setCourseid(int courseid){
-	
-	this.courseid=courseid;		
-	
-}
+	private int courseId;
+	private String courseName;
+	private String courseDesc;
+	private String skillReqd;
+	private Timestamp createdOn;
+	private Timestamp lastUpdatedOn;
 
-public int getCourseid(){
-	
-	return courseid;
-}
+	public void setCourseId(int courseid) {
 
-public void setCoursename(String coursename){
-	
-	this.coursename=coursename;		
-	
-}
+		this.courseId = courseid;
 
-public String getCoursename(){
-	
-	return coursename;
-}
+	}
 
-public void setCoursedesc(String coursedesc){
-	
-	this.coursedesc=coursedesc;		
-	
-}
+	public int getCourseId() {
 
-public String getCoursedesc(){
-	
-	return coursedesc;
-}
+		return courseId;
+	}
 
-public void setSkillreqd(String skillreqd){
-	
-	this.skillreqd=skillreqd;		
-	
-}
+	public void setCourseName(String coursename) {
 
-public String getSkillreqd(){
-	
-	return skillreqd;
-}
+		this.courseName = coursename;
 
-//public void setCreatedon(Timestamp createdon){
-	public void setCreatedon(String createdon){
-	
-	this.createdon=createdon;		
-	
-}
+	}
 
-//public Timestamp getCreatedon(){
-public String getCreatedon(){
-	return createdon;
-}
+	public String getCourseName() {
 
-//public void setLastUpdatedon(Timestamp lastupdatedon){
-	public void setLastUpdatedon(String lastupdatedon){
-	
-	this.lastupdatedon=lastupdatedon;		
-	
-}
+		return courseName;
+	}
 
-//public Timestamp getLastUpdatedon(){
-	public String getLastUpdatedon(){
-	
-	return lastupdatedon;
-}
-	
+	public void setCourseDesc(String coursedesc) {
+
+		this.courseDesc = coursedesc;
+
+	}
+
+	public String getCourseDesc() {
+
+		return courseDesc;
+	}
+
+	public void setSkillReqd(String skillreqd) {
+
+		this.skillReqd = skillreqd;
+
+	}
+
+	public String getSkillReqd() {
+
+		return skillReqd;
+	}
+
+	public void setcreatedOn(Timestamp createdon) {
+
+		this.createdOn = Timestamp.valueOf(LocalDateTime.now());
+
+	}
+
+	public Timestamp getcreatedOn() {
+
+		return createdOn;
+	}
+
+	public void setLastUpdatedOn(Timestamp lastUpdatedOn) {
+
+		this.lastUpdatedOn = Timestamp.valueOf(LocalDateTime.now());
+
+	}
+
+	public Timestamp getLastUpdatedOn() {
+		return lastUpdatedOn;
+	}
 
 }
-
-
-
-
-
-
-
-	
-	
-	
-
