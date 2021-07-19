@@ -29,19 +29,6 @@ public class ApprovalController {
 		return approvalService.addApproval(approval);
 	}
 
-	// Add REST API Demo - PUT Http Request.
-	@GetMapping("/getapproval")
-
-	public @ResponseBody Approval getCourse() {
-		Approval approval = new Approval();
-		approval.setApprovalId(123);
-		approval.setRequestId(456);
-		approval.setRmId(14530);
-		approval.setApprovalStatus("Pending");
-		approval.setApprovalStatusMessage("Under review");
-		return approval;
-
-	}
 	//Delete REST API Demo
 	 @DeleteMapping("deleteapproval/{approvalId}")
 	public String deleteCourse(@PathVariable(value=	"approvalId") int approvalId)
