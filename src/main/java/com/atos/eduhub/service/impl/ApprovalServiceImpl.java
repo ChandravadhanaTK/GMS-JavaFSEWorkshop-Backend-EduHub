@@ -1,7 +1,5 @@
 package com.atos.eduhub.service.impl;
 
-import java.sql.Timestamp;
-
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Approval;
@@ -38,7 +36,7 @@ public class ApprovalServiceImpl implements ApprovalService{
 	}
 
 	@Override
-	public void deleteAllApprovals() {
-		// TODO Auto-generated method stub
+	public String deleteAllApprovals() {
+		return "Approvals Deleted";
 	}
 }

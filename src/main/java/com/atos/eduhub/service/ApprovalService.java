@@ -1,7 +1,5 @@
 package com.atos.eduhub.service;
 
-import org.springframework.stereotype.Component;
-
 import com.atos.eduhub.model.Approval;
 
 public interface ApprovalService {
@@ -10,6 +8,6 @@ public interface ApprovalService {
 	public void deleteApproval();
 	public void viewApproval();
 	public void viewAllApprovals();
-	public void deleteAllApprovals();
+	public String deleteAllApprovals();
 
 }
