@@ -23,12 +23,17 @@ public class LearnerController {
 	@Autowired(required = true)
 	LearnerService learnerService;
 
-
 	
 	// Add Learner
 	@PutMapping("/learner")
 	public Learner addLearner(@RequestBody Learner newLearner) {
 		return learnerService.addLearner(newLearner);
+	}
+	
+	// update Learner
+	@PutMapping("/learner/{id}")
+	public Learner updateLearner(@PathVariable(name="id") int id, @RequestBody Learner updateLearner) {
+		return learnerService.updateLearner(id, updateLearner);
 	}
 
 	// Delete 1 Learner 
@@ -37,6 +42,14 @@ public class LearnerController {
 		String deleteString = learnerService.delete1Learner(id);
 		//return ResponseEntity.ok().build();
 	    return "Deleted Learner id " + id; 	
+	}
+	
+	// Delete all Learner 
+	@DeleteMapping("/learner")
+	public String  deleteAllLearner() {
+		String deleteString = learnerService.deleteAllLearner();
+		//return ResponseEntity.ok().build();
+	    return "Deleted all learner";
 	}
 		
 	// View 1 Learner 

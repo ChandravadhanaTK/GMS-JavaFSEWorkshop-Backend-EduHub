@@ -9,7 +9,11 @@ public interface LearnerService {
 	
 	public Learner addLearner(Learner newLearner);
 	
+	public Learner updateLearner(int id, Learner updateLearner);
+	
 	public String delete1Learner(int id);
+	
+	public String deleteAllLearner();
 
 	public Learner viewLearner();
 

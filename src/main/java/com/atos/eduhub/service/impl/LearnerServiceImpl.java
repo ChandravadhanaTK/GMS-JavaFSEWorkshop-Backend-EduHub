@@ -15,12 +15,21 @@ public class LearnerServiceImpl implements LearnerService {
 	//	newLearner.setName("Add new learner");
 		return newLearner;
 	}
+	
+	@Override
+	public Learner updateLearner(int id, Learner updateLearner) {
+		return updateLearner;
+	}
 
 	@Override
 	public String delete1Learner(int id) {
 		return "Deleted Learner id" + id;
 	}
 	
+	@Override
+	public String deleteAllLearner() {
+		return "Deleted all Learner";
+	}
 	
 	@Override
 	public Learner viewLearner()  {
