@@ -3,16 +3,20 @@ package com.atos.eduhub.model;
 import java.security.Timestamp;
 
 public class Learner {
-	int requestId, userId;
-	String role;
-	int courseId;
-	int rmid;
-	int approvalId;
-	String approvalStatus, statusMessage;
-	int assignmentId;
-	String assignmentStatus, assignmentStatusMessage;
-	String learnerDescription, learnerScore;
-	Timestamp last_update_on;
+private int requestId;
+private int userId;
+private	String role;
+private int courseId;
+private	int rmid;
+private	int approvalId;
+private	String approvalStatus;
+private	String statusMessage;
+private	int assignmentId;
+private	String assignmentStatus;
+private	String assignmentStatusMessage;
+private	String learnerDescription;
+private	String learnerScore;
+private	Timestamp last_update_on;
 	
 	public int getRequestId() {
 		return requestId;
