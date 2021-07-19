@@ -2,7 +2,6 @@ package com.atos.eduhub.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.User;

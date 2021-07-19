@@ -17,8 +17,8 @@ public class User {
 	private String primaryskills;
 	private String secondaryskills;
 	private String role;
-	private String created_on;
-	private String last_login;
+	private Timestamp created_on;
+	private Timestamp last_login;
 	
 
 	public int getId() {
@@ -99,16 +99,16 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String  getCreated_on() {
+	public Timestamp  getCreated_on() {
 		return created_on;
 	}
-	public void setCreated_on(String  created_on) {
+	public void setCreated_on(Timestamp  created_on) {
 		this.created_on = created_on;
 	}
-	public String  getLast_login() {
+	public Timestamp  getLast_login() {
 		return last_login;
 	}
-	public void setLast_login(String  last_login) {
+	public void setLast_login(Timestamp  last_login) {
 		this.last_login = last_login;
 	}
 	
