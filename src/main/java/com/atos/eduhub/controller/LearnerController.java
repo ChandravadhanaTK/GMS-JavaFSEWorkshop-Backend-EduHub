@@ -1,8 +1,11 @@
 package com.atos.eduhub.controller;
 
+import java.util.List;
+//import java.awt.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.service.LearnerService;
-import com.atos.eduhub.service.impl.LearnerServiceImpl;
+//import com.atos.eduhub.service.impl.LearnerServiceImpl;
 
 @RestController
 @RequestMapping("/eduhubapi/v1")
@@ -33,4 +36,15 @@ public class LearnerController {
 		return ResponseEntity.ok().build();
 		
 	}
+
+	// View all Learners 
+	@GetMapping("/learner")
+	public List<Learner> viewAllLearners() {
+	   // public String viewAllLearners() {
+	   //String viewAllString = learnerService.viewAllLearners();
+	   //return ResponseEntity.ok().build();
+	   // return viewAllString;
+	   return learnerService.viewAllLearners();
+	}
+
 }
