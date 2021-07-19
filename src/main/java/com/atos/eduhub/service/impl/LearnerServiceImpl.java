@@ -51,7 +51,7 @@ public class LearnerServiceImpl implements LearnerService{
 		learner1.setLearnerScore("91");
 		//learner1.setLast_update_on(2021-07-16-00.00.00.000001);
 
-		/*getLearner.get1Learner(learner1);*/
+		getLearner.add(learner1);
 
 		Learner learner2 = new Learner();
 
@@ -70,7 +70,7 @@ public class LearnerServiceImpl implements LearnerService{
 		learner2.setLearnerScore("92");
 		//learner2.setLast_update_on("2021-07-16-00.00.00.000002");
 
-		/*getLearner.get1Learner(learner2);*/
+		getLearner.add(learner2);
 
 		Learner learner3 = new Learner();
 
@@ -89,7 +89,7 @@ public class LearnerServiceImpl implements LearnerService{
 		learner3.setLearnerScore("93");
 		//learner3.setLast_update_on("2021-07-16-00.00.00.000003");
 
-		/*getLearner.get1Learner(learner3);*/
+		getLearner.add(learner3);
 
 		return getLearner; 
 	}	
