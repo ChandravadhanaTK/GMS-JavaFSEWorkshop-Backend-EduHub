@@ -25,20 +25,18 @@ public class UserController {
 	/*
 	 * http://localhost:8080/eduhubapi/v1/user {
         "id": 9,
-        "username": "Testname9",
+        "userName": "Testname9",
         "password": "passwrd9",
-        "firstname": "Tuserfn9",
-        "secondname": "Tusersn9",
-        "emailid": "Tusermail9@gmail.com",
+        "firstName": "Tuserfn9",
+        "secondName": "Tusersn9",
+        "emailId": "Tusermail9@gmail.com",
         "mobile": "+6197778855",
         "location": "India",
         "designation": "Consultant",
         "experience": 9,
-        "primaryskills": "Python",
-        "secondaryskills": "dotnet",
-        "role": "Approver",
-        "created_on": "2021-07-19T10:05:17.100+00:00",
-        "last_login": "2021-07-19T10:05:17.100+00:00"
+        "primarySkills": "Python",
+        "secondarySkills": "dotnet",
+        "role": "Approver"        
     }
 	 */
 	@PutMapping("/user")

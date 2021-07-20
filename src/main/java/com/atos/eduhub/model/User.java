@@ -5,20 +5,20 @@ import java.sql.Timestamp;
 public class User {
 	
 	private int id;
-	private String username;
+	private String userName;
 	private String password;	
-	private String firstname;
-	private String secondname;
-	private String emailid;
+	private String firstName;
+	private String secondName;
+	private String emailId;
 	private String mobile;
 	private String location;
 	private String designation;
 	private int experience;
-	private String primaryskills;
-	private String secondaryskills;
+	private String primarySkills;
+	private String secondarySkills;
 	private String role;
-	private Timestamp created_on;
-	private Timestamp last_login;
+	private Timestamp createdOn;
+	private Timestamp lastLogin;
 	
 
 	public int getId() {
@@ -26,12 +26,12 @@ public class User {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}		
+	public String getUserName() {
+		return userName;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;
@@ -39,24 +39,25 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getSecondname() {
-		return secondname;
+	public String getSecondName() {
+		return secondName;
 	}
-	public void setSecondname(String secondname) {
-		this.secondname = secondname;
+	public void setSecondName(String secondName) {
+		this.secondName = secondName;
 	}
-	public String getEmailid() {
-		return emailid;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
+	
 	public String getMobile() {
 		return mobile;
 	}
@@ -81,17 +82,17 @@ public class User {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
-	public String getPrimaryskills() {
-		return primaryskills;
+	public String getPrimarySkills() {
+		return primarySkills;
 	}
-	public void setPrimaryskills(String primaryskills) {
-		this.primaryskills = primaryskills;
+	public void setPrimarySkills(String primarySkills) {
+		this.primarySkills = primarySkills;
 	}
-	public String getSecondaryskills() {
-		return secondaryskills;
+	public String getSecondarySkills() {
+		return secondarySkills;
 	}
-	public void setSecondaryskills(String secondaryskills) {
-		this.secondaryskills = secondaryskills;
+	public void setSecondarySkills(String secondarySkills) {
+		this.secondarySkills = secondarySkills;
 	}
 	public String getRole() {
 		return role;
@@ -99,18 +100,17 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public Timestamp  getCreated_on() {
-		return created_on;
+	public Timestamp getCreatedOn() {
+		return createdOn;
 	}
-	public void setCreated_on(Timestamp  created_on) {
-		this.created_on = created_on;
+	public void setCreatedOn(Timestamp createdOn) {
+		this.createdOn = createdOn;
 	}
-	public Timestamp  getLast_login() {
-		return last_login;
+	public Timestamp getLastLogin() {
+		return lastLogin;
 	}
-	public void setLast_login(Timestamp  last_login) {
-		this.last_login = last_login;
+	public void setLastLogin(Timestamp lastLogin) {
+		this.lastLogin = lastLogin;
 	}
-	
-
+		
 }

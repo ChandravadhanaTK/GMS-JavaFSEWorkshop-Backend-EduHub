@@ -13,20 +13,21 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User addUser(User newUser) {
-		newUser.setUsername("Team4 - Add User");
+		newUser.setUserName("Team4 - Add User");
+		newUser.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		newUser.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
 		return newUser;						
 		}
 
 	@Override
 	public User updateUser(int id, User updateUser) {
 		if(id==1) {
-			updateUser.setUsername("Team4 - Update User 1");	
+			updateUser.setUserName("Team4 - Update User 1");	
 			updateUser.setPassword(updateUser.getPassword());
-			updateUser.setFirstname(updateUser.getFirstname());
-			updateUser.setLast_login(Timestamp.valueOf("2018-11-12 01:02:03.123456789"));
+			updateUser.setLastLogin(Timestamp.valueOf("2018-11-12 01:02:03.123456"));
 						
 		} else {
-			updateUser.setUsername("Team4 - Update User non-1");
+			updateUser.setUserName("Team4 - Update User non-1");
 		}
 		
 		return updateUser; 
@@ -42,39 +43,39 @@ public class UserServiceImpl implements UserService {
 		List<User> getUser = new ArrayList<User>();
 		User user1 = new User();
 		user1.setId(5);
-		user1.setUsername("Testname5");
+		user1.setUserName("Testname5");
 		user1.setPassword("passwrd5");
-		user1.setFirstname("Tuserfn5");
-		user1.setSecondname("Tusersn5");
-		user1.setEmailid("Tusermail5@gmail.com");
+		user1.setFirstName("Tuserfn5");
+		user1.setSecondName("Tusersn5");
+		user1.setEmailId("Tusermail5@gmail.com");
 		user1.setMobile("+6167778855");
 		user1.setLocation("India");
 		user1.setDesignation("Lead");
 		user1.setExperience(5);
-		user1.setPrimaryskills("Python");
-		user1.setSecondaryskills("dotnet");
+		user1.setPrimarySkills("Python");
+		user1.setSecondarySkills("dotnet");
 		user1.setRole("Tester");
-		user1.setCreated_on(Timestamp.valueOf(LocalDateTime.now()));
-		user1.setLast_login(Timestamp.valueOf(LocalDateTime.now()));
+		user1.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		user1.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
 		getUser.add(user1);
 
 		User user2 = new User();
 		user2.setId(7);
-		user2.setUsername("Testname7");
+		user2.setUserName("Testname7");
 		
 		user2.setPassword("passwrd7");
-		user2.setFirstname("Tuserfn7");
-		user2.setSecondname("Tusersn7");
-		user2.setEmailid("Tusermail7@gmail.com");
+		user2.setFirstName("Tuserfn7");
+		user2.setSecondName("Tusersn7");
+		user2.setEmailId("Tusermail7@gmail.com");
 		user2.setMobile("+6167778833");
 		user2.setLocation("Phoenix");
 		user2.setDesignation("Seniorconsultant");
 		user2.setExperience(6);
-		user2.setPrimaryskills("C,Python");
-		user2.setSecondaryskills("C++");
+		user2.setPrimarySkills("C,Python");
+		user2.setSecondarySkills("C++");
 		user2.setRole("developer");
-		user2.setCreated_on(Timestamp.valueOf(LocalDateTime.now()));
-		user2.setLast_login(Timestamp.valueOf(LocalDateTime.now()));
+		user2.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		user2.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
 		getUser.add(user2);		
 		return getUser;
 	}
@@ -83,20 +84,20 @@ public class UserServiceImpl implements UserService {
 	public User getUserById(int id) {
 		User user = new User();
 		user.setId(3);
-		user.setUsername("Team4 - View User by ID");	
+		user.setUserName("Team4 - View User by ID");	
 		user.setPassword("Npasswrd3");
-		user.setFirstname("Nuserfn3");
-		user.setSecondname("Nusersn3");
-		user.setEmailid("Nusermail3@gmail.com");
+		user.setFirstName("Nuserfn3");
+		user.setSecondName("Nusersn3");
+		user.setEmailId("Nusermail3@gmail.com");
 		user.setMobile("+6177775595");
 		user.setLocation("Sydney");
 		user.setDesignation("Developer");
 		user.setExperience(4);
-		user.setPrimaryskills("mainframe");
-		user.setSecondaryskills("Java");
+		user.setPrimarySkills("mainframe");
+		user.setSecondarySkills("Java");
 		user.setRole("Learner");
-		user.setCreated_on(Timestamp.valueOf("2018-11-12 01:02:03.123456789"));
-		user.setLast_login(Timestamp.valueOf(LocalDateTime.now()));
+		user.setCreatedOn(Timestamp.valueOf("2018-11-12 01:02:03.123456789"));
+		user.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
 		return user;
 		
 	}
