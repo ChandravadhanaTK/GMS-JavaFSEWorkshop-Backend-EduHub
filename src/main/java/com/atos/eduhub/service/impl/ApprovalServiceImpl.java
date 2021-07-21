@@ -16,8 +16,10 @@ public class ApprovalServiceImpl implements ApprovalService{
 	}
 	
 	@Override
-	public void editApproval() {
-		// TODO Auto-generated method stub	
+	public Approval editApproval(Approval approval) {
+		System.out.println("Approval object updated for PUT request:");
+		System.out.println(approval);
+		return approval;
 	}
 
 	@Override
