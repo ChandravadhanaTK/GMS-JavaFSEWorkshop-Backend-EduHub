@@ -1,7 +1,5 @@
 package com.atos.eduhub.controller;
 
-import javax.sound.midi.Track;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +23,14 @@ GET - get approval details
 @RestController
 @RequestMapping("/eduhubapi/v1")
 public class ApprovalController {
-	
+
 	@Autowired(required = true)
 	ApprovalService approvalService;
-	
+
+	// Add REST API Demo - POST Http Request
 	@PostMapping("/approval")
-	public Approval addApproval(@RequestBody Approval approval) {
-		System.out.println("Post request received for addApproval() for id "+ approval.getApprovalId());
+	public @ResponseBody Approval addApproval(@RequestBody Approval approval) {
+		System.out.println("Post request received for addApproval() for id " + approval.getApprovalId());
 		return approvalService.addApproval(approval);
 	}
 	
@@ -39,5 +38,16 @@ public class ApprovalController {
 	public Approval editApproval(@RequestBody Approval approval) {
 		System.out.println("Put request received for editApproval() for id "+ approval.getApprovalId());
 		return approvalService.editApproval(approval);
+
+	//Delete REST API Demo
+	@DeleteMapping("deleteapproval/{approvalId}")
+	public String deleteCourse(@PathVariable(value=	"approvalId") int approvalId) {
+		return "Deleted Approval id  " +  approvalId;
+	}
+    
+	//Delete all REST API Demo
+	@DeleteMapping("/deleteallapproval")
+	public @ResponseBody String deleteAllApprovals() {
+		return approvalService.deleteAllApprovals();
 	}
 }
