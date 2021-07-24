@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.atos.eduhub.dao.impl.MentorDaoImpl;
 import com.atos.eduhub.model.Mentor;
 import com.atos.eduhub.service.MentorService;
 
@@ -18,21 +19,27 @@ public class MentorServiceImpl implements MentorService {
 	@Autowired
 	private Mentor mentor;
 	
+	@Autowired
+	private MentorDaoImpl mentordaoimpl;
+	
 	@Override
 	public String addMentor(@RequestBody Mentor mentorreq) {
 		
-		mentor.setLastupdatedon();
-		mentor.setUserid(mentorreq.getUserid());
-		mentor.setEnddatetime(mentorreq.getEnddatetime());
-		mentor.setAboutmentor(mentorreq.getAboutmentor());
-		mentor.setMentorrating(mentorreq.getMentorrating());
-		mentor.setStartdatetime(mentorreq.getStartdatetime());
-		mentor.setMentoredhours(mentorreq.getMentoredhours());
-		mentor.setAvailabilityid(mentorreq.getAvailabilityid());
-		mentor.setMentoringskill(mentorreq.getMentoringskill());
-	
-		System.out.println(mentor);
-		return "Mentor " + mentorreq.getUserid() + " has been added successfully";
+		return mentordaoimpl.addMentor(mentorreq) > 0 
+				? "Mentor " + mentorreq.getUserid() + " has been added to EduHub successfully"
+				: "Issue with adding mentor " + mentorreq.getUserid();
+		
+//		mentor.setLastupdatedon();
+//		mentor.setUserid(mentorreq.getUserid());
+//		mentor.setEnddatetime(mentorreq.getEnddatetime());
+//		mentor.setAboutmentor(mentorreq.getAboutmentor());
+//		mentor.setMentorrating(mentorreq.getMentorrating());
+//		mentor.setStartdatetime(mentorreq.getStartdatetime());
+//		mentor.setMentoredhours(mentorreq.getMentoredhours());
+//		mentor.setAvailabilityid(mentorreq.getAvailabilityid());
+//		mentor.setMentoringskill(mentorreq.getMentoringskill());	
+//		System.out.println(mentorreq);
+		
 	}
 
 	@Override
