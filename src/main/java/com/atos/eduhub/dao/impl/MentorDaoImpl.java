@@ -31,37 +31,14 @@ public class MentorDaoImpl extends JdbcDaoSupport implements MentorDao{
     private void initialize(){
         setDataSource(datasource);
     }
-
-//	public MentorDaoImpl(JdbcTemplate jdbctemplate) {
-//		super();
-//		this.jdbctemplate = jdbctemplate;
-//	}
-
-//	public void setDataSource() {
-//		//this.datasource = datasource;
-//		this.jdbctemplate = new JdbcTemplate(datasource);
-//	}
-	
-//    @Bean
-//    public JdbcTemplate getTemplate(){
-//        return new JdbcTemplate();
-//    }
 	
 	@Override
-	public int addMentor(Mentor mentor){
+	public int addMentor(Mentor mentor){ 
 		
-//		try {
-//			System.out.println(datasource.getConnection());
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-		String sql = 	"Insert into mentor (availabilityid, userid, startdatetime, enddatetime, mentoringSkill, "  +
-						"mentoredHours, mentorRating, aboutMentor, last_updated_on " 				+
-						"values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-						
-		return getJdbcTemplate().update(sql,mentor.getAvailabilityid(),
+		String sql 	=	"Insert into public.mentor (userid, startdatetime, enddatetime, mentoringSkill, " 
+		 +	" mentoredHours, mentorRating, aboutMentor, last_updated_on) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		return getJdbcTemplate().update(sql,
 										mentor.getUserid(),
 										mentor.getStartdatetime(),
 										mentor.getEnddatetime(),
