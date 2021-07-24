@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.UserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/eduhubapi/v1") 
+@Api(value="User Registration")
 public class UserProfileController {
 	
 	@Autowired
 	private UserService service;
 	
-	
+	@ApiOperation(value = "List of Registered Users", response = List.class)
 	@GetMapping("/allusers")
 	public List<UserModel> findAll(){
 		return service.findAll();
@@ -32,7 +36,6 @@ public class UserProfileController {
 	
 	@PostMapping("/save")
 	public String  saveUserProfile(@RequestBody UserModel usermodel) {
-		System.out.println(usermodel.toString());
 		return service.saveUserProfile(usermodel);
 	}
 	
