@@ -66,7 +66,7 @@ public class EduHubMentorController {
 	/*
 	 * Following controller code deletes all mentors registered in EduHub
 	*/
-	@DeleteMapping("/mentors")
+	@DeleteMapping("/mentor")
 	public String deleteAllMentors() {
 		return mentorservice.deleteAllMentors();
 	}

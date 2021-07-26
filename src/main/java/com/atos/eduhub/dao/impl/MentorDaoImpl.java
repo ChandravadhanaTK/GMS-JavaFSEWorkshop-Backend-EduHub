@@ -49,4 +49,19 @@ public class MentorDaoImpl extends JdbcDaoSupport implements MentorDao{
 										Timestamp.valueOf(LocalDateTime.now()));
 	}
 
+	@Override
+	public int deleteAllMentors(){ 
+
+		String sql 	=	"DELETE FROM public.mentor";
+		
+		return getJdbcTemplate().update(sql);
+	}
+	
+	@Override
+	public int deleteMentor(int mentorId){ 
+
+		String sql 	=	"DELETE FROM public.mentor WHERE userid=?";
+		
+		return getJdbcTemplate().update(sql,mentorId);
+	}
 }

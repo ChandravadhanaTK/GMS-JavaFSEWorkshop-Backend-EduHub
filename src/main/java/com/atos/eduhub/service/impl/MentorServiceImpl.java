@@ -111,13 +111,17 @@ public class MentorServiceImpl implements MentorService {
 	
 	@Override
 	public String deleteMentor(int id) {
-		System.out.println("Deleted Mentor with ID : " + id);
-		return "Deleted Mentor with ID : " + id;
+		return mentordaoimpl.deleteMentor(id) > 0 
+				? "Mentor with userid " + id + " was deleted from EduHub successfully"
+				: "Issue with deleting mentor " + id;
 	}
 	
 	@Override
 	public String deleteAllMentors() {
-		System.out.println("Deleted all the mentors");
-		return "All Mentors in the system are deleted.";
+		int deletedMentorsCount;
+		deletedMentorsCount=mentordaoimpl.deleteAllMentors();
+		return deletedMentorsCount > 0 
+				? deletedMentorsCount + " mentors were deleted from EduHub successfully"
+				: "Issue with deleting mentors";
 	}
 }

@@ -8,5 +8,7 @@ import com.atos.eduhub.model.Mentor;
 public interface MentorDao {
 	
 	int addMentor(Mentor mentor);
+	int deleteMentor(int mentorId);
+	int deleteAllMentors();
 
 }
