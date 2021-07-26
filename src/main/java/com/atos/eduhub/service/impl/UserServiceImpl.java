@@ -14,7 +14,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.atos.eduhub.dao.UserDAO;
+import com.atos.eduhub.dao.UserDao;
 import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.UserService;
 
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 	
 
 	@Override
