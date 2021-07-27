@@ -1,26 +1,23 @@
 package com.atos.eduhub.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import com.atos.eduhub.model.User;
-import com.atos.eduhub.service.UserService;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.atos.eduhub.dao.UserDao;
+import com.atos.eduhub.model.User;
 import com.atos.eduhub.model.UserModel;
-
+import com.atos.eduhub.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired(required=true)
+	@Autowired(required = true)
 	private UserDao userDAO;
 
 	@Override

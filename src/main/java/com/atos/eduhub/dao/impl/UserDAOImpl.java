@@ -14,9 +14,9 @@ import com.atos.eduhub.rowmapper.UserRowMapper;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-	@Autowired(required=true)
+	@Autowired(required = true)
 	private JdbcTemplate jdbcTemplate;
-	
+
 	@Value("${userprofile_fetchAll}")
 	private String fetchAll;
 	@Value("${userprofile_fetchById}")
@@ -29,39 +29,39 @@ public class UserDaoImpl implements UserDao {
 	private String userprofile_save;
 
 	@Override
-	public List<Map<String, Object>>  findAll() {
-		return jdbcTemplate.queryForList(fetchAll );
+	public List<Map<String, Object>> findAll() {
+		return jdbcTemplate.queryForList(fetchAll);
 	}
-	
+
 	@Override
 	public List<UserModel> findAllWithRowMapper() {
-		return jdbcTemplate.query(fetchAll,new UserRowMapper());
+		return jdbcTemplate.query(fetchAll, new UserRowMapper());
 	}
 
 	@Override
 	public UserModel findById(String userId) {
-		return jdbcTemplate.queryForObject(userprofile_fetchById, new UserRowMapper(),new Object[] {userId} );
+		return jdbcTemplate.queryForObject(userprofile_fetchById, new UserRowMapper(), new Object[] { userId });
 	}
 
 	@Override
 	public int saveUserProfile(UserModel usermodel) {
-		return	jdbcTemplate.update(userprofile_save,usermodel.getUserId(),usermodel.getFirstName(),usermodel.getLastName()
-				,usermodel.getPassword(),usermodel.getDesignation(),usermodel.getExperience());
-		
+		return jdbcTemplate.update(userprofile_save, usermodel.getUserId(), usermodel.getFirstName(),
+				usermodel.getLastName(), usermodel.getPassword(), usermodel.getDesignation(),
+				usermodel.getExperience());
+
 	}
 
 	@Override
 	public int deleteUserProfile(UserModel usermodel) {
-		return jdbcTemplate.update(userprofile_deleteById,usermodel.getUserId());
-		
+		return jdbcTemplate.update(userprofile_deleteById, usermodel.getUserId());
+
 	}
 
 	@Override
 	public int updateUserProfile(UserModel usermodel) {
-		return	jdbcTemplate.update(userprofile_updateById,usermodel.getFirstName(),usermodel.getLastName()
-				,usermodel.getDesignation(),usermodel.getExperience(),usermodel.getUserId());
-		
+		return jdbcTemplate.update(userprofile_updateById, usermodel.getFirstName(), usermodel.getLastName(),
+				usermodel.getDesignation(), usermodel.getExperience(), usermodel.getUserId());
+
 	}
 
-	
 }

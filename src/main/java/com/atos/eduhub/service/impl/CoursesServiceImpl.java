@@ -1,9 +1,9 @@
 package com.atos.eduhub.service.impl;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.ArrayList;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Course;

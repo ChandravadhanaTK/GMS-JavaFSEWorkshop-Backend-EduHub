@@ -8,10 +8,10 @@ import com.atos.eduhub.model.Assignment;
 
 @Component
 public interface AssignmentService {
-	public List<Assignment>	getAllAssignment();
+	public List<Assignment> getAllAssignment();
 
 	public Assignment viewAssignment(int id);
-	
+
 	public String updateAssignment(int id);
-	
+
 }

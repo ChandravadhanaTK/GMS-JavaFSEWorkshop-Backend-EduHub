@@ -2,12 +2,9 @@ package com.atos.eduhub.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
-import com.atos.eduhub.model.User;
-
 import org.springframework.stereotype.Service;
 
+import com.atos.eduhub.model.User;
 import com.atos.eduhub.model.UserModel;
 
 @Service

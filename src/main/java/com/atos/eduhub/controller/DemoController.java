@@ -33,13 +33,13 @@ public class DemoController {
 
 	// Edit/Update REST API Demo
 	@PutMapping("/demo/{id}")
-	public Demo updateDemo(@PathVariable(name="id") int id, @RequestBody Demo updateDemo) {
+	public Demo updateDemo(@PathVariable(name = "id") int id, @RequestBody Demo updateDemo) {
 		return demoService.updateDemo(id, updateDemo);
 	}
 
 	// Delete REST API Demo
 	@DeleteMapping("/demo/{id}")
-	public ResponseEntity<Demo> deleteDemo(@PathVariable(value="id") int id) {
+	public ResponseEntity<Demo> deleteDemo(@PathVariable(value = "id") int id) {
 		String deleteString = demoService.deleteDemo(id);
 		return ResponseEntity.ok().build();
 	}
@@ -52,7 +52,7 @@ public class DemoController {
 
 	// Get all REST API Demo
 	@GetMapping("/demo/{id}")
-	public Demo getDemoById(@PathVariable(value="id") int id) {
+	public Demo getDemoById(@PathVariable(value = "id") int id) {
 		return demoService.getDemoById(id);
 	}
 

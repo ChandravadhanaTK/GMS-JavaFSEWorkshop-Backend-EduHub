@@ -52,7 +52,7 @@ public class MentorController {
 		return mentorservice.deleteMentor(id);
 	}
 
-	 // Following controller code deletes all mentors registered in EduHub
+	// Following controller code deletes all mentors registered in EduHub
 	@DeleteMapping("/mentors")
 	public String deleteAllMentors() {
 		return mentorservice.deleteAllMentors();

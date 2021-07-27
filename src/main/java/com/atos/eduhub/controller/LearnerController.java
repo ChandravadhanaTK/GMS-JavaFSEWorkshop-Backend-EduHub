@@ -1,9 +1,9 @@
 package com.atos.eduhub.controller;
 
 import java.util.List;
+
 //import java.awt.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,49 +23,48 @@ public class LearnerController {
 	@Autowired(required = true)
 	LearnerService learnerService;
 
-	
 	// Add Learner
 	@PutMapping("/learner")
 	public Learner addLearner(@RequestBody Learner newLearner) {
 		return learnerService.addLearner(newLearner);
 	}
-	
+
 	// update Learner
 	@PutMapping("/learner/{id}")
-	public Learner updateLearner(@PathVariable(name="id") int id, @RequestBody Learner updateLearner) {
+	public Learner updateLearner(@PathVariable(name = "id") int id, @RequestBody Learner updateLearner) {
 		return learnerService.updateLearner(id, updateLearner);
 	}
 
-	// Delete 1 Learner 
+	// Delete 1 Learner
 	@DeleteMapping("/learner/{id}")
-	public String  delete1Learner(@PathVariable(value="id") int id) {
+	public String delete1Learner(@PathVariable(value = "id") int id) {
 		String deleteString = learnerService.delete1Learner(id);
-		//return ResponseEntity.ok().build();
-	    return "Deleted Learner id " + id; 	
+		// return ResponseEntity.ok().build();
+		return "Deleted Learner id " + id;
 	}
-	
-	// Delete all Learner 
+
+	// Delete all Learner
 	@DeleteMapping("/learner")
-	public String  deleteAllLearner() {
+	public String deleteAllLearner() {
 		String deleteString = learnerService.deleteAllLearner();
-		//return ResponseEntity.ok().build();
-	    return "Deleted all learner";
+		// return ResponseEntity.ok().build();
+		return "Deleted all learner";
 	}
-		
-	// View 1 Learner 
+
+	// View 1 Learner
 	@GetMapping("/learner/{id}")
 	public Learner viewLearner() {
 		return learnerService.viewLearner();
 	}
 
-	// View all Learners 
+	// View all Learners
 	@GetMapping("/learner")
 	public List<Learner> viewAllLearners() {
-	   // public String viewAllLearners() {
-	   //String viewAllString = learnerService.viewAllLearners();
-	   //return ResponseEntity.ok().build();
-	   // return viewAllString;
-	   return learnerService.viewAllLearners();
+		// public String viewAllLearners() {
+		// String viewAllString = learnerService.viewAllLearners();
+		// return ResponseEntity.ok().build();
+		// return viewAllString;
+		return learnerService.viewAllLearners();
 	}
 
 }

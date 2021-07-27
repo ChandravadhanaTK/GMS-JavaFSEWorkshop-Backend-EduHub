@@ -2,24 +2,14 @@ package com.atos.eduhub.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.atos.eduhub.dao.DemoDao;
 import com.atos.eduhub.model.Demo;
-import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.DemoService;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.fasterxml.jackson.databind.util.JSONWrappedObject;
 
 @Component
 public class DemoServiceImpl implements DemoService {
-	
 
 	@Override
 	public Demo addDemo(Demo newDemo) {
@@ -29,12 +19,12 @@ public class DemoServiceImpl implements DemoService {
 
 	@Override
 	public Demo updateDemo(int id, Demo updateDemo) {
-		if(id==1) {
-			updateDemo.setName("Chandravadhana - Update Demo 1");	
+		if (id == 1) {
+			updateDemo.setName("Chandravadhana - Update Demo 1");
 		} else {
 			updateDemo.setName("Chandravadhana - Update Demo non-1");
 		}
-		
+
 		return updateDemo;
 	}
 
@@ -53,7 +43,7 @@ public class DemoServiceImpl implements DemoService {
 		Demo demo2 = new Demo();
 		demo2.setId(7);
 		demo2.setName("Yazhnilaa");
-		getDemo.add(demo2);		
+		getDemo.add(demo2);
 		return getDemo;
 	}
 

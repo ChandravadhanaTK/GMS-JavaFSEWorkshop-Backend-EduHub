@@ -6,15 +6,15 @@ import org.springframework.stereotype.Component;
 public class Assignment {
 
 	private int assignmentID;
-	
+
 	private int userID;
-	
+
 	private String assignmentStatus;
-	
+
 	private String assigmentStatusMessage;
-	
+
 	private String createdOn;
-	
+
 	private String lastUpdatedOn;
 
 	public int getAssignmentID() {
@@ -64,6 +64,5 @@ public class Assignment {
 	public void setLastUpdatedOn(String lastUpdatedOn) {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
-		
 
 }

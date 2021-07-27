@@ -1,21 +1,22 @@
 package com.atos.eduhub.service.impl;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.service.LearnerService;
 
-
 @Component
 public class LearnerServiceImpl implements LearnerService {
-	
+
 	@Override
 	public Learner addLearner(Learner newLearner) {
-	//	newLearner.setName("Add new learner");
+		// newLearner.setName("Add new learner");
 		return newLearner;
 	}
-	
+
 	@Override
 	public Learner updateLearner(int id, Learner updateLearner) {
 		return updateLearner;
@@ -25,17 +26,17 @@ public class LearnerServiceImpl implements LearnerService {
 	public String delete1Learner(int id) {
 		return "Deleted Learner id" + id;
 	}
-	
+
 	@Override
 	public String deleteAllLearner() {
 		return "Deleted all Learner";
 	}
-	
+
 	@Override
-	public Learner viewLearner()  {
-		
+	public Learner viewLearner() {
+
 		Learner newLearner = new Learner();
-				
+
 		newLearner.setRequestId(999);
 		newLearner.setUserId(3425);
 		newLearner.setRole("FSD Learning");
@@ -50,20 +51,17 @@ public class LearnerServiceImpl implements LearnerService {
 		newLearner.setLearnerDescription("FSD Learning in Progress");
 		newLearner.setLearnerScore("SCORE is 9");
 		newLearner.setLast_update_on(null);
-			
+
 		return newLearner;
 	}
 
-	
-	
-	/*@Override
-	public String viewAllLearners() {
-		return "No records to display";
-	}*/
+	/*
+	 * @Override public String viewAllLearners() { return "No records to display"; }
+	 */
 
 	@Override
-	/*public String viewAllLearners() {*/
-	  public List<Learner> viewAllLearners() {
+	/* public String viewAllLearners() { */
+	public List<Learner> viewAllLearners() {
 		List<Learner> getLearner = new ArrayList<Learner>();
 		Learner learner1 = new Learner();
 
@@ -80,7 +78,7 @@ public class LearnerServiceImpl implements LearnerService {
 		learner1.setAssignmentStatusMessage("Assignment Assigned");
 		learner1.setLearnerDescription("Student");
 		learner1.setLearnerScore("91");
-		//learner1.setLast_update_on(2021-07-16-00.00.00.000001);
+		// learner1.setLast_update_on(2021-07-16-00.00.00.000001);
 
 		getLearner.add(learner1);
 
@@ -99,7 +97,7 @@ public class LearnerServiceImpl implements LearnerService {
 		learner2.setAssignmentStatusMessage("Assignment Pending");
 		learner2.setLearnerDescription("Student");
 		learner2.setLearnerScore("92");
-		//learner2.setLast_update_on("2021-07-16-00.00.00.000002");
+		// learner2.setLast_update_on("2021-07-16-00.00.00.000002");
 
 		getLearner.add(learner2);
 
@@ -118,11 +116,11 @@ public class LearnerServiceImpl implements LearnerService {
 		learner3.setAssignmentStatusMessage("Not Applicable");
 		learner3.setLearnerDescription("Student");
 		learner3.setLearnerScore("93");
-		//learner3.setLast_update_on("2021-07-16-00.00.00.000003");
+		// learner3.setLast_update_on("2021-07-16-00.00.00.000003");
 
 		getLearner.add(learner3);
 
-		return getLearner; 
-	}	
+		return getLearner;
+	}
 
 }
