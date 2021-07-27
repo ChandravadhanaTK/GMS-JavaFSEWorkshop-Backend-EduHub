@@ -14,7 +14,7 @@ import com.atos.eduhub.rowmapper.UserRowMapper;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-	@Autowired
+	@Autowired(required=true)
 	private JdbcTemplate jdbcTemplate;
 	
 	@Value("${userprofile_fetchAll}")

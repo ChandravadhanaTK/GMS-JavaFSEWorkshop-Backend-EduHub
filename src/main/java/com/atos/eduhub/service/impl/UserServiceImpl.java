@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import org.springframework.stereotype.Component;
 import com.atos.eduhub.model.User;
 import com.atos.eduhub.service.UserService;
 
@@ -16,12 +15,12 @@ import org.springframework.stereotype.Service;
 
 import com.atos.eduhub.dao.UserDao;
 import com.atos.eduhub.model.UserModel;
-import com.atos.eduhub.service.UserService;
+
 
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
+	@Autowired(required=true)
 	private UserDao userDAO;
 
 	@Override

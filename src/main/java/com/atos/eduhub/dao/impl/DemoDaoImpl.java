@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.atos.eduhub.dao.UserDao;
+import com.atos.eduhub.dao.DemoDao;
 import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.rowmapper.UserRowMapper;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class DemoDaoImpl implements DemoDao {
 	@Autowired(required=true)
 	private JdbcTemplate jdbcTemplate;
 	
