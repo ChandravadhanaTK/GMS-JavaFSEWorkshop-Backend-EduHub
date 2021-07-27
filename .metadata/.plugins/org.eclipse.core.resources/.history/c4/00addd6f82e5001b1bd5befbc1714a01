@@ -1,7 +1,0 @@
-package com.atos.eduhub.service;
-
-public interface AddLearnerService {
-	
-	public String AddLearner(int id);
-
-}
