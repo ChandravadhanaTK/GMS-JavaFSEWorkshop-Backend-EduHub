@@ -24,7 +24,6 @@ public class CoursesController {
 	CoursesServices coursesservices;
 
 	// Add Courses -REST API
-
 	@PutMapping("/Course")
 	public Course addCourse(@RequestBody Course course) {
 		System.out.println("Course Added");
@@ -47,40 +46,27 @@ public class CoursesController {
 	}
 
 	@DeleteMapping("/Course/{courseid}")
-
 	public String deleteCourse(@PathVariable(value = "courseid") int courseid)
-
 	{
 		return "Deleted Course id  " + courseid;
-
 	}
 
 	// Edit/Update Courses
-
 	@PutMapping("/Course/{courseid}")
 	public Course updateCourse(@PathVariable(name = "courseid") int courseid, @RequestBody Course updcourse) {
-
 		return coursesservices.updateCourse(courseid, updcourse);
-
 	}
 
 	// Get one course details REST API Demo
-
 	@GetMapping("/Course/{courseid}")
-
 	public Course getCourseById(@PathVariable(value = "courseid") int courseid) {
-
 		return coursesservices.getCourseById(courseid);
-
 	}
+
 	// Get all REST API Demo
-
 	@GetMapping("/Courses")
-
 	public ArrayList<Course> getAllCourses() {
-
 		return coursesservices.getAllCourses();
-
 	}
 
 }

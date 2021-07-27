@@ -24,7 +24,7 @@ POST - Add approval
 PUT - Edit Approval
 DELETE - delete one approval
 DELETE - delete all approvals
-GET - view one  approval details
+GET - view one  approval detailsg
 GET - view all approval details
 */
 
