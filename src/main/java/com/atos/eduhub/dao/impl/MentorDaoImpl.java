@@ -2,9 +2,13 @@ package com.atos.eduhub.dao.impl;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +23,9 @@ public class MentorDaoImpl implements MentorDao {
 
 	@Value("${add_mentor}")
 	private String addmentorquery;
+	
+	@Value("${show_all_mentors}")
+	private String showAllMentors;
 
 	public MentorDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -26,13 +33,6 @@ public class MentorDaoImpl implements MentorDao {
 
 	@Override
 	public int addMentor(Mentor mentor) {
-
-//		String sql = "Insert into public.mentor (userid, startdatetime, enddatetime, mentoringSkill, "
-//				+ " mentoredHours, mentorRating, aboutMentor, last_updated_on) values (?, ?, ?, ?, ?, ?, ?, ?)";
-//
-//		return jdbctemplate.update(sql, mentor.getUserid(), mentor.getStartdatetime(), mentor.getEnddatetime(),
-//				mentor.getMentoringskill(), mentor.getMentoredhours(), mentor.getMentorrating(),
-//				mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()));
 
 		return jdbctemplate.update(addmentorquery, mentor.getUserid(), mentor.getStartdatetime(),
 				mentor.getEnddatetime(), mentor.getMentoringskill(), mentor.getMentoredhours(),
@@ -53,5 +53,29 @@ public class MentorDaoImpl implements MentorDao {
 		String sql = "DELETE FROM public.mentor WHERE userid=?";
 
 		return jdbctemplate.update(sql, mentorId);
+	}
+
+	@Override
+	public List<Mentor> loadAllMentors() throws DataAccessException {
+		
+		List<Map<String, Object>> rows = jdbctemplate.queryForList(showAllMentors);
+		
+		List<Mentor> result = new ArrayList<Mentor>();
+		
+		for(Map<String, Object> row:rows){
+			Mentor mentor = new Mentor();
+			mentor.setAvailabilityid((int) row.get("availabilityid"));
+			mentor.setUserid((int)row.get("userid"));
+			mentor.setStartdatetime((Timestamp)row.get("startdatetime"));
+			mentor.setEnddatetime((Timestamp) row.get("enddatetime"));
+			mentor.setMentoringskill((String) row.get("mentoringskill"));
+			mentor.setMentoredhours((String) row.get("mentoredhours"));
+			mentor.setMentorrating((String) row.get("mentorrating"));
+			mentor.setAboutmentor((String) row.get("aboutmentor"));
+			mentor.setLastupdatedon();
+			result.add(mentor);
+		}
+		
+		return result;
 	}
 }

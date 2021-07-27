@@ -68,33 +68,8 @@ public class MentorServiceImpl implements MentorService {
 	public List<Mentor> viewAllMentors() {
 		// TODO Auto-generated method stub
 
-		List<Mentor> getMentors = new ArrayList<Mentor>();
-
-		Mentor mentor1 = new Mentor();
-		mentor1.setAvailabilityid(100);
-		mentor1.setUserid(1000);
-		mentor1.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor1.setEnddatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor1.setMentoringskill("Java");
-		mentor1.setMentoredhours("10");
-		mentor1.setMentorrating("5");
-		mentor1.setAboutmentor("Java mentor");
-		mentor1.setLastupdatedon();
-
-		getMentors.add(mentor1);
-
-		Mentor mentor2 = new Mentor();
-		mentor2.setAvailabilityid(101);
-		mentor2.setUserid(2000);
-		mentor2.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor2.setEnddatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor2.setMentoringskill("Python");
-		mentor2.setMentoredhours("20");
-		mentor2.setMentorrating("4");
-		mentor2.setAboutmentor("Python mentor");
-		mentor2.setLastupdatedon();
-
-		getMentors.add(mentor2);
+		
+		List<Mentor> getMentors = mentordaoimpl.loadAllMentors();
 		return getMentors;
 	}
 
