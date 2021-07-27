@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,9 @@ public class MentorDaoImpl implements MentorDao {
 	@Autowired
 	private JdbcTemplate jdbctemplate;
 
+	@Value("${add_mentor}")
+	private String addmentorquery;
+
 	public MentorDaoImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -23,12 +27,16 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public int addMentor(Mentor mentor) {
 
-		String sql = "Insert into public.mentor (userid, startdatetime, enddatetime, mentoringSkill, "
-				+ " mentoredHours, mentorRating, aboutMentor, last_updated_on) values (?, ?, ?, ?, ?, ?, ?, ?)";
+//		String sql = "Insert into public.mentor (userid, startdatetime, enddatetime, mentoringSkill, "
+//				+ " mentoredHours, mentorRating, aboutMentor, last_updated_on) values (?, ?, ?, ?, ?, ?, ?, ?)";
+//
+//		return jdbctemplate.update(sql, mentor.getUserid(), mentor.getStartdatetime(), mentor.getEnddatetime(),
+//				mentor.getMentoringskill(), mentor.getMentoredhours(), mentor.getMentorrating(),
+//				mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()));
 
-		return jdbctemplate.update(sql, mentor.getUserid(), mentor.getStartdatetime(), mentor.getEnddatetime(),
-				mentor.getMentoringskill(), mentor.getMentoredhours(), mentor.getMentorrating(),
-				mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()));
+		return jdbctemplate.update(addmentorquery, mentor.getUserid(), mentor.getStartdatetime(),
+				mentor.getEnddatetime(), mentor.getMentoringskill(), mentor.getMentoredhours(),
+				mentor.getMentorrating(), mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()));
 	}
 
 	@Override
