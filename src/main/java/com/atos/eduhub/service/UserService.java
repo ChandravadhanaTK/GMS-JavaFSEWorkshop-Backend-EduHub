@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.User;
 
-
 import org.springframework.stereotype.Service;
 
 import com.atos.eduhub.model.UserModel;
@@ -23,11 +22,14 @@ public interface UserService {
 
 	public User getUserById(int id);
 
-
 	public List<UserModel> findAll();
+
 	public UserModel findById(String userId);
-	public String  saveUserProfile(UserModel usermodel);
-	public String  deleteUserProfile(UserModel usermodel);
-	public String  updateUserProfile(UserModel usermodel);
-	
+
+	public String saveUserProfile(UserModel usermodel);
+
+	public String deleteUserProfile(UserModel usermodel);
+
+	public String updateUserProfile(UserModel usermodel);
+
 }

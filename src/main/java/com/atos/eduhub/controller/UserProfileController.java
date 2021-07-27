@@ -17,37 +17,40 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/eduhubapi/v1") 
-@Api(value="User Registration")
+@RequestMapping("/eduhubapi/v1")
+@Api(value = "User Registration")
 public class UserProfileController {
-	
+
 	@Autowired
 	private UserService service;
-	
+
 	@ApiOperation(value = "List of Registered Users", response = List.class)
 	@GetMapping("/allusers")
-	public List<UserModel> findAll(){
+	public List<UserModel> findAll() {
 		return service.findAll();
 	}
+
 	@GetMapping("/user/{userId}")
-	public UserModel findById(@PathVariable(value="userId") String userId) {
+	public UserModel findById(@PathVariable(value = "userId") String userId) {
 		return service.findById(userId);
 	}
-	
+
 	@PostMapping("/save")
-	public String  saveUserProfile(@RequestBody UserModel usermodel) {
+	public String saveUserProfile(@RequestBody UserModel usermodel) {
 		return service.saveUserProfile(usermodel);
 	}
-	
+
 	@PostMapping("/delete")
-	public String  deleteUserProfile(@RequestBody  UserModel usermodel) {
+	public String deleteUserProfile(@RequestBody UserModel usermodel) {
 		return service.deleteUserProfile(usermodel);
 	}
+
 	@PostMapping("/update")
-	public String  updateUserProfile(@RequestBody UserModel usermodel) {
+	public String updateUserProfile(@RequestBody UserModel usermodel) {
 		return service.updateUserProfile(usermodel);
-		
+
 	}
+
 	@GetMapping("/json")
 	public UserModel returnJson() {
 		return new UserModel();

@@ -7,20 +7,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Mentor {
-	
-	private int 		availabilityid;
-	private int 		userid;
-	private Timestamp 	startdatetime;
-	private Timestamp 	enddatetime;
-	private String 		mentoringskill;
-	private String 		mentoredhours;
-	private String 		mentorrating;
-	private String 		aboutmentor;
-	private Timestamp 	lastupdatedon; 
-	
-	
+
+	private int availabilityid;
+	private int userid;
+	private Timestamp startdatetime;
+	private Timestamp enddatetime;
+	private String mentoringskill;
+	private String mentoredhours;
+	private String mentorrating;
+	private String aboutmentor;
+	private Timestamp lastupdatedon;
+
 	public Mentor() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getAvailabilityid() {
@@ -75,31 +73,25 @@ public class Mentor {
 		return mentorrating;
 	}
 
-
 	public void setMentorrating(String mentorrating) {
 		this.mentorrating = mentorrating;
 	}
-
 
 	public String getAboutmentor() {
 		return aboutmentor;
 	}
 
-
 	public void setAboutmentor(String aboutmentor) {
 		this.aboutmentor = aboutmentor;
 	}
-
 
 	public Timestamp getLastupdatedon() {
 		return lastupdatedon;
 	}
 
-
 	public void setLastupdatedon() {
 		this.lastupdatedon = Timestamp.valueOf(LocalDateTime.now());
 	}
-
 
 	@Override
 	public String toString() {
@@ -107,7 +99,7 @@ public class Mentor {
 				+ startdatetime + ", enddatetime=" + enddatetime + ", mentoringskill=" + mentoringskill
 				+ ", mentoredhours=" + mentoredhours + ", mentorrating=" + mentorrating + ", aboutmentor=" + aboutmentor
 				+ ", lastupdatedon=" + lastupdatedon + "]";
-	}	
+	}
 }
 
 /* Adding comment */

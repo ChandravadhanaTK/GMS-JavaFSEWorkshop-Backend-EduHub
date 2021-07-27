@@ -21,31 +21,29 @@ import com.atos.eduhub.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	
 	@Autowired
 	private UserDao userDAO;
-	
 
 	@Override
 	public User addUser(User newUser) {
 		newUser.setUserName("Team4 - Add User");
 		newUser.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
 		newUser.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		return newUser;						
-		}
+		return newUser;
+	}
 
 	@Override
 	public User updateUser(int id, User updateUser) {
-		if(id==1) {
-			updateUser.setUserName("Team4 - Update User 1");	
+		if (id == 1) {
+			updateUser.setUserName("Team4 - Update User 1");
 			updateUser.setPassword(updateUser.getPassword());
 			updateUser.setLastLogin(Timestamp.valueOf("2018-11-12 01:02:03.123456"));
-						
+
 		} else {
 			updateUser.setUserName("Team4 - Update User non-1");
 		}
-		
-		return updateUser; 
+
+		return updateUser;
 	}
 
 	@Override
@@ -77,7 +75,7 @@ public class UserServiceImpl implements UserService {
 		User user2 = new User();
 		user2.setId(7);
 		user2.setUserName("Testname7");
-		
+
 		user2.setPassword("passwrd7");
 		user2.setFirstName("Tuserfn7");
 		user2.setSecondName("Tusersn7");
@@ -91,7 +89,7 @@ public class UserServiceImpl implements UserService {
 		user2.setRole("developer");
 		user2.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
 		user2.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		getUser.add(user2);		
+		getUser.add(user2);
 		return getUser;
 	}
 
@@ -99,7 +97,7 @@ public class UserServiceImpl implements UserService {
 	public User getUserById(int id) {
 		User user = new User();
 		user.setId(3);
-		user.setUserName("Team4 - View User by ID");	
+		user.setUserName("Team4 - View User by ID");
 		user.setPassword("Npasswrd3");
 		user.setFirstName("Nuserfn3");
 		user.setSecondName("Nusersn3");
@@ -114,23 +112,22 @@ public class UserServiceImpl implements UserService {
 		user.setCreatedOn(Timestamp.valueOf("2018-11-12 01:02:03.123456789"));
 		user.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
 		return user;
-		
+
 	}
 
-	
 	@Override
 	public List<UserModel> findAll() {
-		List<UserModel> userList=new ArrayList<>();
-		
-		for(Map<String, Object> eachresponse:userDAO.findAll()) {
-			UserModel usermodel= new UserModel();
+		List<UserModel> userList = new ArrayList<>();
+
+		for (Map<String, Object> eachresponse : userDAO.findAll()) {
+			UserModel usermodel = new UserModel();
 			usermodel.setUserId(String.valueOf(eachresponse.get("userid")));
 			usermodel.setFirstName(String.valueOf(eachresponse.get("firstname")));
 			usermodel.setLastName(String.valueOf(eachresponse.get("lastname")));
 			usermodel.setExperience(Float.valueOf(String.valueOf(eachresponse.get("experience"))));
 			usermodel.setDesignation(eachresponse.get("designation").toString());
 			userList.add(usermodel);
-	}
+		}
 		return userList;
 	}
 
@@ -141,17 +138,20 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String saveUserProfile(UserModel usermodel) {
-		return userDAO.saveUserProfile(usermodel)!=0? "Succesfully Saved "+usermodel.getUserId():"Unsuccesful"+usermodel.getUserId();
+		return userDAO.saveUserProfile(usermodel) != 0 ? "Succesfully Saved " + usermodel.getUserId()
+				: "Unsuccesful" + usermodel.getUserId();
 	}
 
 	@Override
 	public String deleteUserProfile(UserModel usermodel) {
-		return userDAO.deleteUserProfile(usermodel)!=0? "Deleted Succesfully  "+usermodel.getUserId():" Deletion Unsuccesful "+usermodel.getUserId();
+		return userDAO.deleteUserProfile(usermodel) != 0 ? "Deleted Succesfully  " + usermodel.getUserId()
+				: " Deletion Unsuccesful " + usermodel.getUserId();
 	}
 
 	@Override
 	public String updateUserProfile(UserModel usermodel) {
-		return  userDAO.updateUserProfile(usermodel)!=0? "Updated Successfully "+usermodel.getUserId():"Failed to Update "+usermodel.getUserId();
+		return userDAO.updateUserProfile(usermodel) != 0 ? "Updated Successfully " + usermodel.getUserId()
+				: "Failed to Update " + usermodel.getUserId();
 	}
 
 }

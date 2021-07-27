@@ -22,8 +22,8 @@ public class EduhubConfiguration {
 	}
 
 	private ApiInfo metaData() {
-		ApiInfo apiInfo = new ApiInfo("Education Hub API", "Spring Boot REST API for Online Store", "1.0",
-				"Terms of service", new Contact("Atos | Syntel", "https://localhost:8080/eduhub", ""),
+		ApiInfo apiInfo = new ApiInfo("EduHub - An Learning and Management Portal", "Spring Boot REST API for EduHub",
+				"1.0", "Terms of service", new Contact("Atos", "https://localhost:8080/eduhub", ""),
 				"Apache License Version 2.0", "https://www.apache.org/licenses/LICENSE-2.0");
 		return apiInfo;
 	}

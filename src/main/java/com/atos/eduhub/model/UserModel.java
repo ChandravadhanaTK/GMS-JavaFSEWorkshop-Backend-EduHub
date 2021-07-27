@@ -10,13 +10,11 @@ public class UserModel {
 	private String designation;
 	private float experience;
 	private String password;
-	
-	
-	
+
 	public UserModel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
 	public UserModel(String userId, String firstName, String lastName, String designation, float experience,
 			String password) {
 		super();
@@ -27,42 +25,55 @@ public class UserModel {
 		this.experience = experience;
 		this.password = password;
 	}
+
 	public String getUserId() {
 		return userId;
 	}
+
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getDesignation() {
 		return designation;
 	}
+
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
+
 	public float getExperience() {
 		return experience;
 	}
+
 	public void setExperience(float experience) {
 		this.experience = experience;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -71,11 +82,5 @@ public class UserModel {
 				.append(", experience=").append(experience).append(", password=").append(password).append("]");
 		return builder.toString();
 	}
-	
-	
-	
-	
-	
-	
 
 }

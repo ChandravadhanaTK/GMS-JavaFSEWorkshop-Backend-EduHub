@@ -9,15 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 @ComponentScan
-public class EduHubApplication  {
+public class EduHubApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EduHubApplication.class, args);
 	}
-	
-	 
 
-	@RequestMapping(value="/")
+	@RequestMapping(value = "/")
 	public String hello() {
 		return "<h1> Hello All </h1>";
 	}

@@ -42,56 +42,41 @@ public class ApprovalController {
 		System.out.println("Post request received for addApproval() for id " + approval.getApprovalId());
 		return approvalService.addApproval(approval);
 	}
-	
-	//Edit Approval
+
+	// Edit Approval
 	@PutMapping("/approval")
 	public Approval editApproval(@RequestBody Approval approval) {
-		System.out.println("Put request received for editApproval() for id "+ approval.getApprovalId());
+		System.out.println("Put request received for editApproval() for id " + approval.getApprovalId());
 		return approvalService.editApproval(approval);
 	}
 
 	// Delete single approval
-	//Delete REST API Demo
+	// Delete REST API Demo
 	@DeleteMapping("deleteapproval/{approvalId}")
-	public String deleteCourse(@PathVariable(value=	"approvalId") int approvalId) {
-		return "Deleted Approval id  " +  approvalId;
+	public String deleteCourse(@PathVariable(value = "approvalId") int approvalId) {
+		return "Deleted Approval id  " + approvalId;
 	}
-    
+
 	// Delete all approvals
-	//Delete all REST API Demo
+	// Delete all REST API Demo
 	@DeleteMapping("/deleteallapproval")
 	@ResponseBody
 	public String deleteAllApprovals() {
 		return approvalService.deleteAllApprovals();
 	}
-	
-	
+
 	@GetMapping("/approval/{id}")
 	@ResponseBody
 	public Approval viewOneApprovalDetails(@PathVariable(value = "id") int id) {
 		System.out.println("Get request received for viewOneApprovalDetails() for id " + id);
 		return approvalService.viewOneApproval(id);
 	}
-	
+
 	@GetMapping("/approvals")
 	@ResponseBody
-	public List<Approval> viewAllApprovalDetails(){
+	public List<Approval> viewAllApprovalDetails() {
 		System.out.println("Get request received for viewAllApprovalDetails() ");
 		return approvalService.viewAllApprovals();
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

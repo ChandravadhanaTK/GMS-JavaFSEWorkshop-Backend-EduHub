@@ -9,9 +9,8 @@ import org.springframework.stereotype.Component;
 import com.atos.eduhub.model.Approval;
 import com.atos.eduhub.service.ApprovalService;
 
-
 @Component
-public class ApprovalServiceImpl implements ApprovalService{
+public class ApprovalServiceImpl implements ApprovalService {
 
 	@Override
 	public Approval addApproval(Approval approval) {
@@ -19,7 +18,7 @@ public class ApprovalServiceImpl implements ApprovalService{
 		System.out.println(approval);
 		return approval;
 	}
-	
+
 	@Override
 	public Approval editApproval(Approval approval) {
 		System.out.println("Approval object updated for PUT request:");
@@ -29,9 +28,8 @@ public class ApprovalServiceImpl implements ApprovalService{
 
 	@Override
 	public void deleteApproval() {
-		// TODO Auto-generated method stub
 	}
-	
+
 	@Override
 	public Approval viewOneApproval(int approvalId) {
 		Approval approval = new Approval();
@@ -57,7 +55,7 @@ public class ApprovalServiceImpl implements ApprovalService{
 		approval1.setCreatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
 		approval1.setLastUpdatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
 		approvalList.add(approval1);
-		
+
 		Approval approval2 = new Approval();
 		approval2.setApprovalId(2);
 		approval2.setRequestId(777777);
@@ -67,7 +65,7 @@ public class ApprovalServiceImpl implements ApprovalService{
 		approval2.setCreatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
 		approval2.setLastUpdatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
 		approvalList.add(approval2);
-		
+
 		return approvalList;
 	}
 

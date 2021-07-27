@@ -66,7 +66,6 @@ public class CoursesController {
 
 	// Get one course details REST API Demo
 
-
 	@GetMapping("/Course/{courseid}")
 
 	public Course getCourseById(@PathVariable(value = "courseid") int courseid) {
