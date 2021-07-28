@@ -11,6 +11,8 @@ public interface MentorDao {
 	
 	int addMentor(Mentor mentor);
 	
+	int editMentor(Mentor mentor);
+	
 	int deleteMentor(int mentorId);
 	
 	int deleteAllMentors();

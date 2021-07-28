@@ -30,24 +30,17 @@ public class MentorServiceImpl implements MentorService {
 				: "Issue with adding mentor " + mentorreq.getUserid();
 
 	}
-
+	
 	@Override
 	public String editMentor(@RequestBody Mentor mentorreq) {
 
-		mentor.setLastupdatedon();
-		mentor.setUserid(mentorreq.getUserid());
-		mentor.setEnddatetime(mentorreq.getEnddatetime());
-		mentor.setAboutmentor(mentorreq.getAboutmentor());
-		mentor.setMentorrating(mentorreq.getMentorrating());
-		mentor.setStartdatetime(mentorreq.getStartdatetime());
-		mentor.setMentoredhours(mentorreq.getMentoredhours());
-		mentor.setAvailabilityid(mentorreq.getAvailabilityid());
-		mentor.setMentoringskill(mentorreq.getMentoringskill());
+		return mentordaoimpl.editMentor(mentorreq) > 0
+				? "Mentor " + mentorreq.getUserid() + " has been updated to EduHub successfully"
+				: "Update unsuccessfull " + mentorreq.getUserid() + " does not exists ";
 
-		System.out.println(mentor);
-		return "Mentor " + mentorreq.getUserid() + " has been updated successfully";
 	}
 
+	
 	@Override
 	public Mentor viewMentor() {
 

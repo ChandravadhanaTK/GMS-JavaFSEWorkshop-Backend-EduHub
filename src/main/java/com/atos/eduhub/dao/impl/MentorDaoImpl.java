@@ -24,6 +24,9 @@ public class MentorDaoImpl implements MentorDao {
 	@Value("${add_mentor}")
 	private String addmentorquery;
 	
+	@Value("${edit_mentor}")
+	private String editmentorquery;
+	
 	@Value("${show_all_mentors}")
 	private String showAllMentors;
 
@@ -37,6 +40,14 @@ public class MentorDaoImpl implements MentorDao {
 		return jdbctemplate.update(addmentorquery, mentor.getUserid(), mentor.getStartdatetime(),
 				mentor.getEnddatetime(), mentor.getMentoringskill(), mentor.getMentoredhours(),
 				mentor.getMentorrating(), mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()));
+	}
+
+	@Override
+	public int editMentor(Mentor mentor) {
+
+		return jdbctemplate.update(editmentorquery, mentor.getStartdatetime(),
+				mentor.getEnddatetime(), mentor.getMentoringskill(), mentor.getMentoredhours(),
+				mentor.getMentorrating(), mentor.getAboutmentor(), Timestamp.valueOf(LocalDateTime.now()), mentor.getUserid());
 	}
 
 	@Override
