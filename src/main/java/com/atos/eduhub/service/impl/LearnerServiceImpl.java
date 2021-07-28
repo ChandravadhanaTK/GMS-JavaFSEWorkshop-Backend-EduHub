@@ -2,14 +2,21 @@ package com.atos.eduhub.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.atos.eduhub.dao.LearnerDao;
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.service.LearnerService;
 
-@Component
+@Service
 public class LearnerServiceImpl implements LearnerService {
+	
+	@Autowired
+	private LearnerDao learnerDao;
 
 	@Override
 	public Learner addLearner(Learner newLearner) {
@@ -62,6 +69,33 @@ public class LearnerServiceImpl implements LearnerService {
 	@Override
 	/* public String viewAllLearners() { */
 	public List<Learner> viewAllLearners() {
+		List<Learner> LearnerList=new ArrayList<>();
+		
+		for(Map<String, Object> eachresponse:learnerDao.viewAllLearners()) {
+			Learner learnermodel= new Learner();
+			
+			learnermodel.setRequestId(Integer.valueOf(String.valueOf(eachresponse.get("requestId"))));
+			learnermodel.setUserId(Integer.valueOf(String.valueOf(eachresponse.get("userId"))));
+			learnermodel.setRole(String.valueOf(eachresponse.get("role")));
+			learnermodel.setCourseId(Integer.valueOf(String.valueOf(eachresponse.get("courseId"))));
+			learnermodel.setRmid(Integer.valueOf(String.valueOf(eachresponse.get("rmid"))));
+			learnermodel.setApprovalId(Integer.valueOf(String.valueOf(eachresponse.get("approvalId"))));
+			learnermodel.setApprovalStatus(String.valueOf(eachresponse.get("approvalStatus")));
+			learnermodel.setStatusMessage(String.valueOf(eachresponse.get("statusMessage")));
+			learnermodel.setAssignmentId(Integer.valueOf(String.valueOf(eachresponse.get("assignmentId"))));
+			learnermodel.setAssignmentStatus(String.valueOf(eachresponse.get("assignmentStatus")));
+			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
+			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
+			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
+//			learnermodel.setLast_update_on(String.valueOf(eachresponse.get("last_update_on"));
+			
+		
+		
+			LearnerList.add(learnermodel);
+		}
+		
+		return LearnerList;
+/*
 		List<Learner> getLearner = new ArrayList<Learner>();
 		Learner learner1 = new Learner();
 
@@ -121,6 +155,7 @@ public class LearnerServiceImpl implements LearnerService {
 		getLearner.add(learner3);
 
 		return getLearner;
+	*/
 	}
 
 }

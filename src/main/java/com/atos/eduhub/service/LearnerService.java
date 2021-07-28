@@ -13,7 +13,7 @@ public interface LearnerService {
 
 	public Learner updateLearner(int id, Learner updateLearner);
 
-	public String delete1Learner(int id);
+	public String delete1Learner(int userId);
 
 	public String deleteAllLearner();
 

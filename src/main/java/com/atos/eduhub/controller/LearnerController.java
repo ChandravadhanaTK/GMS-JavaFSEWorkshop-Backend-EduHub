@@ -60,11 +60,8 @@ public class LearnerController {
 	// View all Learners
 	@GetMapping("/learner")
 	public List<Learner> viewAllLearners() {
-		// public String viewAllLearners() {
-		// String viewAllString = learnerService.viewAllLearners();
-		// return ResponseEntity.ok().build();
-		// return viewAllString;
 		return learnerService.viewAllLearners();
 	}
+	
 
 }

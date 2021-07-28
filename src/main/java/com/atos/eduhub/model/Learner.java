@@ -1,8 +1,12 @@
 package com.atos.eduhub.model;
 
+import java.io.Serializable;
 import java.security.Timestamp;
 
-public class Learner {
+public class Learner implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private int requestId;
 	private int userId;
 	private String role;
@@ -18,6 +22,10 @@ public class Learner {
 	private String learnerScore;
 	private Timestamp last_update_on;
 
+	public Learner() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public int getRequestId() {
 		return requestId;
 	}
