@@ -1,5 +1,6 @@
 package com.atos.eduhub.dao.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.atos.eduhub.dao.LearnerDao;
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.model.LearnerModel;
-import com.atos.eduhub.model.UserModel;
+//import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.rowmapper.LearnerRowMapper;
 
 @Repository
@@ -42,13 +43,31 @@ public class LearnerDaoImpl implements LearnerDao {
 		
 	}
 	
+	//requestId,userid,role,courseId,rmid,approvalId,approvalStatus,statusMessage,assignmentId,
+	//assignmentStatus,assignmentStatusMessage,learnerDescription,learnerScore,lastUpdatedOn
 	@Override
 	public int saveLearner(LearnerModel learnermodel) {
-		return jdbcTemplate.update(learnerprofile_save, learnermodel.getUserId()
-//				, usermodel.getFirstName(),
-//				usermodel.getLastName(), usermodel.getPassword(), usermodel.getDesignation(),
-//				usermodel.getExperience()
-				);
+		
+		LocalDateTime localDateTime= LocalDateTime.now();
+		learnermodel.setLocalDateTime(localDateTime);
+		
+		return jdbcTemplate.update(learnerprofile_save, 
+				 learnermodel.getRequestId()
+				, learnermodel.getUserId()
+				, learnermodel.getRole()
+				, learnermodel.getCourseId()
+				, learnermodel.getRmid()
+				, learnermodel.getApprovalId()
+				, learnermodel.getApprovalStatus()
+				, learnermodel.getStatusMessage()
+				, learnermodel.getAssignmentId()
+				, learnermodel.getAssignmentStatus()
+				, learnermodel.getAssignmentStatusMessage()
+				, learnermodel.getLearnerDescription()
+				, learnermodel.getLearnerScore()
+				, learnermodel.getLocalDateTime()
 
+				);
+	//	return 0;
 	}
 }

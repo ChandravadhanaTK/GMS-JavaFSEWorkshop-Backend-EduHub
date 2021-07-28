@@ -22,7 +22,7 @@ public class LearnerModel implements Serializable{
 	private String assignmentStatusMessage;
 	private String learnerDescription;
 	private String learnerScore;
-	private Timestamp last_update_on;
+	private Timestamp lastUpdateOn;
 	private LocalDateTime localDateTime;
 	
 	
@@ -50,7 +50,7 @@ public class LearnerModel implements Serializable{
 		this.assignmentStatusMessage = assignmentStatusMessage;
 		this.learnerDescription = learnerDescription;
 		this.learnerScore = learnerScore;
-		this.last_update_on = last_update_on;
+		this.lastUpdateOn = last_update_on;
 		this.localDateTime = localDateTime;
 	}
 	
@@ -158,12 +158,12 @@ public class LearnerModel implements Serializable{
 		this.learnerScore = learnerScore;
 	}
 
-	public Timestamp getLast_update_on() {
-		return last_update_on;
+	public Timestamp getLastUpdateOn() {
+		return lastUpdateOn;
 	}
 
-	public void setLast_update_on(Timestamp last_update_on) {
-		this.last_update_on = last_update_on;
+	public void setLasUpdateOn(Timestamp lastUpdateOn) {
+		this.lastUpdateOn = lastUpdateOn;
 	}
 
 	public LocalDateTime getLocalDateTime() {
@@ -204,7 +204,7 @@ public class LearnerModel implements Serializable{
 		builder.append(", learnerScore=");
 		builder.append(learnerScore);
 		builder.append(", last_update_on=");
-		builder.append(last_update_on);
+		builder.append(lastUpdateOn);
 		builder.append(", localDateTime=");
 		builder.append(localDateTime);
 		builder.append("]");

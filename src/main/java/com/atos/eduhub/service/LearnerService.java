@@ -10,7 +10,7 @@ import com.atos.eduhub.model.LearnerModel;
 @Component
 public interface LearnerService {
 
-	public Learner addLearner(LearnerModel model);
+	public String addLearner(LearnerModel model);
 
 	public Learner updateLearner(int id, Learner updateLearner);
 

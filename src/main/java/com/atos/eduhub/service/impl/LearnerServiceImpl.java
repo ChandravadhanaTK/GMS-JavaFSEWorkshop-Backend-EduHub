@@ -19,12 +19,18 @@ public class LearnerServiceImpl implements LearnerService {
 	@Autowired
 	private LearnerDao learnerDao;
 	
-	public Learner addLearner(LearnerModel learnermodel) {
+	@Override
+	public String addLearner(LearnerModel learnermodel) {
 		// TODO Auto-generated method stub
-		learnerDao.saveLearner(learnermodel);
-		return null;
+		String message="";
+		int response=learnerDao.saveLearner(learnermodel);
+		if (response!=0) {
+			message="Insert Successful";
+		} else {
+			message="Insert Failed";
+		}
+		return message;
 	}
-
 	@Override
 	public Learner updateLearner(int id, Learner updateLearner) {
 		return updateLearner;
@@ -88,7 +94,7 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
 			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
 			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
-//			learnermodel.setLast_update_on(String.valueOf(eachresponse.get("last_update_on"));
+	//		learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
 			
 		
 		

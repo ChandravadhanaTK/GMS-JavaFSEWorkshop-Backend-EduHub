@@ -26,13 +26,13 @@ public class LearnerController {
 
 	// Add Learner
 	@PutMapping("/learner")
-//	public Learner addLearner(@RequestBody Learner newLearner) {
+//	public Learner addLearner(@RequestBody LearnerModel newLearner) {
 //		return learnerService.addLearner(newLearner);
 //	}
-	
-	public String addLearner(@RequestBody LearnerModel newLearner) {
-		//	return learnerService.addLearner(newLearner);
-			return null;
+//	
+	public String addLearner(@RequestBody LearnerModel learnermodel) {
+		return learnerService.addLearner(learnermodel);
+	//		return "Insert Successfull";
 	}
 
 	// update Learner
