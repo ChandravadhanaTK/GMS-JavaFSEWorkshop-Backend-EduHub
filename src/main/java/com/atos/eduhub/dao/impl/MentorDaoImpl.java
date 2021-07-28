@@ -29,6 +29,12 @@ public class MentorDaoImpl implements MentorDao {
 	
 	@Value("${show_all_mentors}")
 	private String showAllMentors;
+	
+	@Value("${delete_mentor}")
+	private String deleteMentor;
+	
+	@Value("${delete_all_mentors}")
+	private String deleteAllMentors;
 
 	public MentorDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -53,17 +59,13 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public int deleteAllMentors() {
 
-		String sql = "DELETE FROM public.mentor";
-
-		return jdbctemplate.update(sql);
+		return jdbctemplate.update(deleteAllMentors);
 	}
 
 	@Override
 	public int deleteMentor(int mentorId) {
 
-		String sql = "DELETE FROM public.mentor WHERE userid=?";
-
-		return jdbctemplate.update(sql, mentorId);
+		return jdbctemplate.update(deleteMentor, mentorId);
 	}
 
 	@Override
