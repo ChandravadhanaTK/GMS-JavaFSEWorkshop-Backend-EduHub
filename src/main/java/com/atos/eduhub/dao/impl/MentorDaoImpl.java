@@ -30,6 +30,9 @@ public class MentorDaoImpl implements MentorDao {
 	@Value("${show_all_mentors}")
 	private String showAllMentors;
 	
+	@Value("${show_mentor_by_id}")
+	private String showMentorById;
+	
 	@Value("${delete_mentor}")
 	private String deleteMentor;
 	
@@ -74,6 +77,30 @@ public class MentorDaoImpl implements MentorDao {
 		List<Map<String, Object>> rows = jdbctemplate.queryForList(showAllMentors);
 		
 		List<Mentor> result = new ArrayList<Mentor>();
+		
+		for(Map<String, Object> row:rows){
+			Mentor mentor = new Mentor();
+			mentor.setAvailabilityid((int) row.get("availabilityid"));
+			mentor.setUserid((int)row.get("userid"));
+			mentor.setStartdatetime((Timestamp)row.get("startdatetime"));
+			mentor.setEnddatetime((Timestamp) row.get("enddatetime"));
+			mentor.setMentoringskill((String) row.get("mentoringskill"));
+			mentor.setMentoredhours((String) row.get("mentoredhours"));
+			mentor.setMentorrating((String) row.get("mentorrating"));
+			mentor.setAboutmentor((String) row.get("aboutmentor"));
+			mentor.setLastupdatedon((Timestamp)row.get("last_updated_on"));
+			result.add(mentor);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public List<Mentor> viewMentorById(int userid) {
+        List<Map<String, Object>> rows = jdbctemplate.queryForList(showMentorById, userid);
+		
+		List<Mentor> result = new ArrayList<Mentor>();
+		System.out.println(result);
 		
 		for(Map<String, Object> row:rows){
 			Mentor mentor = new Mentor();

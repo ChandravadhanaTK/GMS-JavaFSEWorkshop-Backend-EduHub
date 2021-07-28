@@ -19,6 +19,6 @@ public interface MentorDao {
 	
 	List<Mentor> viewAllMentors();
 	
-	//<List>Mentor findMentorById(int userid);
+	List<Mentor> viewMentorById(int userid);
 	
 }

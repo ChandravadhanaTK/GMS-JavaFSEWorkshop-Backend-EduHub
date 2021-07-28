@@ -1,8 +1,5 @@
 package com.atos.eduhub.service.impl;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,21 +36,12 @@ public class MentorServiceImpl implements MentorService {
 				: "Update unsuccessfull " + mentorreq.getUserid() + " does not exists ";
 
 	}
-
+	
 	@Override
-	public Mentor viewMentor() {
+	public List<Mentor> viewMentor(int userid) {
+		List<Mentor> getMentors = mentordaoimpl.viewMentorById(userid);
+		return getMentors;
 
-		mentor.setAvailabilityid(100);
-		mentor.setUserid(1000);
-		mentor.setStartdatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor.setEnddatetime(Timestamp.valueOf(LocalDateTime.now()));
-		mentor.setMentoringskill("Java");
-		mentor.setMentoredhours("10");
-		mentor.setMentorrating("5");
-		mentor.setAboutmentor("Java mentor");
-		mentor.setLastupdatedon();
-
-		return mentor;
 	}
 
 	@Override

@@ -36,13 +36,13 @@ public class MentorController {
 
 	// Following controller code lists the first mentor registered in EduHub
 	@GetMapping("/mentor/{id}")
-	public Mentor viewMentor() {
-		return mentorservice.viewMentor();
+	public List<Mentor> viewMentor(@PathVariable(value = "id") int id) {
+		return mentorservice.viewMentor(id);
 	}
 
 	// Following controller code lists all mentors registered in EduHub
 	@GetMapping("/mentor")
-	public List<Mentor> showMentor() {
+	public List<Mentor> viewAllMentors() {
 		return mentorservice.viewAllMentors();
 	}
 

@@ -14,7 +14,7 @@ public interface MentorService {
 
 	public String editMentor(@RequestBody Mentor mentorreq);
 
-	public Mentor viewMentor();
+	public List<Mentor> viewMentor(int userid);
 
 	public List<Mentor> viewAllMentors();
 
