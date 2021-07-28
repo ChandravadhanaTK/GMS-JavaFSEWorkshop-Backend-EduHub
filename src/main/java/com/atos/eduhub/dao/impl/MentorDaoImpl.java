@@ -67,7 +67,7 @@ public class MentorDaoImpl implements MentorDao {
 	}
 
 	@Override
-	public List<Mentor> loadAllMentors() throws DataAccessException {
+	public List<Mentor> viewAllMentors() throws DataAccessException {
 		
 		List<Map<String, Object>> rows = jdbctemplate.queryForList(showAllMentors);
 		
@@ -83,10 +83,11 @@ public class MentorDaoImpl implements MentorDao {
 			mentor.setMentoredhours((String) row.get("mentoredhours"));
 			mentor.setMentorrating((String) row.get("mentorrating"));
 			mentor.setAboutmentor((String) row.get("aboutmentor"));
-			mentor.setLastupdatedon();
+			mentor.setLastupdatedon((Timestamp)row.get("last_updated_on"));
 			result.add(mentor);
 		}
 		
 		return result;
 	}
+	
 }

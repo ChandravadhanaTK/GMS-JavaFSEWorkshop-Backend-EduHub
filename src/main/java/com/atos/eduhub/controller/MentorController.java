@@ -35,13 +35,13 @@ public class MentorController {
 	}
 
 	// Following controller code lists the first mentor registered in EduHub
-	@GetMapping("/mentor")
+	@GetMapping("/mentor/{id}")
 	public Mentor viewMentor() {
 		return mentorservice.viewMentor();
 	}
 
 	// Following controller code lists all mentors registered in EduHub
-	@GetMapping("/mentors")
+	@GetMapping("/mentor")
 	public List<Mentor> showMentor() {
 		return mentorservice.viewAllMentors();
 	}

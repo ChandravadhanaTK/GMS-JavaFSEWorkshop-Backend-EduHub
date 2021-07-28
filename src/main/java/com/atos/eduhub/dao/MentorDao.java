@@ -17,6 +17,8 @@ public interface MentorDao {
 	
 	int deleteAllMentors();
 	
-	List<Mentor> loadAllMentors();
+	List<Mentor> viewAllMentors();
+	
+	//<List>Mentor findMentorById(int userid);
 	
 }

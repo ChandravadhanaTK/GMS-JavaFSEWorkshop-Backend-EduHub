@@ -59,7 +59,7 @@ public class MentorServiceImpl implements MentorService {
 	@Override
 	public List<Mentor> viewAllMentors() {
 
-		List<Mentor> getMentors = mentordaoimpl.loadAllMentors();
+		List<Mentor> getMentors = mentordaoimpl.viewAllMentors();
 		return getMentors;
 	}
 

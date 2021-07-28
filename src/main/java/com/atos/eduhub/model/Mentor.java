@@ -93,6 +93,10 @@ public class Mentor {
 		this.lastupdatedon = Timestamp.valueOf(LocalDateTime.now());
 	}
 
+	public void setLastupdatedon(Timestamp lastupdatedon) {
+		this.lastupdatedon = lastupdatedon;
+	}
+	
 	@Override
 	public String toString() {
 		return "MentorModel [availabilityid=" + availabilityid + ", userid=" + userid + ", startdatetime="
