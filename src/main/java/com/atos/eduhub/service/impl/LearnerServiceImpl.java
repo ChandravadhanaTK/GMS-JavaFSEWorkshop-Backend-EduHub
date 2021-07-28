@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.atos.eduhub.dao.LearnerDao;
 import com.atos.eduhub.model.Learner;
+import com.atos.eduhub.model.LearnerModel;
 import com.atos.eduhub.service.LearnerService;
 
 @Service
@@ -17,11 +18,11 @@ public class LearnerServiceImpl implements LearnerService {
 	
 	@Autowired
 	private LearnerDao learnerDao;
-
-	@Override
-	public Learner addLearner(Learner newLearner) {
-		// newLearner.setName("Add new learner");
-		return newLearner;
+	
+	public Learner addLearner(LearnerModel learnermodel) {
+		// TODO Auto-generated method stub
+		learnerDao.saveLearner(learnermodel);
+		return null;
 	}
 
 	@Override
@@ -157,5 +158,7 @@ public class LearnerServiceImpl implements LearnerService {
 		return getLearner;
 	*/
 	}
+
+	
 
 }

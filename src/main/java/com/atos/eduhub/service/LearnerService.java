@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Learner;
+import com.atos.eduhub.model.LearnerModel;
 
 @Component
 public interface LearnerService {
 
-	public Learner addLearner(Learner newLearner);
+	public Learner addLearner(LearnerModel model);
 
 	public Learner updateLearner(int id, Learner updateLearner);
 

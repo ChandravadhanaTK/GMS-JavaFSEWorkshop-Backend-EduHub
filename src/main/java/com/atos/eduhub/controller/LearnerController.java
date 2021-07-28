@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atos.eduhub.model.Learner;
+import com.atos.eduhub.model.LearnerModel;
 import com.atos.eduhub.service.LearnerService;
 //import com.atos.eduhub.service.impl.LearnerServiceImpl;
 
@@ -25,8 +26,13 @@ public class LearnerController {
 
 	// Add Learner
 	@PutMapping("/learner")
-	public Learner addLearner(@RequestBody Learner newLearner) {
-		return learnerService.addLearner(newLearner);
+//	public Learner addLearner(@RequestBody Learner newLearner) {
+//		return learnerService.addLearner(newLearner);
+//	}
+	
+	public String addLearner(@RequestBody LearnerModel newLearner) {
+		//	return learnerService.addLearner(newLearner);
+			return null;
 	}
 
 	// update Learner
