@@ -40,7 +40,6 @@ public class MentorServiceImpl implements MentorService {
 
 	}
 
-	
 	@Override
 	public Mentor viewMentor() {
 
@@ -59,9 +58,7 @@ public class MentorServiceImpl implements MentorService {
 
 	@Override
 	public List<Mentor> viewAllMentors() {
-		// TODO Auto-generated method stub
 
-		
 		List<Mentor> getMentors = mentordaoimpl.loadAllMentors();
 		return getMentors;
 	}
