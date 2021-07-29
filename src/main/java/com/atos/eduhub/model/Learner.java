@@ -145,4 +145,8 @@ public class Learner implements Serializable {
 	public void setLocalDateTime(LocalDateTime localDateTime) {
 		this.localDateTime = localDateTime;
 	}
+	public void setLastUpdateOn(String valueOf) {
+		// TODO Auto-generated method stub
+		
+	}
 }

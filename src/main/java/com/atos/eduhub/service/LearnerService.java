@@ -18,7 +18,7 @@ public interface LearnerService {
 
 	public String deleteAllLearner();
 
-	public Learner viewLearner();
+	public List<Learner> view1Learner(int id);
 
 	public List<Learner> viewAllLearners();
 }

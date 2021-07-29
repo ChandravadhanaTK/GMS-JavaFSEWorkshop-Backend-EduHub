@@ -61,26 +61,33 @@ public class LearnerServiceImpl implements LearnerService {
 	}
 
 	@Override
-	public Learner viewLearner() {
-
-		Learner newLearner = new Learner();
-
-		newLearner.setRequestId(999);
-		newLearner.setUserId(3425);
-		newLearner.setRole("FSD Learning");
-		newLearner.setCourseId(20);
-		newLearner.setRmid(50);
-		newLearner.setApprovalId(6677);
-		newLearner.setApprovalStatus("Approved");
-		newLearner.setStatusMessage("GetMapping is working");
-		newLearner.setAssignmentId(70);
-		newLearner.setAssignmentStatus("Assignment Completed");
-		newLearner.setAssignmentStatusMessage("Assignment Approved Msg");
-		newLearner.setLearnerDescription("FSD Learning in Progress");
-		newLearner.setLearnerScore("SCORE is 9");
-		newLearner.setLast_update_on(null);
-
-		return newLearner;
+	public List<Learner> view1Learner(int id) {
+		List<Learner> LearnerList=new ArrayList<>();
+		
+		for(Map<String, Object> eachresponse:learnerDao.view1Learner(id)) {
+			Learner learnermodel= new Learner();
+			
+			learnermodel.setRequestId(Integer.valueOf(String.valueOf(eachresponse.get("requestId"))));
+			learnermodel.setUserId(Integer.valueOf(String.valueOf(eachresponse.get("userId"))));
+			learnermodel.setRole(String.valueOf(eachresponse.get("role")));
+			learnermodel.setCourseId(Integer.valueOf(String.valueOf(eachresponse.get("courseId"))));
+			learnermodel.setRmid(Integer.valueOf(String.valueOf(eachresponse.get("rmid"))));
+			learnermodel.setApprovalId(Integer.valueOf(String.valueOf(eachresponse.get("approvalId"))));
+			learnermodel.setApprovalStatus(String.valueOf(eachresponse.get("approvalStatus")));
+			learnermodel.setStatusMessage(String.valueOf(eachresponse.get("statusMessage")));
+			learnermodel.setAssignmentId(Integer.valueOf(String.valueOf(eachresponse.get("assignmentId"))));
+			learnermodel.setAssignmentStatus(String.valueOf(eachresponse.get("assignmentStatus")));
+			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
+			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
+			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
+	//  	learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
+			
+		
+		
+			LearnerList.add(learnermodel);
+		}
+		
+		return LearnerList;
 	}
 
 	/*
@@ -108,7 +115,7 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
 			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
 			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
-	//		learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
+	//  	learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
 			
 		
 		

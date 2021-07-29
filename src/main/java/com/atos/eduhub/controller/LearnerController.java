@@ -58,10 +58,10 @@ public class LearnerController {
 		return "Deleted all learner";
 	}
 
-	// View 1 Learner
-	@GetMapping("/learner/{id}")
-	public Learner viewLearner() {
-		return learnerService.viewLearner();
+	// View all for 1 user
+	@GetMapping("/user/{id}")
+	public List<Learner> viewLearner(@PathVariable(value = "id") int id) {
+		return learnerService.view1Learner(id);
 	}
 
 	// View all Learners

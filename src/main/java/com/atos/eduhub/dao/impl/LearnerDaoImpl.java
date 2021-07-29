@@ -28,6 +28,8 @@ public class LearnerDaoImpl implements LearnerDao {
 	private String learnerprofile_save;
 	@Value("${learnerprofile_updateByID}")
 	private String learnerprofile_updateByID;
+	@Value("${learnerprofile_view1Learner}")
+	private String learnerprofile_view1Learner;
 
 	@Override
 	public List<Map<String, Object>>  viewAllLearners() {
@@ -37,6 +39,15 @@ public class LearnerDaoImpl implements LearnerDao {
 	public List<Learner> findAllWithRowMapper() {
 		return jdbcTemplate.query(learnerprofile_viewAllLearners,new LearnerRowMapper());
 	}
+	
+	@Override
+	public List<Map<String, Object>>  view1Learner(int id) {
+		return jdbcTemplate.queryForList(learnerprofile_view1Learner, id );
+	}
+	
+//	public List<Learner> findAllWithRowMapper2() {
+//		return jdbcTemplate.query(learnerprofile_view1Learner,new LearnerRowMapper());
+//	}
 
 
 	@Override
