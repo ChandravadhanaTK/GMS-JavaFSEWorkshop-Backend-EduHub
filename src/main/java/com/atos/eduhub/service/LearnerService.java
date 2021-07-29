@@ -12,7 +12,7 @@ public interface LearnerService {
 
 	public String addLearner(LearnerModel model);
 
-	public Learner updateLearner(int id, Learner updateLearner);
+	public String updateLearner(int id, Learner updateLearner);
 
 	public String delete1Learner(int userId);
 

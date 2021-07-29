@@ -32,8 +32,15 @@ public class LearnerServiceImpl implements LearnerService {
 		return message;
 	}
 	@Override
-	public Learner updateLearner(int id, Learner updateLearner) {
-		return updateLearner;
+	public String updateLearner(int id, Learner updateLearner) {
+		String message="";
+		int response=learnerDao.updateLearner( id, updateLearner);
+		if (response!=0) {
+			message="update Successful";
+		} else {
+			message="update Failed";
+		}
+		return message;
 	}
 
 	@Override

@@ -26,6 +26,8 @@ public class LearnerDaoImpl implements LearnerDao {
 	private String learnerprofile_deleteById;
 	@Value("${learnerprofile_save}")
 	private String learnerprofile_save;
+	@Value("${learnerprofile_updateByID}")
+	private String learnerprofile_updateByID;
 
 	@Override
 	public List<Map<String, Object>>  viewAllLearners() {
@@ -69,8 +71,21 @@ public class LearnerDaoImpl implements LearnerDao {
 				, learnermodel.getLocalDateTime()
 
 				);
-	//	return 0;
 	}
-
-	
+		public int updateLearner(int id, Learner updateLearner) {
+			
+			LocalDateTime localDateTime= LocalDateTime.now();
+			updateLearner.setLocalDateTime(localDateTime);
+			
+			return jdbcTemplate.update(learnerprofile_updateByID
+					, updateLearner.getApprovalStatus()
+					, updateLearner.getStatusMessage()
+					, updateLearner.getAssignmentStatus()
+					, updateLearner.getAssignmentStatusMessage()
+					, updateLearner.getLearnerScore()
+					, updateLearner.getLocalDateTime()
+					, id
+					);
+	}
+		
 }

@@ -36,7 +36,7 @@ public class LearnerController {
 
 	// update Learner
 	@PutMapping("/learner/{id}")
-	public Learner updateLearner(@PathVariable(name = "id") int id, @RequestBody Learner updateLearner) {
+	public String updateLearner(@PathVariable(name = "id") int id, @RequestBody Learner updateLearner) {
 		return learnerService.updateLearner(id, updateLearner);
 	}
 

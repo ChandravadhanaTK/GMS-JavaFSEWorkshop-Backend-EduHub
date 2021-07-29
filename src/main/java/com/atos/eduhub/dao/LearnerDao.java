@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.model.LearnerModel;
 import com.atos.eduhub.model.UserModel;
 
@@ -15,8 +16,9 @@ public interface LearnerDao {
 //	public UserModel findById(String userId);
 	public int  saveLearner(LearnerModel learnermodel);
 	public int  delete1Learner(int userId);
-//	public int  updateUserProfile(UserModel usermodel);
+//	public int  updatelearner(int userId, LearnerModel learnermodel);
 //	public int delete1Learner(int userId);
+	public int updateLearner(int id, Learner updateLearner);
 
 
 }

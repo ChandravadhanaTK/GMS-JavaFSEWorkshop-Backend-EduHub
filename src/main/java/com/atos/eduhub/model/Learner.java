@@ -2,6 +2,7 @@ package com.atos.eduhub.model;
 
 import java.io.Serializable;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 public class Learner implements Serializable {
 	
@@ -20,7 +21,8 @@ public class Learner implements Serializable {
 	private String assignmentStatusMessage;
 	private String learnerDescription;
 	private String learnerScore;
-	private Timestamp last_update_on;
+	private Timestamp lastUpdateOn;
+	private LocalDateTime localDateTime;
 
 	public Learner() {
 		super();
@@ -130,11 +132,17 @@ public class Learner implements Serializable {
 		this.learnerScore = learnerScore;
 	}
 
-	public Timestamp getLast_update_on() {
-		return last_update_on;
+	public Timestamp getLastUpdateOn() {
+		return lastUpdateOn;
 	}
 
-	public void setLast_update_on(Timestamp last_update_on) {
-		this.last_update_on = last_update_on;
+	public void setLast_update_on(Timestamp lastUpdateOn) {
+		this.lastUpdateOn = lastUpdateOn;
+	}
+	public LocalDateTime getLocalDateTime() {
+		return localDateTime;
+	}
+	public void setLocalDateTime(LocalDateTime localDateTime) {
+		this.localDateTime = localDateTime;
 	}
 }
