@@ -37,8 +37,15 @@ public class LearnerServiceImpl implements LearnerService {
 	}
 
 	@Override
-	public String delete1Learner(int id) {
-		return "Deleted Learner id" + id;
+	public String delete1Learner(int requestid) {
+		String message="";
+		int response=learnerDao.delete1Learner(requestid);
+		if (response!=0) {
+			message="delete Successful";
+		} else {
+			message="delete Failed";
+		}
+		return message;
 	}
 
 	@Override

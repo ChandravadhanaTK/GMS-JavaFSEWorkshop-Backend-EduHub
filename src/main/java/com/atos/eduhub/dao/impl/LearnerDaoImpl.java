@@ -38,11 +38,12 @@ public class LearnerDaoImpl implements LearnerDao {
 
 
 	@Override
-	public int delete1Learner(int userId) {
-		return jdbcTemplate.update(learnerprofile_deleteById,new LearnerRowMapper(),new Object[] {userId});
+	public int delete1Learner(int requestid) {
+		return jdbcTemplate.update(learnerprofile_deleteById, requestid );
 		
 	}
 	
+		
 	//requestId,userid,role,courseId,rmid,approvalId,approvalStatus,statusMessage,assignmentId,
 	//assignmentStatus,assignmentStatusMessage,learnerDescription,learnerScore,lastUpdatedOn
 	@Override
@@ -70,4 +71,6 @@ public class LearnerDaoImpl implements LearnerDao {
 				);
 	//	return 0;
 	}
+
+	
 }

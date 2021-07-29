@@ -32,7 +32,6 @@ public class LearnerController {
 //	
 	public String addLearner(@RequestBody LearnerModel learnermodel) {
 		return learnerService.addLearner(learnermodel);
-	//		return "Insert Successfull";
 	}
 
 	// update Learner
@@ -42,11 +41,13 @@ public class LearnerController {
 	}
 
 	// Delete 1 Learner
-	@DeleteMapping("/learner/{id}")
-	public String delete1Learner(@PathVariable(value = "id") int id) {
-		String deleteString = learnerService.delete1Learner(id);
+	@DeleteMapping("/learner/{requestid}")
+	public String delete1Learner(@PathVariable(value = "requestid") int requestid) {
+	//	String deleteString = learnerService.delete1Learner(id);
 		// return ResponseEntity.ok().build();
-		return "Deleted Learner id " + id;
+	//	return "Deleted Learner id " + id;\
+		return learnerService.delete1Learner(requestid);
+		
 	}
 
 	// Delete all Learner
