@@ -40,20 +40,20 @@ public class UserController {
     }
 	 */
 	@PutMapping("/user")
-	public User addUser(@RequestBody User newUser) {
+	public String addUser(@RequestBody User newUser) {
 		return userService.addUser(newUser);
 	}
 
 	// Edit/Update REST API User
 	@PutMapping("/user/{id}")
-	public User updateUser(@PathVariable(name="id") int id,@RequestBody User updateUser) {
-		return userService.updateUser(id, updateUser);
+	public String updateUser(@PathVariable(name="id") int id,@RequestBody User updUser) {
+		return userService.updateUser(id, updUser);
 	}
 
 	// Delete REST API User
 	@DeleteMapping("/user/{id}")
-	public  String  deleteUser(@PathVariable(value="id") int id) {
-	   	return "Delete for User with ID: " + id + " successful";
+		public  String  deleteUser(@PathVariable(value="id") int id, User delUser) {
+		return userService.deleteUser(id, delUser);
 	}
 
 	// Get all REST API User

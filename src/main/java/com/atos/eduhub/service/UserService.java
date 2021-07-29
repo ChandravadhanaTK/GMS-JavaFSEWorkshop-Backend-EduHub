@@ -13,21 +13,15 @@ import com.atos.eduhub.model.UserModel;
 
 @Service
 public interface UserService {
-	public User addUser(User newUser);
+	public String addUser(User newUser);
 
-	public User updateUser(int id, User updateUser);
+	public String updateUser(int id, User updUser);
 
-	public String deleteUser(int id);
+	public String deleteUser(int id, User delUser);
 
 	public List<User> getAllUser();
 
 	public User getUserById(int id);
 
 
-	public List<UserModel> findAll();
-	public UserModel findById(String userId);
-	public String  saveUserProfile(UserModel usermodel);
-	public String  deleteUserProfile(UserModel usermodel);
-	public String  updateUserProfile(UserModel usermodel);
-	
 }
