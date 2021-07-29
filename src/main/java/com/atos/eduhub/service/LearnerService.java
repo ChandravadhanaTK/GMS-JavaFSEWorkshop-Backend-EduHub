@@ -12,13 +12,15 @@ public interface LearnerService {
 
 	public String addLearner(LearnerModel model);
 
-	public String updateLearner(int id, Learner updateLearner);
+	public String updateLearner(int learnerid, Learner updateLearner);
 
-	public String delete1Learner(int userId);
+	public String delete1Learner(int learnerid);
 
 	public String deleteAllLearner();
+	
+	public String deleteAllUser(int userid);
 
-	public List<Learner> view1Learner(int id);
+	public List<Learner> view1Learner(int userid);
 
 	public List<Learner> viewAllLearners();
 }

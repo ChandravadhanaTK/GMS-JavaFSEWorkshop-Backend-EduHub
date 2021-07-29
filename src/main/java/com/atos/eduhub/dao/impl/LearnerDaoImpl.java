@@ -30,6 +30,10 @@ public class LearnerDaoImpl implements LearnerDao {
 	private String learnerprofile_updateByID;
 	@Value("${learnerprofile_view1Learner}")
 	private String learnerprofile_view1Learner;
+	@Value("${learnerprofile_deleteAllLearner}")
+	private String learnerprofile_deleteAllLearner;
+	@Value("${learnerprofile_deleteAllByUserId}")
+	private String learnerprofile_deleteAllByUserId;
 
 	@Override
 	public List<Map<String, Object>>  viewAllLearners() {
@@ -41,13 +45,13 @@ public class LearnerDaoImpl implements LearnerDao {
 	}
 	
 	@Override
-	public List<Map<String, Object>>  view1Learner(int id) {
-		return jdbcTemplate.queryForList(learnerprofile_view1Learner, id );
+	public List<Map<String, Object>>  view1Learner(int userid) {
+		return jdbcTemplate.queryForList(learnerprofile_view1Learner, userid );
 	}
 	
-//	public List<Learner> findAllWithRowMapper2() {
-//		return jdbcTemplate.query(learnerprofile_view1Learner,new LearnerRowMapper());
-//	}
+	public List<Learner> findAllWithRowMapper2() {
+		return jdbcTemplate.query(learnerprofile_view1Learner,new LearnerRowMapper());
+	}
 
 
 	@Override
@@ -56,9 +60,18 @@ public class LearnerDaoImpl implements LearnerDao {
 		
 	}
 	
+	@Override	
+	public int deleteAllLearner() {
+		return jdbcTemplate.update(learnerprofile_deleteAllLearner );
 		
-	//requestId,userid,role,courseId,rmid,approvalId,approvalStatus,statusMessage,assignmentId,
-	//assignmentStatus,assignmentStatusMessage,learnerDescription,learnerScore,lastUpdatedOn
+	}
+	
+	@Override	
+	public int deleteAllUser(int userid) {
+		return jdbcTemplate.update(learnerprofile_deleteAllByUserId, userid );
+		
+	}
+	
 	@Override
 	public int saveLearner(LearnerModel learnermodel) {
 		
@@ -83,20 +96,25 @@ public class LearnerDaoImpl implements LearnerDao {
 
 				);
 	}
-		public int updateLearner(int id, Learner updateLearner) {
-			
-			LocalDateTime localDateTime= LocalDateTime.now();
-			updateLearner.setLocalDateTime(localDateTime);
-			
-			return jdbcTemplate.update(learnerprofile_updateByID
-					, updateLearner.getApprovalStatus()
-					, updateLearner.getStatusMessage()
-					, updateLearner.getAssignmentStatus()
-					, updateLearner.getAssignmentStatusMessage()
-					, updateLearner.getLearnerScore()
-					, updateLearner.getLocalDateTime()
-					, id
-					);
+	
+			public int updateLearner(int id, Learner updateLearner) {
+                
+                LocalDateTime localDateTime= LocalDateTime.now();
+                updateLearner.setLocalDateTime(localDateTime);
+                
+                return jdbcTemplate.update(learnerprofile_updateByID
+                                   , updateLearner.getApprovalId()
+                                   , updateLearner.getApprovalStatus()
+                                   , updateLearner.getStatusMessage()
+                                   , updateLearner.getAssignmentStatus()
+                                   , updateLearner.getAssignmentStatusMessage()
+                                   , updateLearner.getLearnerDescription()
+                                   , updateLearner.getLearnerScore()
+                                   , updateLearner.getLocalDateTime()
+                                   , id
+                                   );
+
+
 	}
 		
 }

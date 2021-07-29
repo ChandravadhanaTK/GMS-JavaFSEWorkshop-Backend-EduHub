@@ -26,42 +26,38 @@ public class LearnerController {
 
 	// Add Learner
 	@PutMapping("/learner")
-//	public Learner addLearner(@RequestBody LearnerModel newLearner) {
-//		return learnerService.addLearner(newLearner);
-//	}
-//	
 	public String addLearner(@RequestBody LearnerModel learnermodel) {
 		return learnerService.addLearner(learnermodel);
 	}
 
 	// update Learner
-	@PutMapping("/learner/{id}")
-	public String updateLearner(@PathVariable(name = "id") int id, @RequestBody Learner updateLearner) {
-		return learnerService.updateLearner(id, updateLearner);
+	@PutMapping("/learner/{requestid}")
+	public String updateLearner(@PathVariable(name = "requestid") int requestid, @RequestBody Learner updateLearner) {
+		return learnerService.updateLearner(requestid, updateLearner);
 	}
 
 	// Delete 1 Learner
 	@DeleteMapping("/learner/{requestid}")
 	public String delete1Learner(@PathVariable(value = "requestid") int requestid) {
-	//	String deleteString = learnerService.delete1Learner(id);
-		// return ResponseEntity.ok().build();
-	//	return "Deleted Learner id " + id;\
 		return learnerService.delete1Learner(requestid);
 		
+	}
+	
+	// Delete all for user
+	@DeleteMapping("/user/{userid}")
+	public String deleteAllUser(@PathVariable(value = "userid") int userid) {
+			return learnerService.deleteAllUser(userid);
 	}
 
 	// Delete all Learner
 	@DeleteMapping("/learner")
 	public String deleteAllLearner() {
-		String deleteString = learnerService.deleteAllLearner();
-		// return ResponseEntity.ok().build();
-		return "Deleted all learner";
+		return learnerService.deleteAllLearner();
 	}
-
 	// View all for 1 user
-	@GetMapping("/user/{id}")
-	public List<Learner> viewLearner(@PathVariable(value = "id") int id) {
-		return learnerService.view1Learner(id);
+	@GetMapping("/user/{userid}")
+	public List<Learner> view1Learner(@PathVariable(value = "userid") int userid) {
+		return learnerService.view1Learner(userid);
 	}
 
 	// View all Learners
@@ -70,5 +66,12 @@ public class LearnerController {
 		return learnerService.viewAllLearners();
 	}
 	
+	
+	// View 1 request 
+//	@GetMapping("/learner/{requestid}")
+//	public String view1Learner(@PathVariable(value = "requestid") int requestid) {
+//		return learnerService.view1Learner(requestid);
+//		
+//	}
 
 }

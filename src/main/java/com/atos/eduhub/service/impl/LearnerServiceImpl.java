@@ -31,10 +31,11 @@ public class LearnerServiceImpl implements LearnerService {
 		}
 		return message;
 	}
+	
 	@Override
-	public String updateLearner(int id, Learner updateLearner) {
+	public String updateLearner(int requestid, Learner updateLearner) {
 		String message="";
-		int response=learnerDao.updateLearner( id, updateLearner);
+		int response=learnerDao.updateLearner( requestid, updateLearner);
 		if (response!=0) {
 			message="update Successful";
 		} else {
@@ -57,14 +58,33 @@ public class LearnerServiceImpl implements LearnerService {
 
 	@Override
 	public String deleteAllLearner() {
-		return "Deleted all Learner";
+		String message="";
+		int response=learnerDao.deleteAllLearner();
+		if (response!=0) {
+			message="delete all learner Successful";
+		} else {
+			message="delete all Failed";
+		}
+		return message;
+	}
+	
+	@Override
+	public String deleteAllUser(int userid) {
+		String message="";
+		int response=learnerDao.deleteAllUser(userid);
+		if (response!=0) {
+			message="delete all for user  Successful";
+		} else {
+			message="delete all for user Failed";
+		}
+		return message;
 	}
 
 	@Override
-	public List<Learner> view1Learner(int id) {
+	public List<Learner> view1Learner(int userid) {
 		List<Learner> LearnerList=new ArrayList<>();
 		
-		for(Map<String, Object> eachresponse:learnerDao.view1Learner(id)) {
+		for(Map<String, Object> eachresponse:learnerDao.view1Learner(userid)) {
 			Learner learnermodel= new Learner();
 			
 			learnermodel.setRequestId(Integer.valueOf(String.valueOf(eachresponse.get("requestId"))));
@@ -90,10 +110,7 @@ public class LearnerServiceImpl implements LearnerService {
 		return LearnerList;
 	}
 
-	/*
-	 * @Override public String viewAllLearners() { return "No records to display"; }
-	 */
-
+	
 	@Override
 	/* public String viewAllLearners() { */
 	public List<Learner> viewAllLearners() {

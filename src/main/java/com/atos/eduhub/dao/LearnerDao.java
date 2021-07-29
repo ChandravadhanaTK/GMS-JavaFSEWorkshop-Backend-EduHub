@@ -15,11 +15,11 @@ public interface LearnerDao {
 	public List<Map<String, Object>> viewAllLearners() ;
 //	public UserModel findById(String userId);
 	public int  saveLearner(LearnerModel learnermodel);
-	public int  delete1Learner(int userId);
-//	public int  updatelearner(int userId, LearnerModel learnermodel);
-//	public int delete1Learner(int userId);
-	public int updateLearner(int id, Learner updateLearner);
-	public List<Map<String, Object>> view1Learner(int id) ;
+	public int  delete1Learner(int userid);
+	public int  deleteAllLearner();
+	public int  deleteAllUser(int userid);
+	public int  updateLearner(int requestid, Learner updateLearner);
+	public List<Map<String, Object>> view1Learner(int userid) ;
 
 
 }
