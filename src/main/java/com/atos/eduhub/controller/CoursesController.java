@@ -1,11 +1,13 @@
 package com.atos.eduhub.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +25,16 @@ public class CoursesController {
 	CoursesServices coursesservices;
 
 	// Add Courses -REST API
-	@PutMapping("/Course")
-	public Course addCourse(@RequestBody Course course) {
+	@PostMapping("/Course")
+	
+	public String addCourse(@RequestBody Course course) {
 		System.out.println("Course Added");
-		return coursesservices.addCourse(course);
+		
+		return coursesservices.saveCourse(course);
 
 	}
 
-	@GetMapping("/Course")
+	@GetMapping("/Courses")
 	public Course getCourse() {
 		System.out.println("Inside Put");
 		Course course = new Course();
@@ -44,27 +48,42 @@ public class CoursesController {
 
 	}
 
+	
 	@DeleteMapping("/Course/{courseid}")
-	public String deleteCourse(@PathVariable(value = "courseid") int courseid) {
-		return "Deleted Course id  " + courseid;
+	public String deleteCoursebyid(@PathVariable(value = "courseid") int courseid) {
+		return coursesservices.deleteCoursebyid(courseid);
+	}
+
+	@DeleteMapping("/Course")
+	public String deleteAll() {
+
+		return coursesservices.deleteAll();
 	}
 
 	// Edit/Update Courses
-	@PutMapping("/Course/{courseid}")
-	public Course updateCourse(@PathVariable(name = "courseid") int courseid, @RequestBody Course updcourse) {
-		return coursesservices.updateCourse(courseid, updcourse);
+	@PostMapping("/Course/{courseid}")
+	
+	public String updateCourse(@PathVariable(name = "courseid") int courseid, @RequestBody Course updcourse) {
+	
+		System.out.println("updaating course....");
+		return coursesservices.updateCoursebyid(updcourse);
 	}
 
 	// Get one course details REST API Demo
 	@GetMapping("/Course/{courseid}")
 	public Course getCourseById(@PathVariable(value = "courseid") int courseid) {
-		return coursesservices.getCourseById(courseid);
+		
+
+		return coursesservices.selectCoursebyid(courseid);
+
 	}
 
 	// Get all REST API Demo
-	@GetMapping("/Courses")
-	public ArrayList<Course> getAllCourses() {
-		return coursesservices.getAllCourses();
+	@GetMapping("/Course")
+	
+	public List<Course> getAllCourses() {
+	
+		return coursesservices.selectAllCourse();
 	}
 
 }
