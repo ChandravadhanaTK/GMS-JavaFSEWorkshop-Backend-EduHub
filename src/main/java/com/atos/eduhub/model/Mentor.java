@@ -1,6 +1,5 @@
 package com.atos.eduhub.model;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
@@ -10,13 +9,14 @@ public class Mentor {
 
 	private int availabilityid;
 	private int userid;
-	private Timestamp startdatetime;
-	private Timestamp enddatetime;
+	private LocalDateTime startdatetime;
+	private LocalDateTime enddatetime;
 	private String mentoringskill;
 	private String mentoredhours;
 	private String mentorrating;
 	private String aboutmentor;
-	private Timestamp lastupdatedon;
+	// private Timestamp lastupdatedon;
+	private LocalDateTime lastupdatedon;
 
 	public Mentor() {
 	}
@@ -37,19 +37,19 @@ public class Mentor {
 		this.userid = userid;
 	}
 
-	public Timestamp getStartdatetime() {
+	public LocalDateTime getStartdatetime() {
 		return startdatetime;
 	}
 
-	public void setStartdatetime(Timestamp startdatetime) {
+	public void setStartdatetime(LocalDateTime startdatetime) {
 		this.startdatetime = startdatetime;
 	}
 
-	public Timestamp getEnddatetime() {
+	public LocalDateTime getEnddatetime() {
 		return enddatetime;
 	}
 
-	public void setEnddatetime(Timestamp enddatetime) {
+	public void setEnddatetime(LocalDateTime enddatetime) {
 		this.enddatetime = enddatetime;
 	}
 
@@ -85,18 +85,30 @@ public class Mentor {
 		this.aboutmentor = aboutmentor;
 	}
 
-	public Timestamp getLastupdatedon() {
+//	public Timestamp getLastupdatedon() {
+//		return lastupdatedon;
+//	}
+//
+//	public void setLastupdatedon() {
+//		this.lastupdatedon = Timestamp.valueOf(LocalDateTime.now());
+//	}
+//
+//	public void setLastupdatedon(Timestamp lastupdatedon) {
+//		this.lastupdatedon = lastupdatedon;
+//	}
+
+	public LocalDateTime getLastupdatedon() {
 		return lastupdatedon;
 	}
 
 	public void setLastupdatedon() {
-		this.lastupdatedon = Timestamp.valueOf(LocalDateTime.now());
+		this.lastupdatedon = LocalDateTime.now();
 	}
 
-	public void setLastupdatedon(Timestamp lastupdatedon) {
+	public void setLastupdatedon(LocalDateTime lastupdatedon) {
 		this.lastupdatedon = lastupdatedon;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "MentorModel [availabilityid=" + availabilityid + ", userid=" + userid + ", startdatetime="
@@ -104,6 +116,5 @@ public class Mentor {
 				+ ", mentoredhours=" + mentoredhours + ", mentorrating=" + mentorrating + ", aboutmentor=" + aboutmentor
 				+ ", lastupdatedon=" + lastupdatedon + "]";
 	}
-}
 
-/* Adding comment */
+}
