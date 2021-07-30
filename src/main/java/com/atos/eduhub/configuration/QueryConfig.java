@@ -1,6 +1,6 @@
 package com.atos.eduhub.configuration;
 
-public class QueryConfig {
+public final class QueryConfig {
 
 	public static final String ADD_MENTOR = "Insert into mentor "
 			+ "(userid, startdatetime, enddatetime, mentoringSkill, mentoredHours, "
