@@ -14,9 +14,6 @@ import com.atos.eduhub.service.MentorService;
 public class MentorServiceImpl implements MentorService {
 
 	@Autowired
-	private Mentor mentor;
-
-	@Autowired
 	private MentorDaoImpl mentordaoimpl;
 
 	@Override
@@ -27,7 +24,7 @@ public class MentorServiceImpl implements MentorService {
 				: "Issue with adding mentor " + mentorreq.getUserid();
 
 	}
-	
+
 	@Override
 	public String editMentor(@RequestBody Mentor mentorreq) {
 
@@ -36,7 +33,7 @@ public class MentorServiceImpl implements MentorService {
 				: "Update unsuccessfull " + mentorreq.getUserid() + " does not exists ";
 
 	}
-	
+
 	@Override
 	public List<Mentor> viewMentor(int userid) {
 		List<Mentor> getMentors = mentordaoimpl.viewMentorById(userid);
