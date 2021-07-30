@@ -1,6 +1,6 @@
 package com.atos.eduhub.configuration;
 
-public class MentorQueryConfig {
+public class QueryConfig {
 
 	public static final String ADD_MENTOR = "Insert into mentor "
 			+ "(userid, startdatetime, enddatetime, mentoringSkill, mentoredHours, "
@@ -13,7 +13,7 @@ public class MentorQueryConfig {
 	public static final String DELETE_MENTOR = "DELETE FROM mentor WHERE userid=?";
 	public static final String DELETE_ALL_MENTORS = "DELETE FROM mentor";
 
-	public MentorQueryConfig() {
+	public QueryConfig() {
 		// TODO Auto-generated constructor stub
 	}
 

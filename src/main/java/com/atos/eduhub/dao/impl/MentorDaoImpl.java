@@ -12,7 +12,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.atos.eduhub.configuration.MentorQueryConfig;
+import com.atos.eduhub.configuration.QueryConfig;
 import com.atos.eduhub.dao.MentorDao;
 import com.atos.eduhub.model.Mentor;
 
@@ -47,7 +47,7 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public int addMentor(Mentor mentor) {
 
-		return jdbctemplate.update(MentorQueryConfig.ADD_MENTOR, mentor.getUserid(), mentor.getStartdatetime(),
+		return jdbctemplate.update(QueryConfig.ADD_MENTOR, mentor.getUserid(), mentor.getStartdatetime(),
 				mentor.getEnddatetime(), mentor.getMentoringskill(), mentor.getMentoredhours(),
 				mentor.getMentorrating(), mentor.getAboutmentor(), LocalDateTime.now());
 	}
@@ -55,7 +55,7 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public int editMentor(Mentor mentor) {
 
-		return jdbctemplate.update(MentorQueryConfig.EDIT_MENTOR, mentor.getStartdatetime(), mentor.getEnddatetime(),
+		return jdbctemplate.update(QueryConfig.EDIT_MENTOR, mentor.getStartdatetime(), mentor.getEnddatetime(),
 				mentor.getMentoringskill(), mentor.getMentoredhours(), mentor.getMentorrating(),
 				mentor.getAboutmentor(), LocalDateTime.now(), mentor.getUserid());
 	}
@@ -63,13 +63,13 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public int deleteAllMentors() {
 
-		return jdbctemplate.update(MentorQueryConfig.DELETE_ALL_MENTORS);
+		return jdbctemplate.update(QueryConfig.DELETE_ALL_MENTORS);
 	}
 
 	@Override
 	public int deleteMentor(int mentorId) {
 
-		return jdbctemplate.update(MentorQueryConfig.DELETE_MENTOR, mentorId);
+		return jdbctemplate.update(QueryConfig.DELETE_MENTOR, mentorId);
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class MentorDaoImpl implements MentorDao {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
 
-		List<Map<String, Object>> rows = jdbctemplate.queryForList(MentorQueryConfig.SHOW_ALL_MENTORS);
+		List<Map<String, Object>> rows = jdbctemplate.queryForList(QueryConfig.SHOW_ALL_MENTORS);
 
 		List<Mentor> result = new ArrayList<Mentor>();
 
@@ -116,7 +116,7 @@ public class MentorDaoImpl implements MentorDao {
 	public List<Mentor> viewMentorById(int userid) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
 
-		List<Map<String, Object>> rows = jdbctemplate.queryForList(MentorQueryConfig.SHOW_MENTOR_BY_ID, userid);
+		List<Map<String, Object>> rows = jdbctemplate.queryForList(QueryConfig.SHOW_MENTOR_BY_ID, userid);
 
 		List<Mentor> result = new ArrayList<Mentor>();
 		System.out.println(result);
