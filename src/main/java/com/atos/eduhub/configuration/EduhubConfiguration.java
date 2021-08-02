@@ -23,7 +23,7 @@ public class EduhubConfiguration {
 
 	private ApiInfo metaData() {
 		ApiInfo apiInfo = new ApiInfo("EduHub - An Learning and Management Portal", "Spring Boot REST API for EduHub",
-				"1.0", "Terms of service", new Contact("Atos", "https://localhost:8080/eduhub", ""),
+				"1.0", "Terms of service", new Contact("Atos", "http://localhost:8080/eduhub", ""),
 				"Apache License Version 2.0", "https://www.apache.org/licenses/LICENSE-2.0");
 		return apiInfo;
 	}

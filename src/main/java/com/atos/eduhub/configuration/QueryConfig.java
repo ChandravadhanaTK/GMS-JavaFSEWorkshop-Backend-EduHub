@@ -14,7 +14,6 @@ public final class QueryConfig {
 	public static final String DELETE_ALL_MENTORS = "DELETE FROM mentor";
 
 	public QueryConfig() {
-		// TODO Auto-generated constructor stub
 	}
 
 }
