@@ -3,14 +3,22 @@ package com.atos.eduhub.service.impl;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.atos.eduhub.dao.CoursesDao;
+import com.atos.eduhub.dao.UserDao;
 import com.atos.eduhub.model.Course;
+import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.CoursesServices;
 
 @Component
 public class CoursesServiceImpl implements CoursesServices {
+	
+	@Autowired(required = true)
+	private CoursesDao coursedao;
 
 	@Override
 	public Course addCourse(Course course) {
@@ -81,6 +89,35 @@ public class CoursesServiceImpl implements CoursesServices {
 
 		return getCourse;
 
+	}
+	
+	@Override
+	public String saveCourse(Course course) {
+		return coursedao.saveCourse(course) != 0 ? "New Course added succesfully " + course.getCourseId()
+				: "Unsuccesful" + course.getCourseId();
+	}
+	
+	@Override
+	public String updateCoursebyid(Course updcourse) {
+		System.out.println("in course service impl to update..");
+			return coursedao.updateCoursebyid(updcourse) != 0 ? "Course updated successfully " + updcourse.getCourseId()
+		: "Unsuccesful" + updcourse.getCourseId();
+	}
+	
+	public String deleteCoursebyid(int courseid) {
+		return coursedao.deleteCoursebyid(courseid) != 0 ? "Course deleted successfully" : "Unsuccessful" + courseid;
+	}
+	
+	public Course selectCoursebyid(int courseid) {
+		return coursedao.selectCoursebyid(courseid);
+	}
+	
+	public List<Course> selectAllCourse(){
+		return coursedao.selectAllCourse();
+	}
+	
+	public String deleteAll() {
+		return coursedao.deleteAll() != 0 ? "All courses deleted successfully" : "Unsuccessful deletion";
 	}
 
 }

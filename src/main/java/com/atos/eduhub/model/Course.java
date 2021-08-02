@@ -60,8 +60,13 @@ public class Course {
 	}
 
 	public void setcreatedOn(Timestamp createdon) {
+		if (createdon == null) {
 
-		this.createdOn = Timestamp.valueOf(LocalDateTime.now());
+			this.createdOn = Timestamp.valueOf(LocalDateTime.now());
+
+		} else {
+			this.createdOn = createdon;
+		}
 
 	}
 
@@ -72,7 +77,11 @@ public class Course {
 
 	public void setLastUpdatedOn(Timestamp lastUpdatedOn) {
 
-		this.lastUpdatedOn = Timestamp.valueOf(LocalDateTime.now());
+		if (lastUpdatedOn == null) {
+			this.lastUpdatedOn = Timestamp.valueOf(LocalDateTime.now());
+		} else {
+			this.lastUpdatedOn = lastUpdatedOn;
+		}
 
 	}
 
