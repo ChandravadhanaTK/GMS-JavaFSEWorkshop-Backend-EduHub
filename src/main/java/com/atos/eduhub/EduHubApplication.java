@@ -1,5 +1,8 @@
 package com.atos.eduhub;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +17,8 @@ public class EduHubApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EduHubApplication.class, args);
+		System.out.println("LocalDateTime : " + LocalDateTime.now());
+		System.out.println("Timestamp 	  : " + Timestamp.valueOf(LocalDateTime.now()));
 	}
 
 	@RequestMapping(value = "/")
