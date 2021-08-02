@@ -22,5 +22,7 @@ public interface LearnerService {
 
 	public List<Learner> view1Learner(int userid);
 
+	public List<Learner> viewRequest(int requestId);
+
 	public List<Learner> viewAllLearners();
 }

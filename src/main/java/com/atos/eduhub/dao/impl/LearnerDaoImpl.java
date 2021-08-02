@@ -30,6 +30,8 @@ public class LearnerDaoImpl implements LearnerDao {
 	private String learnerprofile_updateByID;
 	@Value("${learnerprofile_view1Learner}")
 	private String learnerprofile_view1Learner;
+	@Value("${learnerprofile_viewRequest}")
+	private String learnerprofile_viewRequest;
 	@Value("${learnerprofile_deleteAllLearner}")
 	private String learnerprofile_deleteAllLearner;
 	@Value("${learnerprofile_deleteAllByUserId}")
@@ -53,6 +55,14 @@ public class LearnerDaoImpl implements LearnerDao {
 		return jdbcTemplate.query(learnerprofile_view1Learner,new LearnerRowMapper());
 	}
 
+	@Override
+	public List<Map<String, Object>>  viewRequest(int requestId) {
+		return jdbcTemplate.queryForList(learnerprofile_viewRequest, requestId );
+	}
+	
+	public List<Learner> findAllWithRowMapper3() {
+		return jdbcTemplate.query(learnerprofile_viewRequest,new LearnerRowMapper());
+	}
 
 	@Override
 	public int delete1Learner(int requestid) {
@@ -113,7 +123,6 @@ public class LearnerDaoImpl implements LearnerDao {
                                    , updateLearner.getLocalDateTime()
                                    , id
                                    );
-
 
 	}
 		

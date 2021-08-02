@@ -68,10 +68,10 @@ public class LearnerController {
 	
 	
 	// View 1 request 
-//	@GetMapping("/learner/{requestid}")
-//	public String view1Learner(@PathVariable(value = "requestid") int requestid) {
-//		return learnerService.view1Learner(requestid);
-//		
-//	}
+	@GetMapping("/learner/{requestId}")
+	public List<Learner>  viewRequest(@PathVariable(value = "requestId") int requestId) {
+			return learnerService.viewRequest(requestId);
+		
+	}
 
 }

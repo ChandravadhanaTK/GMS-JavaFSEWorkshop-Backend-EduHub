@@ -20,6 +20,6 @@ public interface LearnerDao {
 	public int  deleteAllUser(int userid);
 	public int  updateLearner(int requestid, Learner updateLearner);
 	public List<Map<String, Object>> view1Learner(int userid) ;
-
+	public List<Map<String, Object>> viewRequest(int requestId) ;
 
 }

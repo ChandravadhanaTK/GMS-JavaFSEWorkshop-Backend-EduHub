@@ -27,7 +27,7 @@ public class LearnerRowMapper implements RowMapper<Learner>{
 		learnermodel.setAssignmentStatusMessage(String.valueOf(rs.getString("assignmentStatusMessage")));
 		learnermodel.setLearnerDescription(String.valueOf(rs.getString("learnerDescription")));
 		learnermodel.setLearnerScore(String.valueOf(rs.getString("learnerScore")));
-//		learnermodel.setLast_update_on(rs.getTimestamp("last_update_on"));
+//		learnermodel.setLast_update_on(rs.getTimestamp("lastUpdateOn"));
 
 		return learnermodel;
 		
