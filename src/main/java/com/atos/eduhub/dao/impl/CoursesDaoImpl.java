@@ -1,20 +1,16 @@
 package com.atos.eduhub.dao.impl;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.atos.eduhub.configuration.CourseQueryConfig;
 import com.atos.eduhub.dao.CoursesDao;
 import com.atos.eduhub.model.Course;
-import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.rowmapper.CourseRowMapper;
-import com.atos.eduhub.rowmapper.UserRowMapper;
 
 @Repository
 public class CoursesDaoImpl implements CoursesDao {
@@ -37,9 +33,9 @@ public class CoursesDaoImpl implements CoursesDao {
 	@Override
 	public int saveCourse(Course course) {
 
-		course.setcreatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		course.setcreatedOn(LocalDateTime.now());
 
-		course.setLastUpdatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		course.setLastUpdatedOn(LocalDateTime.now());
 
 		return jdbcTemplate.update(CourseQueryConfig.COURSE_SAVE, course.getCourseId(), course.getCourseName(),
 				course.getCourseDesc(), course.getSkillReqd(), course.getcreatedOn(), course.getLastUpdatedOn());
@@ -49,7 +45,7 @@ public class CoursesDaoImpl implements CoursesDao {
 	@Override
 	public int updateCoursebyid(Course course) {
 
-		course.setLastUpdatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		course.setLastUpdatedOn(LocalDateTime.now());
 
 		System.out.println("in course dao impl to update...");
 
