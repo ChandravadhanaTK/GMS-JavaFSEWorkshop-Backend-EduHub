@@ -1,5 +1,6 @@
 package com.atos.eduhub.dao.impl;
 
+import com.atos.eduhub.configuration.ApprovalQueryConfig;
 import com.atos.eduhub.configuration.QueryConfig;
 import com.atos.eduhub.dao.ApprovalDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class ApprovalDaoImpl implements ApprovalDao {
 
     @Override
     public int deleteAllApproval() {
-        return jdbcTemplate.update(QueryConfig.DELETE_ALL_APPROVALS);
+    	
+        return jdbcTemplate.update(ApprovalQueryConfig.DELETE_ALL_APPROVALS);
     }
 }
