@@ -75,14 +75,14 @@ public class ApprovalServiceImpl implements ApprovalService {
 	@Override
 	public String deleteAllApprovals() {
 		int deletedCount=approvalDaoImpl.deleteAllApproval();
-
 		if (deletedCount == 0)
 		{
-			return "Total approval deleted = "+deletedCount;
+			return "No Approval to delete";
 		}
 		else
 		{
-			return "No Approval to delete";
+			
+			return "Total approval deleted = "+deletedCount;
 		}
 
 	}

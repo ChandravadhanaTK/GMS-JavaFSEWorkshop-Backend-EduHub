@@ -12,11 +12,7 @@ public final class QueryConfig {
 			+ "aboutMentor=?, last_updated_on=? Where userid=?";
 	public static final String DELETE_MENTOR = "DELETE FROM mentor WHERE userid=?";
 	public static final String DELETE_ALL_MENTORS = "DELETE FROM mentor";
-	
-//	Queries for Approval handling
-	
-	public static final String DELETE_ALL_APPROVALS = "delete from approval";
-	
+
 	public QueryConfig() {
 	}
 
