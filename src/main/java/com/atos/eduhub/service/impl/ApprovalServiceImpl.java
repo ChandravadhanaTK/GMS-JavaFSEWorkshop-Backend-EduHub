@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.atos.eduhub.dao.impl.ApprovalDaoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Approval;
@@ -11,7 +13,8 @@ import com.atos.eduhub.service.ApprovalService;
 
 @Component
 public class ApprovalServiceImpl implements ApprovalService {
-
+	@Autowired
+	ApprovalDaoImpl approvalDaoImpl;
 	@Override
 	public Approval addApproval(Approval approval) {
 		System.out.println("Approval object created for POST request:");
@@ -71,6 +74,16 @@ public class ApprovalServiceImpl implements ApprovalService {
 
 	@Override
 	public String deleteAllApprovals() {
-		return "Approvals Deleted";
+		int deletedCount=approvalDaoImpl.deleteAllApproval();
+
+		if (deletedCount == 0)
+		{
+			return "Total approval deleted = "+deletedCount;
+		}
+		else
+		{
+			return "No Approval to delete";
+		}
+
 	}
 }
