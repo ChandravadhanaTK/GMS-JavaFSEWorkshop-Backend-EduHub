@@ -21,63 +21,45 @@ public class LearnerServiceImpl implements LearnerService {
 	
 	@Override
 	public String addLearner(LearnerModel learnermodel) {
-		// TODO Auto-generated method stub
-		String message="";
-		int response=learnerDao.saveLearner(learnermodel);
-		if (response!=0) {
-			message="Insert Successful";
-		} else {
-			message="Insert Failed";
-		}
-		return message;
+		return learnerDao.saveLearner(learnermodel) > 0
+		? "Learner " + learnermodel.getRequestId() + " has been added to eduhub"
+		: "Issue with adding learner with requestid " + learnermodel.getRequestId();
 	}
 	
 	@Override
 	public String updateLearner(int requestid, Learner updateLearner) {
-		String message="";
-		int response=learnerDao.updateLearner( requestid, updateLearner);
-		if (response!=0) {
-			message="update Successful";
-		} else {
-			message="update Failed";
-		}
-		return message;
+		return learnerDao.updateLearner( requestid, updateLearner) > 0
+				? "Learner with request is " + requestid + " has been update in eduhub"
+				: "Issue with updating learner with requestid " + requestid;
 	}
 
 	@Override
 	public String delete1Learner(int requestid) {
-		String message="";
-		int response=learnerDao.delete1Learner(requestid);
-		if (response!=0) {
-			message="delete Successful";
-		} else {
-			message="delete Failed";
-		}
-		return message;
+		int deletedLearnerCount;
+		deletedLearnerCount = learnerDao.delete1Learner(requestid);
+		return deletedLearnerCount > 0
+				? " Learner record for request id  " 
+					+ requestid + " delete from eduhub"
+				: "No record found to delete in learner table with request is " + requestid ;
 	}
 
 	@Override
 	public String deleteAllLearner() {
-		String message="";
-		int response=learnerDao.deleteAllLearner();
-		if (response!=0) {
-			message="delete all learner Successful";
-		} else {
-			message="delete all Failed";
-		}
-		return message;
+		int deletedLearnerCount;
+		deletedLearnerCount = learnerDao.deleteAllLearner();
+		return deletedLearnerCount > 0
+				? deletedLearnerCount + " Learner record delete from eduhub"
+				: "No record found to delete in learner table" ;
 	}
 	
 	@Override
 	public String deleteAllUser(int userid) {
-		String message="";
-		int response=learnerDao.deleteAllUser(userid);
-		if (response!=0) {
-			message="delete all for user  Successful";
-		} else {
-			message="delete all for user Failed";
-		}
-		return message;
+		int deletedLearnerCount;
+		deletedLearnerCount = learnerDao.deleteAllUser(userid);
+		return deletedLearnerCount > 0
+				? deletedLearnerCount + " Learner record delete for user " 
+					+ userid + " from eduhub"
+				: "No record found to delete in learner table for user " + userid ;
 	}
 
 	@Override

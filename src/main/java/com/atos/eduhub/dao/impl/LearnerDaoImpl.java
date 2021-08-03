@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.atos.eduhub.QueryConfig;
 import com.atos.eduhub.dao.LearnerDao;
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.model.LearnerModel;
@@ -20,65 +21,65 @@ public class LearnerDaoImpl implements LearnerDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	@Value("${learnerprofile_viewAllLearners}")
-	private String learnerprofile_viewAllLearners;
-	@Value("${learnerprofile_deleteById}")
-	private String learnerprofile_deleteById;
-	@Value("${learnerprofile_save}")
-	private String learnerprofile_save;
-	@Value("${learnerprofile_updateByID}")
-	private String learnerprofile_updateByID;
-	@Value("${learnerprofile_view1Learner}")
-	private String learnerprofile_view1Learner;
-	@Value("${learnerprofile_viewRequest}")
-	private String learnerprofile_viewRequest;
-	@Value("${learnerprofile_deleteAllLearner}")
-	private String learnerprofile_deleteAllLearner;
-	@Value("${learnerprofile_deleteAllByUserId}")
-	private String learnerprofile_deleteAllByUserId;
+//	@Value("${learnerprofile_viewAllLearners}")
+//	private String learnerprofile_viewAllLearners;
+//	@Value("${learnerprofile_deleteById}")
+//	private String learnerprofile_deleteById;
+//	@Value("${learnerprofile_save}")
+//	private String learnerprofile_save;
+//	@Value("${learnerprofile_updateByID}")
+//	private String learnerprofile_updateByID;
+//	@Value("${learnerprofile_view1Learner}")
+//	private String learnerprofile_view1Learner;
+//	@Value("${learnerprofile_viewRequest}")
+//	private String learnerprofile_viewRequest;
+//	@Value("${learnerprofile_deleteAllLearner}")
+//	private String learnerprofile_deleteAllLearner;
+//	@Value("${learnerprofile_deleteAllByUserId}")
+//	private String learnerprofile_deleteAllByUserId;
 
 	@Override
 	public List<Map<String, Object>>  viewAllLearners() {
-		return jdbcTemplate.queryForList(learnerprofile_viewAllLearners );
+		return jdbcTemplate.queryForList(QueryConfig.learnerprofile_viewAllLearners );
 	}
 	
 	public List<Learner> findAllWithRowMapper() {
-		return jdbcTemplate.query(learnerprofile_viewAllLearners,new LearnerRowMapper());
+		return jdbcTemplate.query(QueryConfig.learnerprofile_viewAllLearners,new LearnerRowMapper());
 	}
 	
 	@Override
 	public List<Map<String, Object>>  view1Learner(int userid) {
-		return jdbcTemplate.queryForList(learnerprofile_view1Learner, userid );
+		return jdbcTemplate.queryForList(QueryConfig.learnerprofile_view1Learner, userid );
 	}
 	
 	public List<Learner> findAllWithRowMapper2() {
-		return jdbcTemplate.query(learnerprofile_view1Learner,new LearnerRowMapper());
+		return jdbcTemplate.query(QueryConfig.learnerprofile_view1Learner,new LearnerRowMapper());
 	}
 
 	@Override
 	public List<Map<String, Object>>  viewRequest(int requestId) {
-		return jdbcTemplate.queryForList(learnerprofile_viewRequest, requestId );
+		return jdbcTemplate.queryForList(QueryConfig.learnerprofile_viewRequest, requestId );
 	}
 	
 	public List<Learner> findAllWithRowMapper3() {
-		return jdbcTemplate.query(learnerprofile_viewRequest,new LearnerRowMapper());
+		return jdbcTemplate.query(QueryConfig.learnerprofile_viewRequest,new LearnerRowMapper());
 	}
 
 	@Override
 	public int delete1Learner(int requestid) {
-		return jdbcTemplate.update(learnerprofile_deleteById, requestid );
+		return jdbcTemplate.update(QueryConfig.learnerprofile_deleteById, requestid );
 		
 	}
 	
 	@Override	
 	public int deleteAllLearner() {
-		return jdbcTemplate.update(learnerprofile_deleteAllLearner );
+		return jdbcTemplate.update(QueryConfig.learnerprofile_deleteAllLearner );
 		
 	}
 	
 	@Override	
 	public int deleteAllUser(int userid) {
-		return jdbcTemplate.update(learnerprofile_deleteAllByUserId, userid );
+		return jdbcTemplate.update(QueryConfig.learnerprofile_deleteAllByUserId, userid );
 		
 	}
 	
@@ -88,7 +89,7 @@ public class LearnerDaoImpl implements LearnerDao {
 		LocalDateTime localDateTime= LocalDateTime.now();
 		learnermodel.setLocalDateTime(localDateTime);
 		
-		return jdbcTemplate.update(learnerprofile_save, 
+		return jdbcTemplate.update(QueryConfig.learnerprofile_save, 
 				 learnermodel.getRequestId()
 				, learnermodel.getUserId()
 				, learnermodel.getRole()
@@ -112,7 +113,7 @@ public class LearnerDaoImpl implements LearnerDao {
                 LocalDateTime localDateTime= LocalDateTime.now();
                 updateLearner.setLocalDateTime(localDateTime);
                 
-                return jdbcTemplate.update(learnerprofile_updateByID
+                return jdbcTemplate.update(QueryConfig.learnerprofile_updateByID
                                    , updateLearner.getApprovalId()
                                    , updateLearner.getApprovalStatus()
                                    , updateLearner.getStatusMessage()

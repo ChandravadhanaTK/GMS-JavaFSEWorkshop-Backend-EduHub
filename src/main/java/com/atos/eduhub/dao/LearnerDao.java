@@ -7,13 +7,12 @@ import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.model.LearnerModel;
-import com.atos.eduhub.model.UserModel;
+
 
 @Component
 public interface LearnerDao {
 
 	public List<Map<String, Object>> viewAllLearners() ;
-//	public UserModel findById(String userId);
 	public int  saveLearner(LearnerModel learnermodel);
 	public int  delete1Learner(int userid);
 	public int  deleteAllLearner();
