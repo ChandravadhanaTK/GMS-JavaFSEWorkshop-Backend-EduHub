@@ -21,8 +21,8 @@ public class Learner implements Serializable {
 	private String assignmentStatusMessage;
 	private String learnerDescription;
 	private String learnerScore;
-	private Timestamp lastUpdateOn;
-	private LocalDateTime localDateTime;
+	private LocalDateTime lastUpdatedOn;
+
 
 	public Learner() {
 		super();
@@ -132,21 +132,18 @@ public class Learner implements Serializable {
 		this.learnerScore = learnerScore;
 	}
 
-	public Timestamp getLastUpdateOn() {
-		return lastUpdateOn;
+	public LocalDateTime getLastUpdatedOn() {
+		return lastUpdatedOn;
+	}
+	
+	public void setLastupdatedOn() {
+		this.lastUpdatedOn = LocalDateTime.now();
 	}
 
-	public void setLast_update_on(Timestamp lastUpdateOn) {
-		this.lastUpdateOn = lastUpdateOn;
+	public void setLastUpdatedOn(LocalDateTime lastUpdatedOn) {
+		this.lastUpdatedOn = lastUpdatedOn;
 	}
-	public LocalDateTime getLocalDateTime() {
-		return localDateTime;
-	}
-	public void setLocalDateTime(LocalDateTime localDateTime) {
-		this.localDateTime = localDateTime;
-	}
-	public void setLastUpdateOn(String valueOf) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+
+	
 }

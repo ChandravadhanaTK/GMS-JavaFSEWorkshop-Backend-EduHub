@@ -1,5 +1,8 @@
 package com.atos.eduhub.service.impl;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -64,6 +67,8 @@ public class LearnerServiceImpl implements LearnerService {
 
 	@Override
 	public List<Learner> view1Learner(int userid) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.view1Learner(userid)) {
@@ -82,7 +87,10 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
 			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
 			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
-	//  	learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
+//	  	    learnermodel.setLastUpdatedOn(String.valueOf(eachresponse.get("lastUpdateOn"));
+			
+			String lastupdateon = ((Timestamp) eachresponse.get("lastUpdatedOn")).toString();
+			learnermodel.setLastUpdatedOn(LocalDateTime.parse(lastupdateon, formatter));
 			
 			LearnerList.add(learnermodel);
 		}
@@ -92,6 +100,7 @@ public class LearnerServiceImpl implements LearnerService {
 
 	@Override
 	public List<Learner> viewRequest(int requestId) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.viewRequest(requestId)) {
@@ -110,8 +119,8 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
 			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
 			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
-	//  	learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
-			
+			String lastupdateon = ((Timestamp) eachresponse.get("lastUpdatedOn")).toString();
+			learnermodel.setLastUpdatedOn(LocalDateTime.parse(lastupdateon, formatter));
 		
 			LearnerList.add(learnermodel);
 		}
@@ -123,6 +132,7 @@ public class LearnerServiceImpl implements LearnerService {
 	@Override
 	
 	public List<Learner> viewAllLearners() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.viewAllLearners()) {
@@ -141,7 +151,8 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setAssignmentStatusMessage(String.valueOf(eachresponse.get("assignmentStatusMessage")));
 			learnermodel.setLearnerDescription(String.valueOf(eachresponse.get("learnerDescription")));
 			learnermodel.setLearnerScore(String.valueOf(eachresponse.get("learnerScore")));
-	//  	learnermodel.setLastUpdateOn(String.valueOf(eachresponse.get("lastUpdateOn"));
+			String lastupdateon = ((Timestamp) eachresponse.get("lastUpdatedOn")).toString();
+			learnermodel.setLastUpdatedOn(LocalDateTime.parse(lastupdateon, formatter));
 			
 		
 			LearnerList.add(learnermodel);

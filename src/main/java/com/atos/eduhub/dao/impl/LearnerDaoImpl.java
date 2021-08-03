@@ -21,22 +21,6 @@ public class LearnerDaoImpl implements LearnerDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-//	@Value("${learnerprofile_viewAllLearners}")
-//	private String learnerprofile_viewAllLearners;
-//	@Value("${learnerprofile_deleteById}")
-//	private String learnerprofile_deleteById;
-//	@Value("${learnerprofile_save}")
-//	private String learnerprofile_save;
-//	@Value("${learnerprofile_updateByID}")
-//	private String learnerprofile_updateByID;
-//	@Value("${learnerprofile_view1Learner}")
-//	private String learnerprofile_view1Learner;
-//	@Value("${learnerprofile_viewRequest}")
-//	private String learnerprofile_viewRequest;
-//	@Value("${learnerprofile_deleteAllLearner}")
-//	private String learnerprofile_deleteAllLearner;
-//	@Value("${learnerprofile_deleteAllByUserId}")
-//	private String learnerprofile_deleteAllByUserId;
 
 	@Override
 	public List<Map<String, Object>>  viewAllLearners() {
@@ -86,8 +70,8 @@ public class LearnerDaoImpl implements LearnerDao {
 	@Override
 	public int saveLearner(LearnerModel learnermodel) {
 		
-		LocalDateTime localDateTime= LocalDateTime.now();
-		learnermodel.setLocalDateTime(localDateTime);
+        LocalDateTime localDateTime= LocalDateTime.now();
+        learnermodel.setLastUpdatedOn(localDateTime);
 		
 		return jdbcTemplate.update(QueryConfig.learnerprofile_save, 
 				 learnermodel.getRequestId()
@@ -103,7 +87,7 @@ public class LearnerDaoImpl implements LearnerDao {
 				, learnermodel.getAssignmentStatusMessage()
 				, learnermodel.getLearnerDescription()
 				, learnermodel.getLearnerScore()
-				, learnermodel.getLocalDateTime()
+		//		, LocalDateTime.now()
 
 				);
 	}
@@ -111,7 +95,7 @@ public class LearnerDaoImpl implements LearnerDao {
 			public int updateLearner(int id, Learner updateLearner) {
                 
                 LocalDateTime localDateTime= LocalDateTime.now();
-                updateLearner.setLocalDateTime(localDateTime);
+                updateLearner.setLastUpdatedOn(localDateTime);
                 
                 return jdbcTemplate.update(QueryConfig.learnerprofile_updateByID
                                    , updateLearner.getApprovalId()
@@ -121,7 +105,7 @@ public class LearnerDaoImpl implements LearnerDao {
                                    , updateLearner.getAssignmentStatusMessage()
                                    , updateLearner.getLearnerDescription()
                                    , updateLearner.getLearnerScore()
-                                   , updateLearner.getLocalDateTime()
+               //                    , LocalDateTime.now()
                                    , id
                                    );
 

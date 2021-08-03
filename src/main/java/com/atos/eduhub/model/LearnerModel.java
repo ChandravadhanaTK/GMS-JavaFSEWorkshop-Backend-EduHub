@@ -22,9 +22,8 @@ public class LearnerModel implements Serializable{
 	private String assignmentStatusMessage;
 	private String learnerDescription;
 	private String learnerScore;
-	private Timestamp lastUpdateOn;
-	private LocalDateTime localDateTime;
-	
+	private LocalDateTime lastUpdatedOn;
+
 	
 	
 
@@ -34,8 +33,8 @@ public class LearnerModel implements Serializable{
 	
 	public LearnerModel(int requestId, int userId, String role, int courseId, int rmid, int approvalId,
 			String approvalStatus, String statusMessage, int assignmentId, String assignmentStatus,
-			String assignmentStatusMessage, String learnerDescription, String learnerScore, Timestamp last_update_on,
-			LocalDateTime localDateTime) {
+			String assignmentStatusMessage, String learnerDescription, String learnerScore, LocalDateTime lastUpdatedOn) 
+	{
 		super();
 		this.requestId = requestId;
 		this.userId = userId;
@@ -50,8 +49,7 @@ public class LearnerModel implements Serializable{
 		this.assignmentStatusMessage = assignmentStatusMessage;
 		this.learnerDescription = learnerDescription;
 		this.learnerScore = learnerScore;
-		this.lastUpdateOn = last_update_on;
-		this.localDateTime = localDateTime;
+		this.lastUpdatedOn = lastUpdatedOn;
 	}
 	
 	public int getRequestId() {
@@ -158,21 +156,20 @@ public class LearnerModel implements Serializable{
 		this.learnerScore = learnerScore;
 	}
 
-	public Timestamp getLastUpdateOn() {
-		return lastUpdateOn;
+
+	public LocalDateTime getLastUpdatedOn() {
+		return lastUpdatedOn;
+	}
+	
+	public void setLastupdatedon() {
+		this.lastUpdatedOn = LocalDateTime.now();
 	}
 
-	public void setLasUpdateOn(Timestamp lastUpdateOn) {
-		this.lastUpdateOn = lastUpdateOn;
+	public void setLastUpdatedOn(LocalDateTime lastUpdatedOn) {
+		this.lastUpdatedOn = lastUpdatedOn;
 	}
+	
 
-	public LocalDateTime getLocalDateTime() {
-		return localDateTime;
-	}
-
-	public void setLocalDateTime(LocalDateTime localDateTime) {
-		this.localDateTime = localDateTime;
-	}
 
 	@Override
 	public String toString() {
@@ -203,14 +200,11 @@ public class LearnerModel implements Serializable{
 		builder.append(learnerDescription);
 		builder.append(", learnerScore=");
 		builder.append(learnerScore);
-		builder.append(", last_update_on=");
-		builder.append(lastUpdateOn);
-		builder.append(", localDateTime=");
-		builder.append(localDateTime);
+		builder.append(", lastUpdateOn=");
+		builder.append(lastUpdatedOn);
 		builder.append("]");
 		return builder.toString();
 	}
-	
 	
 
 }

@@ -8,7 +8,7 @@ public final class QueryConfig {
 					+ " (requestid,userid,role,courseid,rmid,approvalid,approvalstatus, "
 					+ " statusmessage,assignmentid,assignmentstatus,assignmentstatusmessage, "
 					+ " learnerdescription,learnerscore,lastupdatedon) " 
-					+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?) " ;
+					+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,current_timestamp) " ;
 	public static final String learnerprofile_viewAllLearners= "select * from learner ";
 	public static final String learnerprofile_view1Learner= " select * from learner "
 					+ "where userid = ?";
@@ -22,7 +22,7 @@ public final class QueryConfig {
 	public static final String learnerprofile_updateByID= " update learner " 
 					+ " set approvalid=?,approvalstatus=?,statusmessage=?,assignmentstatus=?,"
 					+ " assignmentstatusmessage=?,learnerdescription=?,learnerscore=?,"
-					+ "lastupdatedon=? where  requestid=?";
+					+ "lastupdatedon=current_timestamp where  requestid=?";
 	public QueryConfig() {
 				// TODO Auto-generated constructor stub
 	}
