@@ -1,6 +1,11 @@
 package com.atos.eduhub.dao;
 
-public interface ApprovalDao {
+import java.util.List;
 
+import com.atos.eduhub.model.Approval;
+import com.atos.eduhub.model.Mentor;
+
+public interface ApprovalDao {
+	public List<Approval> viewAllApprovals();
     public int deleteAllApproval();
 }

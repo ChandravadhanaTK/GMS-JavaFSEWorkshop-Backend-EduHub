@@ -48,28 +48,7 @@ public class ApprovalServiceImpl implements ApprovalService {
 
 	@Override
 	public List<Approval> viewAllApprovals() {
-		List<Approval> approvalList = new ArrayList<>();
-		Approval approval1 = new Approval();
-		approval1.setApprovalId(1);
-		approval1.setRequestId(777777);
-		approval1.setRmId(99999);
-		approval1.setApprovalStatus("Approved");
-		approval1.setApprovalStatusMessage("This is testing of viewAllApprovals");
-		approval1.setCreatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
-		approval1.setLastUpdatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
-		approvalList.add(approval1);
-
-		Approval approval2 = new Approval();
-		approval2.setApprovalId(2);
-		approval2.setRequestId(777777);
-		approval2.setRmId(99999);
-		approval2.setApprovalStatus("Rejected");
-		approval2.setApprovalStatusMessage("This is testing of viewAllApprovals");
-		approval2.setCreatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
-		approval2.setLastUpdatedOn(Timestamp.valueOf("2021-07-22 09:27:00"));
-		approvalList.add(approval2);
-
-		return approvalList;
+		return approvalDaoImpl.viewAllApprovals();
 	}
 
 	@Override
