@@ -19,6 +19,8 @@ public class ApprovalRowMapper implements RowMapper<Approval> {
 		approval.setRmId(rs.getInt("rmId"));
 		approval.setApprovalStatus(rs.getString("approvalStatus"));
 		approval.setApprovalStatusMessage(rs.getString("approvalStatusMessage"));
+		approval.setCreatedOn(rs.getTimestamp("createdOn"));
+		approval.setLastUpdatedOn(rs.getTimestamp("lastUpdatedOn"));
 	    return approval;
 	}
 
