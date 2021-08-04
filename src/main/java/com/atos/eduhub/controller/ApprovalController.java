@@ -51,8 +51,9 @@ public class ApprovalController {
 	// Delete single approval
 	// Delete REST API Demo
 	@DeleteMapping("approval/{approvalId}")
-	public String deleteCourse(@PathVariable(value = "approvalId") int approvalId) {
-		return "Deleted Approval id  " + approvalId;
+	public String deleteOneApproval(@PathVariable(value = "approvalId") int approvalId) {
+		System.out.println("Delete request received for deleteOneApproval() for id " + approvalId);
+		return approvalService.deleteOneApproval(approvalId);
 	}
 
 	// Delete all approvals
