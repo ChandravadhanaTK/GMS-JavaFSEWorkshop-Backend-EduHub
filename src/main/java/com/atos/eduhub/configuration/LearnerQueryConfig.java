@@ -1,6 +1,6 @@
-package com.atos.eduhub;
+package com.atos.eduhub.configuration;
 
-public final class QueryConfig {
+public final class LearnerQueryConfig {
 	
 	
 	//Learner query 
@@ -23,7 +23,7 @@ public final class QueryConfig {
 					+ " set approvalid=?,approvalstatus=?,statusmessage=?,assignmentstatus=?,"
 					+ " assignmentstatusmessage=?,learnerdescription=?,learnerscore=?,"
 					+ "lastupdatedon=current_timestamp where  requestid=?";
-	public QueryConfig() {
+	public LearnerQueryConfig() {
 				// TODO Auto-generated constructor stub
 	}
 					

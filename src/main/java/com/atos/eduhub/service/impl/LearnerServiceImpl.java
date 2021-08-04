@@ -68,7 +68,7 @@ public class LearnerServiceImpl implements LearnerService {
 	@Override
 	public List<Learner> view1Learner(int userid) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
-		
+		int Count = 0; 
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.view1Learner(userid)) {
@@ -77,7 +77,7 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setRequestId(Integer.valueOf(String.valueOf(eachresponse.get("requestId"))));
 			learnermodel.setUserId(Integer.valueOf(String.valueOf(eachresponse.get("userId"))));
 			learnermodel.setRole(String.valueOf(eachresponse.get("role")));
-			learnermodel.setCourseId(Integer.valueOf(String.valueOf(eachresponse.get("courseId"))));
+		 	learnermodel.setCourseId(Integer.valueOf(String.valueOf(eachresponse.get("courseId"))));
 			learnermodel.setRmid(Integer.valueOf(String.valueOf(eachresponse.get("rmid"))));
 			learnermodel.setApprovalId(Integer.valueOf(String.valueOf(eachresponse.get("approvalId"))));
 			learnermodel.setApprovalStatus(String.valueOf(eachresponse.get("approvalStatus")));
@@ -93,14 +93,21 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setLastUpdatedOn(LocalDateTime.parse(lastupdateon, formatter));
 			
 			LearnerList.add(learnermodel);
+			Count++ ; 
 		}
 		
+		if ( Count == 0 ) {
+				System.out.println("No record found for User " + userid);				
+		} else
+			    System.out.println(Count + " record found for User " + userid);	
+	
 		return LearnerList;
 	}
 
 	@Override
 	public List<Learner> viewRequest(int requestId) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		int Count = 0; 
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.viewRequest(requestId)) {
@@ -123,16 +130,23 @@ public class LearnerServiceImpl implements LearnerService {
 			learnermodel.setLastUpdatedOn(LocalDateTime.parse(lastupdateon, formatter));
 		
 			LearnerList.add(learnermodel);
+			Count++ ;
 		}
 		
+		if ( Count == 0 ) {
+			System.out.println("No record found for requestID " + requestId);				
+		} else
+			 System.out.println(Count + " record found for User " + requestId);	
+			
 		return LearnerList;
-	}
+		}
 
 	
 	@Override
 	
 	public List<Learner> viewAllLearners() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		int Count = 0; 
 		List<Learner> LearnerList=new ArrayList<>();
 		
 		for(Map<String, Object> eachresponse:learnerDao.viewAllLearners()) {
@@ -156,7 +170,13 @@ public class LearnerServiceImpl implements LearnerService {
 			
 		
 			LearnerList.add(learnermodel);
+			Count++ ;
 		}
+		
+		if ( Count == 0 ) {
+			System.out.println("No learner record found in eduhub ");				
+		} else
+		    System.out.println(Count + " record found in eduhub ");		
 		
 		return LearnerList;
 
