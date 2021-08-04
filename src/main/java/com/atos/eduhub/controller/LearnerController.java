@@ -44,7 +44,7 @@ public class LearnerController {
 	}
 	
 	// Delete all for user
-	@DeleteMapping("/user/{userid}")
+	@DeleteMapping("/learner/user/{userid}")
 	public String deleteAllUser(@PathVariable(value = "userid") int userid) {
 			return learnerService.deleteAllUser(userid);
 	}
@@ -55,7 +55,7 @@ public class LearnerController {
 		return learnerService.deleteAllLearner();
 	}
 	// View all for 1 user
-	@GetMapping("/user/{userid}")
+	@GetMapping("/learner/user/{userid}")
 	public List<Learner> view1Learner(@PathVariable(value = "userid") int userid) {
 		return learnerService.view1Learner(userid);
 	}
