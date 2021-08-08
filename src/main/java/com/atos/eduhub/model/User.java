@@ -116,7 +116,7 @@ public class User {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("User [id=").append(id).append(", userName=").append(userName).append(", password=").append(password).append(", firstName=")
+		builder.append("User [id=").append(id).append(", userName=").append(userName).append(", password=").append(password).append(", firstName=").append(firstName)
 				.append(", secondName=").append(secondName).append(", emailId=").append(emailId).append(", mobile=").append(mobile).append(", location=").append(location)
 				.append(", designation=").append(designation).append(", experience=").append(experience).append(", primarySkills=").append(primarySkills)
 				.append(", secondarySkills=").append(secondarySkills).append(", role=").append(role).append(", createdOn=").append(createdOn)

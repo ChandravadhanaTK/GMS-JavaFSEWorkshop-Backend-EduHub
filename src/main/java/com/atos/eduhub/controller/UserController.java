@@ -3,13 +3,7 @@ package com.atos.eduhub.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.atos.eduhub.model.User;
 import com.atos.eduhub.service.UserService;
@@ -52,8 +46,15 @@ public class UserController {
 
 	// Delete REST API User
 	@DeleteMapping("/user/{id}")
-		public  String  deleteUser(@PathVariable(value="id") int id, User delUser) {
-		return userService.deleteUser(id, delUser);
+		public  String  deleteUser(@PathVariable(value="id") int id) {
+		return userService.deleteUser(id);
+	}
+
+	//Delete Rest API for All Users
+	@DeleteMapping("/users")
+	@ResponseBody
+	public String deleteAllUsers() {
+		return userService.deleteAllUsers();
 	}
 
 	// Get all REST API User

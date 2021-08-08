@@ -14,7 +14,9 @@ public interface UserDao {
 
     public int updateUser(int id, User updUser);
 
-    public int deleteUser(int id,User delUser);
+    public int deleteUser(int id);
+
+    public int deleteAllUsers( );
 
     public List<Map<String, Object>> getAllUser();
 

@@ -17,11 +17,12 @@ public interface UserService {
 
 	public String updateUser(int id, User updUser);
 
-	public String deleteUser(int id, User delUser);
+	public String deleteUser(int id);
 
 	public List<User> getAllUser();
 
 	public User getUserById(int id);
 
+	public String deleteAllUsers();
 
 }

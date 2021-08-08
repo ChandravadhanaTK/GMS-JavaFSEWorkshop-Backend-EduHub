@@ -1,5 +1,6 @@
 package com.atos.eduhub.service.impl;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,33 +30,32 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String addUser(User newUser) {
-		newUser.setCreatedOn(LocalDateTime.now());
-		newUser.setLastLogin(LocalDateTime.now());
 		return userDao.addUser(newUser)!=0? "User added succesfully "+newUser.getId():"Add User Unsuccesful"+newUser.getId();
 	}
 
 	@Override
 	public String updateUser(int id, User updUser) {
-
-		LocalDateTime lt= LocalDateTime.parse("2018-12-30T19:34:50.63");
-
-		updUser.setCreatedOn(lt);
-		updUser.setLastLogin(LocalDateTime.now());
-		return  userDao.updateUser(id,updUser)!=0? "User updated successfully "+updUser.getId():"Failed to Update User"+updUser.getId();
+				return  userDao.updateUser(id,updUser)!=0? "User updated successfully "+ id:"Failed to Update User"+id;
 	}
 
 
 	@Override
-	public String deleteUser(int id, User delUser) {
-		return userDao.deleteUser(id,delUser)!=0? "User deleted Succesfully  "+delUser.getId():" Delete User Unsuccesful "+delUser.getId();
+	public String deleteUser(int id) {
+		return userDao.deleteUser(id)!=0? "User deleted Succesfully  "+id:" Delete User Unsuccesful "+id;
 	}
 
-		@Override
+
+	@Override
+	public String deleteAllUsers( ) {
+		return userDao.deleteAllUsers()!=0? "All Users deleted Succesfully ":" Delete All Users Unsuccessful";
+	}
+
+	@Override
 	public List<User> getAllUser() {
 			List<User> getUser = new ArrayList<User>();
 			for(Map<String, Object> eachresponse:userDao.getAllUser()) {
 				User user1 = new User();
-				user1.setId(Integer.valueOf(String.valueOf((eachresponse.get("id")))));
+				user1.setId(Integer.valueOf(String.valueOf(eachresponse.get("id"))));
 				user1.setUserName(String.valueOf(eachresponse.get("userName")));
 				user1.setPassword(String.valueOf(eachresponse.get("password")));
 				user1.setFirstName(String.valueOf(eachresponse.get("firstName")));
@@ -68,8 +68,13 @@ public class UserServiceImpl implements UserService {
 				user1.setPrimarySkills(String.valueOf(eachresponse.get("primarySkills")));
 				user1.setSecondarySkills(String.valueOf(eachresponse.get("secondarySkills")));
 				user1.setRole(String.valueOf(eachresponse.get("role")));
-				user1.setCreatedOn(LocalDateTime.now());
-				user1.setLastLogin(LocalDateTime.now());
+
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSS]");
+				String createdon = ((Timestamp) eachresponse.get("createdOn")).toString();
+				String lastlogin = ((Timestamp) eachresponse.get("LastLogin")).toString();
+				user1.setCreatedOn(LocalDateTime.parse(createdon, formatter));
+				user1.setLastLogin(LocalDateTime.parse(lastlogin, formatter));
+
 				getUser.add(user1);
 		}
 		return getUser;

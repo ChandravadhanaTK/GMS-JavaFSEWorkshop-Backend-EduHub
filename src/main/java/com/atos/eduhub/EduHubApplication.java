@@ -15,7 +15,6 @@ public class EduHubApplication  {
 		SpringApplication.run(EduHubApplication.class, args);
 	}
 	
-	 
 
 	@RequestMapping(value="/")
 	public String hello() {

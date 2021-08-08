@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -16,20 +17,24 @@ public class UserRowMapper implements RowMapper<User>{
 		// TODO Auto-generated method stub
 		User usermodel= new User();
 		usermodel.setId(rs.getInt("id"));
-		usermodel.setUserName(String.valueOf(rs.getString("userName")));
-		usermodel.setPassword(String.valueOf(rs.getString("password")));
-		usermodel.setFirstName(String.valueOf(rs.getString("firstName")));
-		usermodel.setSecondName(String.valueOf(rs.getString("secondName")));
-		usermodel.setEmailId(String.valueOf(rs.getString("emailID")));
-		usermodel.setMobile(String.valueOf(rs.getString("mobile")));
-		usermodel.setLocation(String.valueOf(rs.getString("location")));
+		usermodel.setUserName(rs.getString("userName"));
+		usermodel.setPassword(rs.getString("password"));
+		usermodel.setFirstName(rs.getString("firstName"));
+		usermodel.setSecondName(rs.getString("secondName"));
+		usermodel.setEmailId(rs.getString("emailID"));
+		usermodel.setMobile(rs.getString("mobile"));
+		usermodel.setLocation(rs.getString("location"));
 		usermodel.setDesignation(rs.getString("designation"));
 		usermodel.setExperience(rs.getInt("experience"));
-		usermodel.setPrimarySkills(String.valueOf(rs.getString("primarySkills")));
-		usermodel.setSecondarySkills(String.valueOf(rs.getString("secondarySkills")));
-		usermodel.setRole(String.valueOf(rs.getString("role")));
-		usermodel.setCreatedOn(LocalDateTime.now());
-		usermodel.setLastLogin(LocalDateTime.now());
+		usermodel.setPrimarySkills(rs.getString("primarySkills"));
+		usermodel.setSecondarySkills(rs.getString("secondarySkills"));
+		usermodel.setRole(rs.getString("role"));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSS]");
+		String createdon = ((Timestamp) rs.getObject("CreatedOn")).toString();
+		String lastlogin = ((Timestamp) rs.getObject("LastLogin")).toString();
+		usermodel.setCreatedOn(LocalDateTime.parse(createdon, formatter));
+		usermodel.setLastLogin(LocalDateTime.parse(lastlogin, formatter));
+
 		return usermodel;
 	}
 
