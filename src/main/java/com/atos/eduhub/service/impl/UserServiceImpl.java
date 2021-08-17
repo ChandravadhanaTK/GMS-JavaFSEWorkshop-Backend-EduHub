@@ -1,153 +1,88 @@
 package com.atos.eduhub.service.impl;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
+import com.atos.eduhub.dao.UserDao;
+import org.springframework.stereotype.Component;
+import com.atos.eduhub.model.User;
+import com.atos.eduhub.service.UserService;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.atos.eduhub.dao.UserDao;
-import com.atos.eduhub.model.User;
 import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired(required = true)
-	private UserDao userDAO;
+	
+	@Autowired
+	private UserDao userDao;
 
 	@Override
-	public User addUser(User newUser) {
-		newUser.setUserName("Team4 - Add User");
-		newUser.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		newUser.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		return newUser;
+	public String addUser(User newUser) {
+		return userDao.addUser(newUser)!=0? "User added succesfully "+newUser.getId():"Add User Unsuccesful"+newUser.getId();
 	}
 
 	@Override
-	public User updateUser(int id, User updateUser) {
-		if (id == 1) {
-			updateUser.setUserName("Team4 - Update User 1");
-			updateUser.setPassword(updateUser.getPassword());
-			updateUser.setLastLogin(Timestamp.valueOf("2018-11-12 01:02:03.123456"));
-
-		} else {
-			updateUser.setUserName("Team4 - Update User non-1");
+	public String updateUser(int id, User updUser) {
+				return  userDao.updateUser(id,updUser)!=0? "User updated successfully "+ id:"Failed to Update User"+id;
 		}
 
-		return updateUser;
-	}
 
 	@Override
 	public String deleteUser(int id) {
-		return "Deleted id" + id;
+		return userDao.deleteUser(id)!=0? "User deleted Succesfully  "+id:" Delete User Unsuccesful "+id;
+	}
+
+
+	@Override
+	public String deleteAllUsers( ) {
+		return userDao.deleteAllUsers()!=0? "All Users deleted Succesfully ":" Delete All Users Unsuccessful";
 	}
 
 	@Override
 	public List<User> getAllUser() {
-		List<User> getUser = new ArrayList<User>();
-		User user1 = new User();
-		user1.setId(5);
-		user1.setUserName("Testname5");
-		user1.setPassword("passwrd5");
-		user1.setFirstName("Tuserfn5");
-		user1.setSecondName("Tusersn5");
-		user1.setEmailId("Tusermail5@gmail.com");
-		user1.setMobile("+6167778855");
-		user1.setLocation("India");
-		user1.setDesignation("Lead");
-		user1.setExperience(5);
-		user1.setPrimarySkills("Python");
-		user1.setSecondarySkills("dotnet");
-		user1.setRole("Tester");
-		user1.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		user1.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		getUser.add(user1);
+			List<User> getUser = new ArrayList<User>();
+			for(Map<String, Object> eachresponse:userDao.getAllUser()) {
+				User user1 = new User();
+				user1.setId(Integer.valueOf(String.valueOf(eachresponse.get("id"))));
+				user1.setUserName(String.valueOf(eachresponse.get("userName")));
+				user1.setPassword(String.valueOf(eachresponse.get("password")));
+				user1.setFirstName(String.valueOf(eachresponse.get("firstName")));
+				user1.setSecondName(String.valueOf(eachresponse.get("secondName")));
+				user1.setEmailId(String.valueOf(eachresponse.get("emailID")));
+				user1.setMobile(String.valueOf(eachresponse.get("mobile")));
+				user1.setLocation(String.valueOf(eachresponse.get("location")));
+				user1.setDesignation(String.valueOf(eachresponse.get("designation")));
+				user1.setExperience(Integer.valueOf(String.valueOf((eachresponse.get("experience")))));
+				user1.setPrimarySkills(String.valueOf(eachresponse.get("primarySkills")));
+				user1.setSecondarySkills(String.valueOf(eachresponse.get("secondarySkills")));
+				user1.setRole(String.valueOf(eachresponse.get("role")));
 
-		User user2 = new User();
-		user2.setId(7);
-		user2.setUserName("Testname7");
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSS]");
+				String createdon = ((Timestamp) eachresponse.get("createdOn")).toString();
+				String lastlogin = ((Timestamp) eachresponse.get("LastLogin")).toString();
+				user1.setCreatedOn(LocalDateTime.parse(createdon, formatter));
+				user1.setLastLogin(LocalDateTime.parse(lastlogin, formatter));
 
-		user2.setPassword("passwrd7");
-		user2.setFirstName("Tuserfn7");
-		user2.setSecondName("Tusersn7");
-		user2.setEmailId("Tusermail7@gmail.com");
-		user2.setMobile("+6167778833");
-		user2.setLocation("Phoenix");
-		user2.setDesignation("Seniorconsultant");
-		user2.setExperience(6);
-		user2.setPrimarySkills("C,Python");
-		user2.setSecondarySkills("C++");
-		user2.setRole("developer");
-		user2.setCreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		user2.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		getUser.add(user2);
+				getUser.add(user1);
+	}
 		return getUser;
 	}
 
 	@Override
 	public User getUserById(int id) {
-		User user = new User();
-		user.setId(3);
-		user.setUserName("Team4 - View User by ID");
-		user.setPassword("Npasswrd3");
-		user.setFirstName("Nuserfn3");
-		user.setSecondName("Nusersn3");
-		user.setEmailId("Nusermail3@gmail.com");
-		user.setMobile("+6177775595");
-		user.setLocation("Sydney");
-		user.setDesignation("Developer");
-		user.setExperience(4);
-		user.setPrimarySkills("mainframe");
-		user.setSecondarySkills("Java");
-		user.setRole("Learner");
-		user.setCreatedOn(Timestamp.valueOf("2018-11-12 01:02:03.123456789"));
-		user.setLastLogin(Timestamp.valueOf(LocalDateTime.now()));
-		return user;
-
-	}
-
-	@Override
-	public List<UserModel> findAll() {
-		List<UserModel> userList = new ArrayList<>();
-
-		for (Map<String, Object> eachresponse : userDAO.findAll()) {
-			UserModel usermodel = new UserModel();
-			usermodel.setUserId(String.valueOf(eachresponse.get("userid")));
-			usermodel.setFirstName(String.valueOf(eachresponse.get("firstname")));
-			usermodel.setLastName(String.valueOf(eachresponse.get("lastname")));
-			usermodel.setExperience(Float.valueOf(String.valueOf(eachresponse.get("experience"))));
-			usermodel.setDesignation(eachresponse.get("designation").toString());
-			userList.add(usermodel);
-		}
-		return userList;
-	}
-
-	@Override
-	public UserModel findById(String userId) {
-		return userDAO.findById(userId);
-	}
-
-	@Override
-	public String saveUserProfile(UserModel usermodel) {
-		return userDAO.saveUserProfile(usermodel) != 0 ? "Succesfully Saved " + usermodel.getUserId()
-				: "Unsuccesful" + usermodel.getUserId();
-	}
-
-	@Override
-	public String deleteUserProfile(UserModel usermodel) {
-		return userDAO.deleteUserProfile(usermodel) != 0 ? "Deleted Succesfully  " + usermodel.getUserId()
-				: " Deletion Unsuccesful " + usermodel.getUserId();
-	}
-
-	@Override
-	public String updateUserProfile(UserModel usermodel) {
-		return userDAO.updateUserProfile(usermodel) != 0 ? "Updated Successfully " + usermodel.getUserId()
-				: "Failed to Update " + usermodel.getUserId();
+		return userDao.getUserById(id);
 	}
 
 }

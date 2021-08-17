@@ -33,16 +33,14 @@ public class DemoDaoImpl implements DemoDao {
 		return jdbcTemplate.queryForList(fetchAll);
 	}
 
-	@Override
-	public List<UserModel> findAllWithRowMapper() {
-		return jdbcTemplate.query(fetchAll, new UserRowMapper());
-	}
-
-	@Override
-	public UserModel findById(String userId) {
-		return jdbcTemplate.queryForObject(userprofile_fetchById, new UserRowMapper(), new Object[] { userId });
-	}
-
+	/*
+	 * @Override public List<UserModel> findAllWithRowMapper() { return
+	 * jdbcTemplate.query(fetchAll, new UserRowMapper()); }
+	 * 
+	 * @Override public UserModel findById(String userId) { return
+	 * jdbcTemplate.queryForObject(userprofile_fetchById, new UserRowMapper(), new
+	 * Object[] { userId }); }
+	 */
 	@Override
 	public int saveUserProfile(UserModel usermodel) {
 		return jdbcTemplate.update(userprofile_save, usermodel.getUserId(), usermodel.getFirstName(),

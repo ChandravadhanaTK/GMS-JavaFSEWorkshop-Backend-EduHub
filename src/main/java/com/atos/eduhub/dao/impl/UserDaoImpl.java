@@ -1,67 +1,69 @@
 package com.atos.eduhub.dao.impl;
-
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import com.atos.eduhub.configuration.QueryConfig;
 
 import com.atos.eduhub.dao.UserDao;
-import com.atos.eduhub.model.UserModel;
+import com.atos.eduhub.model.User;
 import com.atos.eduhub.rowmapper.UserRowMapper;
 
+
 @Repository
-public class UserDaoImpl implements UserDao {
-	@Autowired(required = true)
-	private JdbcTemplate jdbcTemplate;
+public class UserDaoImpl implements UserDao{
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-	@Value("${userprofile_fetchAll}")
-	private String fetchAll;
-	@Value("${userprofile_fetchById}")
-	private String userprofile_fetchById;
-	@Value("${userprofile_deleteById}")
-	private String userprofile_deleteById;
-	@Value("${userprofile_updateById}")
-	private String userprofile_updateById;
-	@Value("${userprofile_save}")
-	private String userprofile_save;
 
-	@Override
-	public List<Map<String, Object>> findAll() {
-		return jdbcTemplate.queryForList(fetchAll);
-	}
+    @Override
+    public List<Map<String, Object>> getAllUser(){
+        return jdbcTemplate.queryForList(QueryConfig.userprofile_fetchAll);
 
-	@Override
-	public List<UserModel> findAllWithRowMapper() {
-		return jdbcTemplate.query(fetchAll, new UserRowMapper());
-	}
+    }
 
-	@Override
-	public UserModel findById(String userId) {
-		return jdbcTemplate.queryForObject(userprofile_fetchById, new UserRowMapper(), new Object[] { userId });
-	}
+    public List<User> getAllWithRowMapper() {
+        return jdbcTemplate.query(QueryConfig.userprofile_fetchAll,new UserRowMapper());
+    }
 
-	@Override
-	public int saveUserProfile(UserModel usermodel) {
-		return jdbcTemplate.update(userprofile_save, usermodel.getUserId(), usermodel.getFirstName(),
-				usermodel.getLastName(), usermodel.getPassword(), usermodel.getDesignation(),
-				usermodel.getExperience());
 
-	}
+    @Override
+    public User getUserById(int id) {
+        return jdbcTemplate.queryForObject(QueryConfig.userprofile_fetchById, new UserRowMapper(),new Object[] {id} );
+    }
 
-	@Override
-	public int deleteUserProfile(UserModel usermodel) {
-		return jdbcTemplate.update(userprofile_deleteById, usermodel.getUserId());
+    @Override
+    public int addUser(User newUser) {
 
-	}
+        return	jdbcTemplate.update(QueryConfig.userprofile_save,newUser.getId(),newUser.getUserName(),newUser.getPassword(),newUser.getFirstName(),newUser.getSecondName(),newUser.getEmailId(),newUser.getMobile(),newUser.getLocation()
+                ,newUser.getDesignation(),newUser.getExperience(),newUser.getPrimarySkills(),newUser.getSecondarySkills(),newUser.getRole(),LocalDateTime.now(),LocalDateTime.now());
 
-	@Override
-	public int updateUserProfile(UserModel usermodel) {
-		return jdbcTemplate.update(userprofile_updateById, usermodel.getFirstName(), usermodel.getLastName(),
-				usermodel.getDesignation(), usermodel.getExperience(), usermodel.getUserId());
+    }
 
-	}
+    @Override
+    public int deleteUser(int id) {
+        return jdbcTemplate.update(QueryConfig.userprofile_deleteById,id);
+    }
+
+    @Override
+    public int deleteAllUsers( ) {
+        return jdbcTemplate.update(QueryConfig.userprofile_deleteAll);
+    }
+
+    @Override
+    public int updateUser(int id, User updUser) {
+
+        System.out.println(updUser);
+        return	jdbcTemplate.update(QueryConfig.userprofile_updateById,updUser.getUserName(),updUser.getPassword(),updUser.getFirstName(),updUser.getSecondName(),updUser.getEmailId(),updUser.getMobile(),updUser.getLocation(),updUser.getDesignation(),updUser.getExperience(),updUser.getPrimarySkills(),updUser.getSecondarySkills(),updUser.getRole(),LocalDateTime.now(),LocalDateTime.now(),id);
+
+    }
 
 }
+
+

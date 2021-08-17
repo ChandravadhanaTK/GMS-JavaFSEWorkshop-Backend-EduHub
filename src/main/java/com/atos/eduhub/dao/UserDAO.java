@@ -1,24 +1,26 @@
 package com.atos.eduhub.dao;
-
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
-import com.atos.eduhub.model.UserModel;
+import com.atos.eduhub.model.User;
 
 @Component
+
 public interface UserDao {
-	public List<Map<String, Object>> findAll();
 
-	public UserModel findById(String userId);
+    public int addUser(User newUser);
 
-	public List<UserModel> findAllWithRowMapper();
+    public int updateUser(int id, User updUser);
 
-	public int saveUserProfile(UserModel usermodel);
+    public int deleteUser(int id);
 
-	public int deleteUserProfile(UserModel usermodel);
+    public int deleteAllUsers( );
 
-	public int updateUserProfile(UserModel usermodel);
+    public List<Map<String, Object>> getAllUser();
+
+    public User getUserById(int id);
+
 
 }
