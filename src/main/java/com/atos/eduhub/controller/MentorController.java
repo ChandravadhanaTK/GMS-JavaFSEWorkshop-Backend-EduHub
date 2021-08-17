@@ -34,15 +34,15 @@ public class MentorController {
 		return mentorservice.editMentor(mentorreq);
 	}
 
-// Following controller code lists the first mentor registered in EduHub
-	@GetMapping("/mentor")
-	public Mentor viewMentor() {
-		return mentorservice.viewMentor();
+	// Following controller code lists the first mentor registered in EduHub
+	@GetMapping("/mentor/{id}")
+	public List<Mentor> viewMentor(@PathVariable(value = "id") int id) {
+		return mentorservice.viewMentor(id);
 	}
 
 	// Following controller code lists all mentors registered in EduHub
-	@GetMapping("/mentors")
-	public List<Mentor> showMentor() {
+	@GetMapping("/mentor")
+	public List<Mentor> viewAllMentors() {
 		return mentorservice.viewAllMentors();
 	}
 
@@ -51,9 +51,11 @@ public class MentorController {
 	public String deleteMentor(@PathVariable(value = "id") int id) {
 		return mentorservice.deleteMentor(id);
 	}
-
-	// Following controller code deletes all mentors registered in EduHub
-	@DeleteMapping("/mentors")
+	
+	/*
+	 * Following controller code deletes all mentors registered in EduHub
+	*/
+	@DeleteMapping("/mentor")
 	public String deleteAllMentors() {
 		return mentorservice.deleteAllMentors();
 	}

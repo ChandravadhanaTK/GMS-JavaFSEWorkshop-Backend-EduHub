@@ -1,6 +1,5 @@
 package com.atos.eduhub.model;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
@@ -12,8 +11,8 @@ public class Course {
 	private String courseName;
 	private String courseDesc;
 	private String skillReqd;
-	private Timestamp createdOn;
-	private Timestamp lastUpdatedOn;
+	private LocalDateTime createdOn;
+	private LocalDateTime lastUpdatedOn;
 
 	public void setCourseId(int courseid) {
 
@@ -59,24 +58,34 @@ public class Course {
 		return skillReqd;
 	}
 
-	public void setcreatedOn(Timestamp createdon) {
+	public void setcreatedOn() {
 
-		this.createdOn = Timestamp.valueOf(LocalDateTime.now());
-
+		this.createdOn = LocalDateTime.now();
 	}
 
-	public Timestamp getcreatedOn() {
+	public void setcreatedOn(LocalDateTime createdon) {
+
+		this.createdOn = createdon;
+	}
+
+	public LocalDateTime getcreatedOn() {
 
 		return createdOn;
 	}
 
-	public void setLastUpdatedOn(Timestamp lastUpdatedOn) {
+	public void setLastUpdatedOn() {
 
-		this.lastUpdatedOn = Timestamp.valueOf(LocalDateTime.now());
+		this.lastUpdatedOn = LocalDateTime.now();
 
 	}
 
-	public Timestamp getLastUpdatedOn() {
+	public void setLastUpdatedOn(LocalDateTime lastUpdatedOn) {
+
+		this.lastUpdatedOn = lastUpdatedOn;
+
+	}
+
+	public LocalDateTime getLastUpdatedOn() {
 		return lastUpdatedOn;
 	}
 
