@@ -9,7 +9,7 @@ public interface ApprovalService {
 
 	public Approval editApproval(Approval approval);
 
-	public void deleteApproval();
+	public String deleteOneApproval(int approvalId);
 
 	public Approval viewOneApproval(int approvalId);
 
