@@ -11,9 +11,9 @@ import com.atos.eduhub.model.UserModel;
 public interface DemoDao {
 	public List<Map<String, Object>> findAll();
 
-	public UserModel findById(String userId);
+	//public UserModel findById(String userId);
 
-	public List<UserModel> findAllWithRowMapper();
+	//public List<UserModel> findAllWithRowMapper();
 
 	public int saveUserProfile(UserModel usermodel);
 

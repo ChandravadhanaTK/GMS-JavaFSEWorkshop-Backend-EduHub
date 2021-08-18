@@ -2,7 +2,6 @@ package com.atos.eduhub.rowmapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -19,8 +18,9 @@ public class CourseRowMapper implements RowMapper<Course> {
 		course.setCourseName(String.valueOf(rs.getString("coursename")));
 		course.setCourseDesc(String.valueOf(rs.getString("coursedesc")));
 		course.setSkillReqd(String.valueOf(rs.getString("skillrequired")));
-		course.setcreatedOn(rs.getTimestamp("createdon"));
-		course.setLastUpdatedOn(rs.getTimestamp("lastupdatedon"));
+		course.setcreatedOn(rs.getTimestamp("createdon").toLocalDateTime());
+		course.setLastUpdatedOn(rs.getTimestamp("lastupdatedon").toLocalDateTime());
+		
 		
 		return course;
 			
