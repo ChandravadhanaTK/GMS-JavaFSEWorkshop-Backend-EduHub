@@ -75,7 +75,8 @@ public class MentorDaoImpl implements MentorDao {
 	@Override
 	public List<Mentor> viewAllMentors() throws DataAccessException {
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		DateTimeFormatter formatter = DateTimeFormatter
+				.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]");
 
 		List<Map<String, Object>> rows = jdbctemplate.queryForList(QueryConfig.SHOW_ALL_MENTORS);
 
@@ -114,7 +115,8 @@ public class MentorDaoImpl implements MentorDao {
 
 	@Override
 	public List<Mentor> viewMentorById(int userid) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		DateTimeFormatter formatter = DateTimeFormatter
+				.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]");
 
 		List<Map<String, Object>> rows = jdbctemplate.queryForList(QueryConfig.SHOW_MENTOR_BY_ID, userid);
 
