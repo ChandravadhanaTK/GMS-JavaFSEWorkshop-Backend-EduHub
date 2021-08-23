@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Approval {
+	//Test
 	private int approvalId;
 	private int requestId;
 	private int rmId;
