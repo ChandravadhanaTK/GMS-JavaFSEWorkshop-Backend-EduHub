@@ -25,8 +25,8 @@ public class LearnerServiceImpl implements LearnerService {
 	@Override
 	public String addLearner(LearnerModel learnermodel) {
 		return learnerDao.saveLearner(learnermodel) > 0
-		? "Learner " + learnermodel.getRequestId() + " has been added to eduhub"
-		: "Issue with adding learner with requestid " + learnermodel.getRequestId();
+		? "Successfull"
+		: "Failed";
 	}
 	
 	@Override
