@@ -36,8 +36,10 @@ public class CoursesDaoImpl implements CoursesDao {
 		course.setcreatedOn(LocalDateTime.now());
 
 		course.setLastUpdatedOn(LocalDateTime.now());
+		System.out.println("Inside dao"+ course);
 
-		return jdbcTemplate.update(CourseQueryConfig.COURSE_SAVE, course.getCourseId(), course.getCourseName(),
+		// return jdbcTemplate.update(CourseQueryConfig.COURSE_SAVE, course.getCourseId(), course.getCourseName(),
+	    return jdbcTemplate.update(CourseQueryConfig.COURSE_SAVE,course.getCourseName(),
 				course.getCourseDesc(), course.getSkillReqd(), course.getcreatedOn(), course.getLastUpdatedOn());
 
 	}

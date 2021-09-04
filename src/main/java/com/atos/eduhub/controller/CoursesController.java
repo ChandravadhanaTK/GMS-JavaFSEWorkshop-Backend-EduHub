@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.atos.eduhub.model.Course;
 import com.atos.eduhub.service.CoursesServices;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/eduhubapi/v1")
 
@@ -27,15 +29,20 @@ public class CoursesController {
 	@PutMapping("/Course")
 	
 	public String addCourse(@RequestBody Course course) {
-		System.out.println("Course Added");
-		
+		System.out.println("Course Added"+ course);
+		System.out.println(course.getCourseId());
+		System.out.println(course.getCourseName());
+		System.out.println(course.getCourseDesc());
+		System.out.println(course.getSkillReqd());
+		System.out.println(course.getcreatedOn());
+		System.out.println(course.getLastUpdatedOn());
 		return coursesservices.saveCourse(course);
 
 	}
 
 	@GetMapping("/Courses")
 	public Course getCourse() {
-		System.out.println("Inside Put");
+		System.out.println("Inside Get");
 		Course course = new Course();
 		course.setCourseId(1);
 		course.setCourseName("Spring");
