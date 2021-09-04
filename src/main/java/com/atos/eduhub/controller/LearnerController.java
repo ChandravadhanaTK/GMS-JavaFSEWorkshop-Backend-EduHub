@@ -4,6 +4,7 @@ import java.util.List;
 
 //import java.awt.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,10 @@ import com.atos.eduhub.model.Learner;
 import com.atos.eduhub.model.LearnerModel;
 import com.atos.eduhub.service.LearnerService;
 //import com.atos.eduhub.service.impl.LearnerServiceImpl;
+
+//@CrossOrigin(origins ="Http:/localhost:3000")
+
+@CrossOrigin("*")
 
 @RestController
 @RequestMapping("/eduhubapi/v1")
