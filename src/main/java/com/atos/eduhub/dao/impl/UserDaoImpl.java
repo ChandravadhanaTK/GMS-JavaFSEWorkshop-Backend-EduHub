@@ -36,6 +36,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public User getUserById(int id) {
         return jdbcTemplate.queryForObject(QueryConfig.userprofile_fetchById, new UserRowMapper(),new Object[] {id} );
+       
     }
 
     @Override
@@ -60,7 +61,7 @@ public class UserDaoImpl implements UserDao{
     public int updateUser(int id, User updUser) {
 
         System.out.println(updUser);
-        return	jdbcTemplate.update(QueryConfig.userprofile_updateById,updUser.getUserName(),updUser.getPassword(),updUser.getFirstName(),updUser.getSecondName(),updUser.getEmailId(),updUser.getMobile(),updUser.getLocation(),updUser.getDesignation(),updUser.getExperience(),updUser.getPrimarySkills(),updUser.getSecondarySkills(),updUser.getRole(),LocalDateTime.now(),LocalDateTime.now(),id);
+        return	jdbcTemplate.update(QueryConfig.userprofile_updateById,updUser.getUserName(),updUser.getPassword(),updUser.getFirstName(),updUser.getSecondName(),updUser.getEmailId(),updUser.getMobile(),updUser.getLocation(),updUser.getDesignation(),updUser.getExperience(),updUser.getPrimarySkills(),updUser.getSecondarySkills(),updUser.getRole(),updUser.getCreatedOn(),updUser.getLastLogin(),id);
 
     }
 
