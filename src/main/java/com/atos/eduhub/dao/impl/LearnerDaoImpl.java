@@ -95,7 +95,7 @@ public class LearnerDaoImpl implements LearnerDao {
                 
                 try {
 					return jdbcTemplate.update(LearnerQueryConfig.learnerprofile_updateByID, updateLearner.getApprovalId(),
-							updateLearner.getApprovalStatus(), updateLearner.getStatusMessage(),
+							updateLearner.getApprovalStatus(), updateLearner.getStatusMessage(),updateLearner.getAssignmentId(), 
 							updateLearner.getAssignmentStatus(), updateLearner.getAssignmentStatusMessage(),
 							updateLearner.getLearnerDescription(), updateLearner.getLearnerScore()
 							//                    , LocalDateTime.now()

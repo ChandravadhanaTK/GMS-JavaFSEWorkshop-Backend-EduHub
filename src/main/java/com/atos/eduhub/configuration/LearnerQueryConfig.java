@@ -20,7 +20,8 @@ public final class LearnerQueryConfig {
 					+ "where userid = ? ";
 	public static final String learnerprofile_deleteAllLearner= "delete from learner ";
 	public static final String learnerprofile_updateByID= " update learner " 
-					+ " set approvalid=?,approvalstatus=?,statusmessage=?,assignmentstatus=?,"
+					+ " set approvalid=?,approvalstatus=?,statusmessage=?,"
+					+ " assignmentid=?, assignmentstatus=?,"
 					+ " assignmentstatusmessage=?,learnerdescription=?,learnerscore=?,"
 					+ "lastupdatedon=current_timestamp where  requestid=?";
 	public LearnerQueryConfig() {
