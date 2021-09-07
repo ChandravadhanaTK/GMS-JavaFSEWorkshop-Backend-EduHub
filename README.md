@@ -76,3 +76,28 @@ Request-Body:
     "password": "hello"
 }
 
+
+Postgress User table DDL 
+--------------------------
+CREATE TABLE public.user_profile
+(
+    id integer NOT NULL DEFAULT nextval('user_profile_id_seq'::regclass),
+    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    firstname character varying(50) COLLATE pg_catalog."default",
+    secondname character varying(50) COLLATE pg_catalog."default",
+    emailid character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    mobile character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    location character varying(50) COLLATE pg_catalog."default",
+    designation character varying(50) COLLATE pg_catalog."default",
+    experience integer NOT NULL,
+    primaryskills character varying(100) COLLATE pg_catalog."default",
+    secondaryskills character varying(100) COLLATE pg_catalog."default",
+    role character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    createdon timestamp without time zone NOT NULL,
+    lastlogin timestamp without time zone NOT NULL,
+    CONSTRAINT userid_pkey PRIMARY KEY (id),
+    CONSTRAINT unique_emailid UNIQUE (emailid),
+    CONSTRAINT unique_role UNIQUE (role),
+    CONSTRAINT unique_username UNIQUE (username)
+)
