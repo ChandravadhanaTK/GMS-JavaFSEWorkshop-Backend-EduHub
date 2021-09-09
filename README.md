@@ -122,3 +122,24 @@ CREATE TABLE public.mentor
         ON DELETE NO ACTION
         NOT VALID
 );
+
+Postgress Learner table DDL
+
+CREATE TABLE public.learner
+(
+    requestid integer NOT NULL DEFAULT nextval('"LEARNER_requestId_seq"'::regclass),
+    userid integer NOT NULL DEFAULT nextval('"LEARNER_userid_seq"'::regclass),
+    role character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    courseid integer NOT NULL DEFAULT nextval('"LEARNER_courseId_seq"'::regclass),
+    rmid integer NOT NULL DEFAULT nextval('"LEARNER_rmid_seq"'::regclass),
+    approvalid integer NOT NULL DEFAULT nextval('"LEARNER_approvalId_seq"'::regclass),
+    approvalstatus character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    statusmessage character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    assignmentid integer NOT NULL DEFAULT nextval('"LEARNER_assignmentId_seq"'::regclass),
+    assignmentstatus character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    assignmentstatusmessage character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    learnerdescription character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    learnerscore character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    lastupdatedon timestamp without time zone NOT NULL,
+    CONSTRAINT learner_pkey PRIMARY KEY (requestid)
+)
