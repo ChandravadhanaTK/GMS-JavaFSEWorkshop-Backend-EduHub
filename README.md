@@ -81,7 +81,7 @@ Postgress User table DDL
 --------------------------
 CREATE TABLE public.user_profile
 (
-    id integer NOT NULL DEFAULT nextval('user_profile_id_seq'::regclass),
+    id serial,
     username character varying(50) COLLATE pg_catalog."default" NOT NULL,
     password character varying(50) COLLATE pg_catalog."default" NOT NULL,
     firstname character varying(50) COLLATE pg_catalog."default",
@@ -101,3 +101,24 @@ CREATE TABLE public.user_profile
     CONSTRAINT unique_role UNIQUE (role),
     CONSTRAINT unique_username UNIQUE (username)
 )
+
+Postgress Mentor table DDL 
+--------------------------
+CREATE TABLE public.mentor
+(
+    "availabilityid " serial,
+    userid serial,
+    startdatetime timestamp without time zone NOT NULL,
+    enddatetime timestamp without time zone NOT NULL,
+    "mentoringSkill" character varying(100),
+    "mentoredHours" character varying(50) NOT NULL,
+    "mentorRating" character varying(50),
+    "aboutMentor" character varying(255) NOT NULL,
+    last_updated_on timestamp without time zone NOT NULL,
+    CONSTRAINT "Primary" PRIMARY KEY ("availabilityid "),
+    CONSTRAINT "User id of Mentor" FOREIGN KEY (userid)
+        REFERENCES public.user_profile (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+);
