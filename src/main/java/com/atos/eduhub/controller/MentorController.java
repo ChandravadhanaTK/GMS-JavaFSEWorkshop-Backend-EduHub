@@ -43,6 +43,11 @@ public class MentorController {
 		return mentorservice.viewMentor(id);
 	}
 
+//	@GetMapping("/mentor/{id}/{availabilityid}")
+//	public Mentor viewMentor(@PathVariable(value = "id") int id, @PathVariable(value = "availabilityid") int availabilityid) {
+//		return mentorservice.viewMentor(id);
+//	}
+
 	// Following controller code lists all mentors registered in EduHub
 	@GetMapping("/mentor")
 	public List<Mentor> viewAllMentors() {
