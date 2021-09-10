@@ -43,18 +43,12 @@ public class MentorController {
 		return mentorservice.viewMentor(id);
 	}
 
-	
-	// Following controller code lists mentor rows for given id and availabilityid 
+	// Following controller code lists mentor rows for given id and availabilityid
 	@GetMapping("/mentor/{id}/{availabilityid}")
-	public List<Mentor> viewMentorByIdAndAvailabilityId(@PathVariable(value = "id")  int id, @PathVariable(value = "availabilityid")  int availabilityid) 
-	{
+	public List<Mentor> viewMentorByIdAndAvailabilityId(@PathVariable(value = "id") int id,
+			@PathVariable(value = "availabilityid") int availabilityid) {
 		return mentorservice.viewMentorByIdAndAvailability(id, availabilityid);
 	}
-	
-//	@GetMapping("/mentor/{id}/{availabilityid}")
-//	public Mentor viewMentor(@PathVariable(value = "id") int id, @PathVariable(value = "availabilityid") int availabilityid) {
-//		return mentorservice.viewMentor(id);
-//	}
 
 	// Following controller code lists all mentors registered in EduHub
 	@GetMapping("/mentor")
@@ -63,9 +57,11 @@ public class MentorController {
 		return mentorservice.viewAllMentors();
 	}
 
-	// Following controller code deletes the requested mentor for given availabilityid registered in EduHub
+	// Following controller code deletes the requested mentor for given
+	// availabilityid registered in EduHub
 	@DeleteMapping("/mentor/{id}/{availabilityid}")
-	public String deleteMentor(@PathVariable(value = "id") int id, @PathVariable(value = "availabilityid") int availabilityid) {
+	public String deleteMentor(@PathVariable(value = "id") int id,
+			@PathVariable(value = "availabilityid") int availabilityid) {
 		return mentorservice.deleteMentor(id, availabilityid);
 	}
 
