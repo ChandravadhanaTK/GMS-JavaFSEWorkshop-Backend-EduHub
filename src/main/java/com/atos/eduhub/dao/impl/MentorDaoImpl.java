@@ -67,9 +67,9 @@ public class MentorDaoImpl implements MentorDao {
 	}
 
 	@Override
-	public int deleteMentor(int mentorId) {
+	public int deleteMentor(int mentorId, int availabilityid) {
 
-		return jdbctemplate.update(QueryConfig.DELETE_MENTOR, mentorId);
+		return jdbctemplate.update(QueryConfig.DELETE_MENTOR, mentorId, availabilityid);
 	}
 
 	@Override
@@ -152,4 +152,40 @@ public class MentorDaoImpl implements MentorDao {
 		return result;
 	}
 
+	@Override
+	public List<Mentor> viewMentorByIdAndAvailabilityid(int userid, int availabilityid) {
+		DateTimeFormatter formatter = DateTimeFormatter
+				.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]");
+
+		List<Map<String, Object>> rows = jdbctemplate.queryForList(QueryConfig.SHOW_MENTOR_BY_ID_AND_AVAILABILITY_ID, userid, availabilityid);
+
+		List<Mentor> result = new ArrayList<Mentor>();
+		System.out.println(result);
+
+		for (Map<String, Object> row : rows) {
+			Mentor mentor = new Mentor();
+			mentor.setAvailabilityid((int) row.get("availabilityid"));
+			mentor.setUserid((int) row.get("userid"));
+			mentor.setUsername((String) row.get("username"));
+
+			String startdatetime = ((Timestamp) row.get("startdatetime")).toString();
+			mentor.setStartdatetime(LocalDateTime.parse(startdatetime, formatter));
+
+			String enddatetime = ((Timestamp) row.get("enddatetime")).toString();
+			mentor.setEnddatetime(LocalDateTime.parse(enddatetime, formatter));
+
+			mentor.setMentoringskill((String) row.get("mentoringskill"));
+			mentor.setMentoredhours((String) row.get("mentoredhours"));
+			mentor.setMentorrating((String) row.get("mentorrating"));
+			mentor.setAboutmentor((String) row.get("aboutmentor"));
+
+			String lastupdateon = ((Timestamp) row.get("last_updated_on")).toString();
+			mentor.setLastupdatedon(LocalDateTime.parse(lastupdateon, formatter));
+
+			result.add(mentor);
+			System.out.println(mentor);
+		}
+
+		return result;
+	}
 }
