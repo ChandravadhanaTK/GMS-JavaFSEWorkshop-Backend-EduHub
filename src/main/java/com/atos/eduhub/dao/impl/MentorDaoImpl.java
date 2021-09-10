@@ -86,6 +86,7 @@ public class MentorDaoImpl implements MentorDao {
 			Mentor mentor = new Mentor();
 			mentor.setAvailabilityid((int) row.get("availabilityid"));
 			mentor.setUserid((int) row.get("userid"));
+			mentor.setUsername((String) row.get("username"));
 
 			System.out.println("Value returned by Row Mapper : " + row.get("startdatetime"));
 			System.out.println("Value returned by Row Mapper converted to java.sql.timestamp : "
@@ -108,6 +109,7 @@ public class MentorDaoImpl implements MentorDao {
 			mentor.setLastupdatedon(LocalDateTime.parse(lastupdateon, formatter));
 
 			result.add(mentor);
+			System.out.println(mentor);
 		}
 
 		return result;
@@ -127,6 +129,7 @@ public class MentorDaoImpl implements MentorDao {
 			Mentor mentor = new Mentor();
 			mentor.setAvailabilityid((int) row.get("availabilityid"));
 			mentor.setUserid((int) row.get("userid"));
+			mentor.setUsername((String) row.get("username"));
 
 			String startdatetime = ((Timestamp) row.get("startdatetime")).toString();
 			mentor.setStartdatetime(LocalDateTime.parse(startdatetime, formatter));
@@ -143,6 +146,7 @@ public class MentorDaoImpl implements MentorDao {
 			mentor.setLastupdatedon(LocalDateTime.parse(lastupdateon, formatter));
 
 			result.add(mentor);
+			System.out.println(mentor);
 		}
 
 		return result;
