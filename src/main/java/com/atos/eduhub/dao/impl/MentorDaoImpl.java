@@ -57,7 +57,7 @@ public class MentorDaoImpl implements MentorDao {
 
 		return jdbctemplate.update(QueryConfig.EDIT_MENTOR, mentor.getStartdatetime(), mentor.getEnddatetime(),
 				mentor.getMentoringskill(), mentor.getMentoredhours(), mentor.getMentorrating(),
-				mentor.getAboutmentor(), LocalDateTime.now(), mentor.getUserid());
+				mentor.getAboutmentor(), LocalDateTime.now(), mentor.getUserid(), mentor.getAvailabilityid());
 	}
 
 	@Override

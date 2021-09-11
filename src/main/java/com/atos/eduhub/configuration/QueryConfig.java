@@ -22,7 +22,7 @@ public final class QueryConfig {
 
 	public static final String EDIT_MENTOR = "Update mentor set startdatetime=?, "
 			+ "enddatetime=?, mentoringSkill=?, mentoredHours=?, mentorRating=?, "
-			+ "aboutMentor=?, last_updated_on=? Where userid=? and a.availabilityid =?";
+			+ "aboutMentor=?, last_updated_on=? Where userid=? and availabilityid =?";
 
 	public static final String DELETE_MENTOR = "DELETE FROM mentor WHERE userid=? and availabilityid =?";
 
