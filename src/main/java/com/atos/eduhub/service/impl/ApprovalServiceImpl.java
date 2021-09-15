@@ -30,10 +30,20 @@ public class ApprovalServiceImpl implements ApprovalService {
 	}
 
 	@Override
-	public Approval editApproval(Approval approval) {
+	public String editApproval(Approval approval) {
 		System.out.println("Approval object updated for PUT request:");
 		System.out.println(approval);
-		return approval;
+		LocalDateTime currentTime = LocalDateTime.now();
+		approval.setLastUpdatedOn(currentTime);
+		int updateCount = approvalDao.editApproval(approval);
+		String updateMessage = "";
+		if (updateCount == 0) {
+			updateMessage = "No approval found with id " + approval.getApprovalId() + "; Update not performed";
+		}
+		else {
+			updateMessage = "Approval with id = "+ approval.getApprovalId() + " Updated";
+		}
+		return updateMessage;
 	}
 
 	@Override

@@ -48,13 +48,21 @@ public class ApprovalDaoImpl implements ApprovalDao {
     @Override
     public Approval viewOneApproval(int approvalId) {
     	//Approval approval = jdbcTemplate.queryForObject(ApprovalQueryConfig.FETCH_APPROVAL_BY_ID, Approval.class, new Object[] {approvalId});
-    	Approval approval = jdbcTemplate.queryForObject(ApprovalQueryConfig.FETCH_APPROVAL_BY_ID, new ApprovalRowMapper(), new Object[] {approvalId});
-    	if (approval != null) {
-    		System.out.println(" Approval found on postgres table for id  " + approvalId);
+    	//Approval approval = jdbcTemplate.queryForObject(ApprovalQueryConfig.FETCH_APPROVAL_BY_ID, new ApprovalRowMapper(), new Object[] {approvalId});
+//    	if (approval != null) {
+//    		System.out.println(" Approval found on postgres table for id  " + approvalId);
+//    	} else {
+//    		System.out.println(" Approval NOT found on postgres table for id  " + approvalId);
+//    	}
+    	List<Approval> approvalList = jdbcTemplate.query(ApprovalQueryConfig.FETCH_APPROVAL_BY_ID, new ApprovalRowMapper(), new Object[] {approvalId});
+    	System.out.println("Approvals fetched from table = " + approvalList);
+    	System.out.println("size = " + approvalList.size());
+    	if(approvalList.size() == 0) {
+    		return null;
     	} else {
-    		System.out.println(" Approval NOT found on postgres table for id  " + approvalId);
+    		return approvalList.get(0);
     	}
-    	return approval;
+    	//return approval;
     }
     
     @Override
@@ -68,5 +76,12 @@ public class ApprovalDaoImpl implements ApprovalDao {
 		return jdbcTemplate.query(ApprovalQueryConfig.SHOW_ALL_APPROVALS, new ApprovalRowMapper());
 	}
 
+	@Override
+	public int editApproval(Approval approval) {
+		//update approval set approvalstatus=?, approvalstatusmessage=?, lastupdatedon=? where approvalid=?
+		int updateCount = jdbcTemplate.update(ApprovalQueryConfig.EDIT_APPROVAL, approval.getApprovalStatus(), approval.getApprovalStatusMessage(), approval.getLastUpdatedOn(), approval.getApprovalId());
+		System.out.println("Number of approval records updated : "+ updateCount);
+		return updateCount;
+	}
 	
 }
