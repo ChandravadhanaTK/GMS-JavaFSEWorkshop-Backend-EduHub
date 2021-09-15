@@ -8,12 +8,12 @@ public final class QueryConfig {
 
 	public static final String SHOW_ALL_MENTORS = "Select a.availabilityid, a.userid, b.username, "
 			+ "a.startdatetime, a.enddatetime, a.mentoringskill, a.mentoredhours, a.mentorrating, a. aboutmentor,"
-			+ " a.last_updated_on from mentor a, user_profile b where a.userid = b.id "
+			+ " a.last_updated_on from mentor a, user_profile b where a.userid = b.id and a.enddatetime > CURRENT_TIMESTAMP "
 			+ "order by a.startdatetime, a.enddatetime";
 
 	public static final String SHOW_MENTOR_BY_ID = "Select a.availabilityid, a.userid, b.username, "
 			+ "a.startdatetime, a.enddatetime, a.mentoringskill, a.mentoredhours, a.mentorrating, a. aboutmentor,"
-			+ " a.last_updated_on from mentor a, user_profile b where a.userid = b.id and a.userid =? "
+			+ " a.last_updated_on from mentor a, user_profile b where a.userid = b.id and a.userid =? and a.enddatetime > CURRENT_TIMESTAMP "
 			+ "order by a.startdatetime, a.enddatetime";
 
 	public static final String SHOW_MENTOR_BY_ID_AND_AVAILABILITY_ID = "Select a.availabilityid, a.userid, b.username, "
