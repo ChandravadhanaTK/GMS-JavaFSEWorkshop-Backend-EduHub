@@ -13,12 +13,14 @@ public interface MentorDao {
 	
 	int editMentor(Mentor mentor);
 	
-	int deleteMentor(int mentorId);
+	int deleteMentor(int mentorId, int availabilityid);
 	
 	int deleteAllMentors();
 	
 	List<Mentor> viewAllMentors();
 	
 	List<Mentor> viewMentorById(int userid);
+
+	List<Mentor> viewMentorByIdAndAvailabilityid(int userid, int availabilityid);
 	
 }
