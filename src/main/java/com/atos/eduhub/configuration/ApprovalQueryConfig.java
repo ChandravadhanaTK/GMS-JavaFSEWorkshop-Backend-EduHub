@@ -9,4 +9,9 @@ public final class ApprovalQueryConfig {
 	public static final String INSERT_APPROVAL = "insert into approval(approvalid, requestid, rmid, approvalstatus, approvalstatusmessage, createdon, lastupdatedon) values(?, ?, ?, ?, ?, ?, ?)";
 	public static final String FETCH_APPROVAL_BY_ID = "select approvalid, requestid, rmid, approvalstatus, approvalstatusmessage, createdon, lastupdatedon from approval where approvalid = ?"; 
 	public static final String DELETE_APPROVAL_BY_ID = "delete from approval where approvalid = ?";
+	public static final String EDIT_APPROVAL = "update approval set approvalstatus=?, approvalstatusmessage=?, lastupdatedon=? where approvalid=?";
 }
+
+
+
+
