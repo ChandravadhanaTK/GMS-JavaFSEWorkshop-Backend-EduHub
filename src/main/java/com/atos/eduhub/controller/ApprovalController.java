@@ -3,6 +3,7 @@ package com.atos.eduhub.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ GET - view one  approval detailsg
 GET - view all approval details
 */
 
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/eduhubapi/v1")
 public class ApprovalController {
@@ -43,21 +45,22 @@ public class ApprovalController {
 
 	// Edit Approval
 	@PutMapping("/approval")
-	public Approval editApproval(@RequestBody Approval approval) {
+	public String editApproval(@RequestBody Approval approval) {
 		System.out.println("Put request received for editApproval() for id " + approval.getApprovalId());
 		return approvalService.editApproval(approval);
 	}
 
 	// Delete single approval
 	// Delete REST API Demo
-	@DeleteMapping("deleteapproval/{approvalId}")
-	public String deleteCourse(@PathVariable(value = "approvalId") int approvalId) {
-		return "Deleted Approval id  " + approvalId;
+	@DeleteMapping("approval/{approvalId}")
+	public String deleteOneApproval(@PathVariable(value = "approvalId") int approvalId) {
+		System.out.println("Delete request received for deleteOneApproval() for id " + approvalId);
+		return approvalService.deleteOneApproval(approvalId);
 	}
 
 	// Delete all approvals
 	// Delete all REST API Demo
-	@DeleteMapping("/deleteallapproval")
+	@DeleteMapping("/approval")
 	@ResponseBody
 	public String deleteAllApprovals() {
 		return approvalService.deleteAllApprovals();

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +24,7 @@ public class CoursesController {
 	CoursesServices coursesservices;
 
 	// Add Courses -REST API
-	@PostMapping("/Course")
+	@PutMapping("/Course")
 	
 	public String addCourse(@RequestBody Course course) {
 		System.out.println("Course Added");
@@ -61,7 +60,7 @@ public class CoursesController {
 	}
 
 	// Edit/Update Courses
-	@PostMapping("/Course/{courseid}")
+	@PutMapping("/Course/{courseid}")
 	
 	public String updateCourse(@PathVariable(name = "courseid") int courseid, @RequestBody Course updcourse) {
 	

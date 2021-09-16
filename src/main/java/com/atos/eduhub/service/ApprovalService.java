@@ -7,9 +7,9 @@ import com.atos.eduhub.model.Approval;
 public interface ApprovalService {
 	public Approval addApproval(Approval approval);
 
-	public Approval editApproval(Approval approval);
+	public String editApproval(Approval approval);
 
-	public void deleteApproval();
+	public String deleteOneApproval(int approvalId);
 
 	public Approval viewOneApproval(int approvalId);
 

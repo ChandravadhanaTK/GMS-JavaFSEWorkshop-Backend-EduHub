@@ -1,6 +1,5 @@
 package com.atos.eduhub.service.impl;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.atos.eduhub.dao.CoursesDao;
-import com.atos.eduhub.dao.UserDao;
 import com.atos.eduhub.model.Course;
-import com.atos.eduhub.model.UserModel;
 import com.atos.eduhub.service.CoursesServices;
 
 @Component
@@ -58,8 +55,8 @@ public class CoursesServiceImpl implements CoursesServices {
 		course.setCourseName("View Spring");
 		course.setCourseDesc("Sring Boot for Workshop");
 		course.setSkillReqd("MVC");
-		course.setcreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		course.setLastUpdatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		course.setcreatedOn(LocalDateTime.now());
+		course.setLastUpdatedOn(LocalDateTime.now());
 		return course;
 
 	}
@@ -72,8 +69,8 @@ public class CoursesServiceImpl implements CoursesServices {
 		course1.setCourseName("Big Data");
 		course1.setCourseDesc("Big data - anlaytics");
 		course1.setSkillReqd("BIG");
-		course1.setcreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		course1.setLastUpdatedOn(Timestamp.valueOf(LocalDateTime.now()));
+		course1.setcreatedOn(LocalDateTime.now());
+		course1.setLastUpdatedOn(LocalDateTime.now());
 
 		getCourse.add(course1);
 
@@ -82,9 +79,8 @@ public class CoursesServiceImpl implements CoursesServices {
 		course2.setCourseName("RestController");
 		course2.setCourseDesc("Restcontroller Workshop");
 		course2.setSkillReqd("Rest");
-		course2.setcreatedOn(Timestamp.valueOf(LocalDateTime.now()));
-		course2.setLastUpdatedOn(Timestamp.valueOf(LocalDateTime.now()));
-
+		course2.setcreatedOn(LocalDateTime.now());
+		course2.setLastUpdatedOn(LocalDateTime.now());
 		getCourse.add(course2);
 
 		return getCourse;
@@ -99,7 +95,7 @@ public class CoursesServiceImpl implements CoursesServices {
 	
 	@Override
 	public String updateCoursebyid(Course updcourse) {
-		System.out.println("in course service impl to update..");
+		
 			return coursedao.updateCoursebyid(updcourse) != 0 ? "Course updated successfully " + updcourse.getCourseId()
 		: "Unsuccesful" + updcourse.getCourseId();
 	}

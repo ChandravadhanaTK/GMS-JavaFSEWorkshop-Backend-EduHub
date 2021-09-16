@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.security.Timestamp;
 import java.time.LocalDateTime;
 
-public class Learner implements Serializable {
+public class LearnerModel implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
 	
 	private int requestId;
 	private int userId;
@@ -23,11 +24,34 @@ public class Learner implements Serializable {
 	private String learnerScore;
 	private LocalDateTime lastUpdatedOn;
 
+	
+	
 
-	public Learner() {
+	public LearnerModel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
+	public LearnerModel(int requestId, int userId, String role, int courseId, int rmid, int approvalId,
+			String approvalStatus, String statusMessage, int assignmentId, String assignmentStatus,
+			String assignmentStatusMessage, String learnerDescription, String learnerScore, LocalDateTime lastUpdatedOn) 
+	{
+		super();
+		this.requestId = requestId;
+		this.userId = userId;
+		this.role = role;
+		this.courseId = courseId;
+		this.rmid = rmid;
+		this.approvalId = approvalId;
+		this.approvalStatus = approvalStatus;
+		this.statusMessage = statusMessage;
+		this.assignmentId = assignmentId;
+		this.assignmentStatus = assignmentStatus;
+		this.assignmentStatusMessage = assignmentStatusMessage;
+		this.learnerDescription = learnerDescription;
+		this.learnerScore = learnerScore;
+		this.lastUpdatedOn = lastUpdatedOn;
+	}
+	
 	public int getRequestId() {
 		return requestId;
 	}
@@ -132,11 +156,12 @@ public class Learner implements Serializable {
 		this.learnerScore = learnerScore;
 	}
 
+
 	public LocalDateTime getLastUpdatedOn() {
 		return lastUpdatedOn;
 	}
 	
-	public void setLastupdatedOn() {
+	public void setLastupdatedon() {
 		this.lastUpdatedOn = LocalDateTime.now();
 	}
 
@@ -145,5 +170,41 @@ public class Learner implements Serializable {
 	}
 	
 
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("LearnerModel [requestId=");
+		builder.append(requestId);
+		builder.append(", userId=");
+		builder.append(userId);
+		builder.append(", role=");
+		builder.append(role);
+		builder.append(", courseId=");
+		builder.append(courseId);
+		builder.append(", rmid=");
+		builder.append(rmid);
+		builder.append(", approvalId=");
+		builder.append(approvalId);
+		builder.append(", approvalStatus=");
+		builder.append(approvalStatus);
+		builder.append(", statusMessage=");
+		builder.append(statusMessage);
+		builder.append(", assignmentId=");
+		builder.append(assignmentId);
+		builder.append(", assignmentStatus=");
+		builder.append(assignmentStatus);
+		builder.append(", assignmentStatusMessage=");
+		builder.append(assignmentStatusMessage);
+		builder.append(", learnerDescription=");
+		builder.append(learnerDescription);
+		builder.append(", learnerScore=");
+		builder.append(learnerScore);
+		builder.append(", lastUpdateOn=");
+		builder.append(lastUpdatedOn);
+		builder.append("]");
+		return builder.toString();
+	}
 	
+
 }

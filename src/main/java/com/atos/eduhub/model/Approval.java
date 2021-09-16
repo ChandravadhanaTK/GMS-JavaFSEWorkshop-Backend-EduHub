@@ -1,15 +1,22 @@
 package com.atos.eduhub.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class Approval {
 	private int approvalId;
 	private int requestId;
 	private int rmId;
-	private String approvalStatus;
+	private String approvalStatus; //possible values are - Initiated, Approved, Rejected
 	private String approvalStatusMessage;
-	private Timestamp createdOn; // "createdOn": "2021-07-01T09:27:00Z" <--- use this date format on PostMan.
-	private Timestamp lastUpdatedOn;
+	
+	//private Timestamp createdOn; // "createdOn": "2021-07-01T09:27:00Z" <--- use this date format on PostMan.
+	// changing from Timestamp to LocalDateTime
+	private LocalDateTime createdOn; // "createdOn": "2021-07-01T09:27:00Z" <--- use this date format on PostMan.
+	
+	// private Timestamp lastUpdatedOn;
+	// changing from Timestamp to LocalDateTime
+	private LocalDateTime lastUpdatedOn;
 
 	public int getApprovalId() {
 		return approvalId;
@@ -51,19 +58,19 @@ public class Approval {
 		this.approvalStatusMessage = approvalStatusMessage;
 	}
 
-	public Timestamp getCreatedOn() {
+	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
 
-	public void setCreatedOn(Timestamp createdOn) {
+	public void setCreatedOn(LocalDateTime createdOn) {
 		this.createdOn = createdOn;
 	}
 
-	public Timestamp getLastUpdatedOn() {
+	public LocalDateTime getLastUpdatedOn() {
 		return lastUpdatedOn;
 	}
 
-	public void setLastUpdatedOn(Timestamp lastUpdatedOn) {
+	public void setLastUpdatedOn(LocalDateTime lastUpdatedOn) {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
