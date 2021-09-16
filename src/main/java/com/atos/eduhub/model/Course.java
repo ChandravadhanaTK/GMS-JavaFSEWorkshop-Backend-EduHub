@@ -1,7 +1,6 @@
 package com.atos.eduhub.model;
 
 import java.time.LocalDateTime;
-
 import org.springframework.stereotype.Component;
 
 @Component
