@@ -76,3 +76,36 @@ Request-Body:
     "password": "hello"
 }
 
+
+
+COURSE TEAM DDL
+====================
+
+-- Table: public.courses
+
+ 
+
+-- DROP TABLE public.courses;
+
+ 
+
+CREATE TABLE public.courses
+(
+    courseid integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    coursename character varying(50) COLLATE pg_catalog."default",
+    coursedesc character varying(50) COLLATE pg_catalog."default",
+    skillrequired character varying(50) COLLATE pg_catalog."default",
+    createdon timestamp without time zone,
+    lastupdatedon timestamp without time zone,
+    CONSTRAINT courses_pkey PRIMARY KEY (courseid)
+)
+
+ 
+
+TABLESPACE pg_default;
+
+ 
+
+ALTER TABLE public.courses
+    OWNER to postgres;
+
