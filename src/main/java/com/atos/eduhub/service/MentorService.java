@@ -18,7 +18,11 @@ public interface MentorService {
 
 	public List<Mentor> viewAllMentors();
 
-	public String deleteMentor(int id);
+//	public String deleteMentor(int id);
+	
+	public String deleteMentor(int id, int availabilityid);
 
 	public String deleteAllMentors();
+
+	public List<Mentor> viewMentorByIdAndAvailability(int id, int availabilityid);
 }

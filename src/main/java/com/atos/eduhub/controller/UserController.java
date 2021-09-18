@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.atos.eduhub.model.User;
 import com.atos.eduhub.service.UserService;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/eduhubapi/v1")
 public class UserController {

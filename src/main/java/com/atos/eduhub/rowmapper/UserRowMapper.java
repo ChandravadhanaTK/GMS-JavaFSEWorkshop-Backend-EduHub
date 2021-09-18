@@ -29,7 +29,7 @@ public class UserRowMapper implements RowMapper<User>{
 		usermodel.setPrimarySkills(rs.getString("primarySkills"));
 		usermodel.setSecondarySkills(rs.getString("secondarySkills"));
 		usermodel.setRole(rs.getString("role"));
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSS]");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]");
 		String createdon = ((Timestamp) rs.getObject("CreatedOn")).toString();
 		String lastlogin = ((Timestamp) rs.getObject("LastLogin")).toString();
 		usermodel.setCreatedOn(LocalDateTime.parse(createdon, formatter));

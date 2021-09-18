@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
 				user1.setSecondarySkills(String.valueOf(eachresponse.get("secondarySkills")));
 				user1.setRole(String.valueOf(eachresponse.get("role")));
 
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSS]");
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]");
 				String createdon = ((Timestamp) eachresponse.get("createdOn")).toString();
 				String lastlogin = ((Timestamp) eachresponse.get("LastLogin")).toString();
 				user1.setCreatedOn(LocalDateTime.parse(createdon, formatter));

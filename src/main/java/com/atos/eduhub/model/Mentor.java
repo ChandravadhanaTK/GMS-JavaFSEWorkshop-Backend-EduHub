@@ -9,6 +9,7 @@ public class Mentor {
 
 	private int availabilityid;
 	private int userid;
+	private String username;
 	private LocalDateTime startdatetime;
 	private LocalDateTime enddatetime;
 	private String mentoringskill;
@@ -35,6 +36,17 @@ public class Mentor {
 
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		if (username != null)
+			this.username = username;
+		else
+			this.username = "";
 	}
 
 	public LocalDateTime getStartdatetime() {
@@ -85,18 +97,6 @@ public class Mentor {
 		this.aboutmentor = aboutmentor;
 	}
 
-//	public Timestamp getLastupdatedon() {
-//		return lastupdatedon;
-//	}
-//
-//	public void setLastupdatedon() {
-//		this.lastupdatedon = Timestamp.valueOf(LocalDateTime.now());
-//	}
-//
-//	public void setLastupdatedon(Timestamp lastupdatedon) {
-//		this.lastupdatedon = lastupdatedon;
-//	}
-
 	public LocalDateTime getLastupdatedon() {
 		return lastupdatedon;
 	}
@@ -111,10 +111,10 @@ public class Mentor {
 
 	@Override
 	public String toString() {
-		return "MentorModel [availabilityid=" + availabilityid + ", userid=" + userid + ", startdatetime="
-				+ startdatetime + ", enddatetime=" + enddatetime + ", mentoringskill=" + mentoringskill
-				+ ", mentoredhours=" + mentoredhours + ", mentorrating=" + mentorrating + ", aboutmentor=" + aboutmentor
-				+ ", lastupdatedon=" + lastupdatedon + "]";
+		return "MentorModel [availabilityid=" + availabilityid + ", userid=" + userid + ", username =" + username
+				+ ",startdatetime=" + startdatetime + ", enddatetime=" + enddatetime + ", mentoringskill="
+				+ mentoringskill + ", mentoredhours=" + mentoredhours + ", mentorrating=" + mentorrating
+				+ ", aboutmentor=" + aboutmentor + ", lastupdatedon=" + lastupdatedon + "]";
 	}
 
 }

@@ -11,5 +11,6 @@ public interface ApprovalDao {
     public int addApproval(Approval approval);
     public Approval viewOneApproval(int approvalId);
     public int deleteOneApproval(int approvalId);
+    public int editApproval(Approval approval);
     
 }

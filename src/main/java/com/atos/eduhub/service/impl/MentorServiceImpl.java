@@ -38,7 +38,13 @@ public class MentorServiceImpl implements MentorService {
 	public List<Mentor> viewMentor(int userid) {
 		List<Mentor> getMentors = mentordaoimpl.viewMentorById(userid);
 		return getMentors;
-
+	}
+	
+	@Override
+	public List<Mentor> viewMentorByIdAndAvailability(int id, int availabilityid) {
+		// TODO Auto-generated method stub
+		List<Mentor> getMentors = mentordaoimpl.viewMentorByIdAndAvailabilityid(id, availabilityid);
+		return getMentors;
 	}
 
 	@Override
@@ -49,8 +55,8 @@ public class MentorServiceImpl implements MentorService {
 	}
 
 	@Override
-	public String deleteMentor(int id) {
-		return mentordaoimpl.deleteMentor(id) > 0 ? "Mentor with userid " + id + " was deleted from EduHub successfully"
+	public String deleteMentor(int id, int availabilityid) {
+		return mentordaoimpl.deleteMentor(id, availabilityid) > 0 ? "Mentor with userid " + id + " was deleted from EduHub successfully"
 				: "Issue with deleting mentor " + id;
 	}
 
