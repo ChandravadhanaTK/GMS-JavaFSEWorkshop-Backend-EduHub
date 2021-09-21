@@ -146,7 +146,7 @@ CREATE TABLE public.mentor
 );
 
 Postgress Learner table DDL
-
+==============================
 CREATE TABLE public.learner
 (
     requestid integer NOT NULL DEFAULT nextval('"LEARNER_requestId_seq"'::regclass),
