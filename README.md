@@ -80,39 +80,15 @@ Postgress USER table DDL
 =======================
 DDL
 
-CREATE TABLE public.user_profile
-(
-    id integer NOT NULL DEFAULT nextval('user_profile_id_seq'::regclass),
-    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    password character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    firstname character varying(50) COLLATE pg_catalog."default",
-    secondname character varying(50) COLLATE pg_catalog."default",
-    emailid character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    mobile character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    location character varying(50) COLLATE pg_catalog."default",
-    designation character varying(50) COLLATE pg_catalog."default",
-    experience integer NOT NULL,
-    primaryskills character varying(100) COLLATE pg_catalog."default",
-    secondaryskills character varying(100) COLLATE pg_catalog."default",
-    role character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    createdon timestamp without time zone NOT NULL,
-    lastlogin timestamp without time zone NOT NULL,
-    CONSTRAINT userid_pkey PRIMARY KEY (id),
-    CONSTRAINT unique_emailid UNIQUE (emailid),
-    CONSTRAINT unique_role UNIQUE (role),
-    CONSTRAINT unique_username UNIQUE (username)
-)
+-- Table: public.user_profile
 
+-- DROP TABLE public.user_profile;
 
-DML statements part of query config file
+CREATE TABLE public.user_profile ( id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),username character varying(50) COLLATE pg_catalog."default" NOT NULL, password character varying(50) COLLATE pg_catalog."default" NOT NULL, firstname character varying(50) COLLATE pg_catalog."default", secondname character varying(50) COLLATE pg_catalog."default", emailid character varying(255) COLLATE pg_catalog."default" NOT NULL, mobile character varying(50) COLLATE pg_catalog."default" NOT NULL, location character varying(50) COLLATE pg_catalog."default", designation character varying(50) COLLATE pg_catalog."default", experience integer NOT NULL, primaryskills character varying(100) COLLATE pg_catalog."default", secondaryskills character varying(100) COLLATE pg_catalog."default", role character varying(50) COLLATE pg_catalog."default" NOT NULL, createdon timestamp without time zone NOT NULL, lastlogin timestamp without time zone NOT NULL, CONSTRAINT userid_pkey PRIMARY KEY (id), CONSTRAINT unique_emailid UNIQUE (emailid), CONSTRAINT unique_mobile UNIQUE (mobile), CONSTRAINT unique_username UNIQUE (username) )
 
-    public static final String userprofile_fetchAll="select id,userName,password,firstName,secondName,emailID,mobile,location,designation,experience,primarySkills,secondarySkills,role,createdOn,lastLogin from user_profile order by id";
-    public static final String userprofile_fetchById="select id,userName,password,firstName,secondName,emailID,mobile,location,designation,experience,primarySkills,secondarySkills,role,createdOn,lastLogin from user_profile where id=?";
-    public static final String userprofile_deleteById="delete from  user_profile where  id=?";
-    public static final String userprofile_updateById="update  user_profile set userName=?,password=?,firstName=?,secondName=?,emailID=?,mobile=?,location=?,designation=?,experience=?,primarySkills=?,secondarySkills=?,role=?,createdOn=?,lastLogin=? where  id=?";
-    public static final String userprofile_save="insert into user_profile(id,userName,password,firstName,secondName,emailID,mobile,location,designation,experience,primarySkills,secondarySkills,role,createdOn,lastLogin) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    public static final String userprofile_deleteAll = "delete from user_profile";
+TABLESPACE pg_default;
 
+ALTER TABLE public.user_profile OWNER to postgres;
 
 COURSE TEAM DDL
 ====================
@@ -146,30 +122,7 @@ ALTER TABLE public.courses
     OWNER to postgres;
 
 =======
-Postgress User table DDL 
---------------------------
-CREATE TABLE public.user_profile
-(
-    id serial,
-    username character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    password character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    firstname character varying(50) COLLATE pg_catalog."default",
-    secondname character varying(50) COLLATE pg_catalog."default",
-    emailid character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    mobile character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    location character varying(50) COLLATE pg_catalog."default",
-    designation character varying(50) COLLATE pg_catalog."default",
-    experience integer NOT NULL,
-    primaryskills character varying(100) COLLATE pg_catalog."default",
-    secondaryskills character varying(100) COLLATE pg_catalog."default",
-    role character varying(50) COLLATE pg_catalog."default" NOT NULL,
-    createdon timestamp without time zone NOT NULL,
-    lastlogin timestamp without time zone NOT NULL,
-    CONSTRAINT userid_pkey PRIMARY KEY (id),
-    CONSTRAINT unique_emailid UNIQUE (emailid),
-    CONSTRAINT unique_role UNIQUE (role),
-    CONSTRAINT unique_username UNIQUE (username)
-)
+
 
 Postgress Mentor table DDL 
 --------------------------
