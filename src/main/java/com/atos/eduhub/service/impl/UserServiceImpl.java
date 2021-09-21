@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String addUser(User newUser) {
-		return userDao.addUser(newUser)!=0? "User added succesfully "+newUser.getId():"Add User Unsuccesful"+newUser.getId();
+		return userDao.addUser(newUser)!=0? "User added succesfully "+newUser.getUserName():"Add User Unsuccesful"+newUser.getUserName();
 	}
 
 	@Override

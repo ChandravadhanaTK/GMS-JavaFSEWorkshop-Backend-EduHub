@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public int addUser(User newUser) {
 
-        return	jdbcTemplate.update(QueryConfig.userprofile_save,newUser.getId(),newUser.getUserName(),newUser.getPassword(),newUser.getFirstName(),newUser.getSecondName(),newUser.getEmailId(),newUser.getMobile(),newUser.getLocation()
+        return	jdbcTemplate.update(QueryConfig.userprofile_save,newUser.getUserName(),newUser.getPassword(),newUser.getFirstName(),newUser.getSecondName(),newUser.getEmailId(),newUser.getMobile(),newUser.getLocation()
                 ,newUser.getDesignation(),newUser.getExperience(),newUser.getPrimarySkills(),newUser.getSecondarySkills(),newUser.getRole(),LocalDateTime.now(),LocalDateTime.now());
 
     }
